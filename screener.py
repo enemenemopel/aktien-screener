@@ -131,6 +131,45 @@ def get_wkn(ticker, info):
     return "–"
 
 
+def calc_rsi(closes, period=14):
+    """RSI (Relative Strength Index): misst Staerke/Geschwindigkeit von
+    Kursbewegungen auf einer Skala 0-100. < 30 gilt als "ueberverkauft"."""
+    delta = closes.diff()
+    gain = delta.clip(lower=0)
+    loss = -delta.clip(upper=0)
+    avg_gain = gain.rolling(period).mean()
+    avg_loss = loss.rolling(period).mean()
+    last_gain, last_loss = avg_gain.iloc[-1], avg_loss.iloc[-1]
+    if pd.isna(last_gain) or pd.isna(last_loss):
+        return None
+    if last_loss == 0:
+        return 100.0
+    rs = last_gain / last_loss
+    return round(100 - (100 / (1 + rs)), 1)
+
+
+def calc_stochastic(hist, period=14):
+    """Stochastik %K: Position des aktuellen Kurses in seiner juengsten
+    Hoch/Tief-Spanne, Skala 0-100. < 20 gilt als "ueberverkauft"."""
+    low_min = hist["Low"].rolling(period).min().iloc[-1]
+    high_max = hist["High"].rolling(period).max().iloc[-1]
+    close = hist["Close"].iloc[-1]
+    if pd.isna(low_min) or pd.isna(high_max) or high_max == low_min:
+        return None
+    return round((close - low_min) / (high_max - low_min) * 100, 1)
+
+
+def calc_momentum(closes, period=10):
+    """Momentum: reine prozentuale Kursveraenderung ueber die letzten
+    `period` Tage. Positiv = Aufwaertstrend hat bereits begonnen."""
+    if len(closes) <= period:
+        return None
+    prev, curr = closes.iloc[-period - 1], closes.iloc[-1]
+    if prev == 0:
+        return None
+    return round((curr - prev) / prev * 100, 1)
+
+
 def analyze_ticker(ticker, index_group):
     try:
         tk = yf.Ticker(ticker)
@@ -146,6 +185,10 @@ def analyze_ticker(ticker, index_group):
         ma50 = hist["Close"].rolling(50).mean().iloc[-1]
         ma200 = hist["Close"].rolling(200).mean().iloc[-1]
         ma_5y = float(hist["Close"].mean())
+
+        rsi14 = calc_rsi(hist["Close"])
+        stoch_k14 = calc_stochastic(hist)
+        momentum10 = calc_momentum(hist["Close"])
 
         pe = info.get("trailingPE")
 
@@ -166,6 +209,9 @@ def analyze_ticker(ticker, index_group):
             "ma200": round(float(ma200), 2) if pd.notna(ma200) else None,
             "ma_5y": round(ma_5y, 2),
             "above_ma200": bool(price > ma200) if pd.notna(ma200) else None,
+            "rsi14": rsi14,
+            "stoch_k14": stoch_k14,
+            "momentum10": momentum10,
             "begruendung": "",  # wird per Chat-Recherche auf Anfrage ergaenzt, kein Dauerlauf
         }
     except Exception as e:
@@ -177,18 +223,31 @@ def classify(row):
     if row["drawdown_pct"] is None:
         return "NEUTRAL - unzureichende Daten"
 
+    technisch_ueberverkauft = (
+        (row.get("rsi14") is not None and row["rsi14"] < 30)
+        or (row.get("stoch_k14") is not None and row["stoch_k14"] < 20)
+    )
+    momentum_dreht = row.get("momentum10") is not None and row["momentum10"] > 0
+
     if row.get("is_commodity"):
-        # Kein KGV bei Rohstoffen: Signal basiert nur auf Kursrueckgang vom 5J-Hoch.
+        # Kein KGV bei Rohstoffen: Signal basiert auf Kursrueckgang + Technik.
         if row["drawdown_pct"] <= -20:
-            return "KANDIDAT - stark gefallen (Rohstoff, kein KGV anwendbar)"
+            if technisch_ueberverkauft or momentum_dreht:
+                return "KANDIDAT - stark gefallen + technisch bestaetigt (Rohstoff)"
+            return "BEOBACHTEN - stark gefallen, aber noch kein technischer Wendepunkt (Rohstoff)"
         return "NEUTRAL - kein klares Signal (Rohstoff)"
 
     if row["pe"] is None:
         return "NEUTRAL - unzureichende Daten"
     strong_drawdown = row["drawdown_pct"] <= -30
     cheap = row["pe"] < 15
+
     if strong_drawdown and cheap:
-        return "KANDIDAT - stark gefallen + niedriges KGV"
+        if technisch_ueberverkauft and momentum_dreht:
+            return "KANDIDAT - fundamental + technisch stark bestaetigt"
+        if technisch_ueberverkauft or momentum_dreht:
+            return "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt"
+        return "BEOBACHTEN - fundamental guenstig, aber noch kein technischer Wendepunkt"
     if strong_drawdown and not cheap:
         return "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig"
     return "NEUTRAL - kein klares Signal"
