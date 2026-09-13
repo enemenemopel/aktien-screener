@@ -16,9 +16,13 @@ oder spaeter eine Boerse-Datenquelle (z. B. onvista) ergaenzen.
 import json
 import time
 from datetime import datetime, timezone
+from io import StringIO
 
 import pandas as pd
+import requests
 import yfinance as yf
+
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
 DAX40 = [
     "SAP.DE", "SIE.DE", "ALV.DE", "DTE.DE", "AIR.DE", "MBG.DE", "BAS.DE",
@@ -42,15 +46,23 @@ WKN_OVERRIDES = {
 }
 
 
+def fetch_tables(url):
+    """Wikipedia blockt Anfragen ohne Browser-User-Agent mit HTTP 403 -
+    daher erst per requests mit Header abrufen, dann an pandas uebergeben."""
+    resp = requests.get(url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    return pd.read_html(StringIO(resp.text))
+
+
 def get_sp500_tickers():
     url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-    df = pd.read_html(url)[0]
+    df = fetch_tables(url)[0]
     return [t.replace(".", "-") for t in df["Symbol"].tolist()]
 
 
 def get_nikkei225_tickers():
     url = "https://en.wikipedia.org/wiki/Nikkei_225"
-    for table in pd.read_html(url):
+    for table in fetch_tables(url):
         if "Code" in table.columns:
             return [f"{int(code)}.T" for code in table["Code"].tolist()]
     return []
