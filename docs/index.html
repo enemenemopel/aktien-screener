@@ -32,25 +32,18 @@
   .tablecard{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
   table{width:100%;border-collapse:collapse;font-size:13px;}
   th{text-align:right;font-size:11px;font-weight:600;color:var(--ink-soft);padding:10px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid var(--line);background:var(--grey-bg);}
-  th:first-child,th:nth-child(2),th:nth-child(6){text-align:left;}
+  th:first-child,th:nth-child(2){text-align:left;}
   td{text-align:right;padding:9px 10px;font-family:ui-monospace,Menlo,monospace;border-bottom:1px solid var(--line);vertical-align:top;}
-  td:first-child,td:nth-child(2),td:nth-child(6){text-align:left;font-family:-apple-system,sans-serif;}
-  tbody tr{cursor:pointer;}
+  td:first-child,td:nth-child(2){text-align:left;font-family:-apple-system,sans-serif;}
   tbody tr:hover{background:var(--grey-bg);}
-  .begr{color:var(--ink-soft);font-size:12.5px;max-width:260px;white-space:normal;}
   .sig{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;font-family:-apple-system,sans-serif;font-weight:500;}
   .sig-kandidat{background:var(--accent-bg);color:var(--accent);}
   .sig-beobachten{background:var(--amber-bg);color:var(--amber);}
   .sig-neutral{background:var(--grey-bg);color:var(--ink-faint);}
 
-  .detail{background:var(--grey-bg);}
-  .detail td{padding:16px 20px;}
-  .detail h3{font-size:13px;font-weight:600;margin:0 0 10px;}
   .calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
   .field label{display:block;font-size:10.5px;color:var(--ink-soft);margin-bottom:3px;}
   .field input{width:100%;border:1px solid var(--line);padding:5px 7px;font-size:12.5px;border-radius:5px;font-family:ui-monospace,Menlo,monospace;background:var(--bg);}
-  .detail table{background:var(--bg);border-radius:6px;overflow:hidden;}
-  .detail table th{background:var(--bg);}
   .pos{color:var(--accent);} .neg{color:#A3302A;}
 
   .note{font-size:12px;color:var(--ink-soft);border:1px solid var(--line);background:var(--bg);border-radius:var(--radius);padding:10px 14px;margin-top:18px;}
@@ -71,29 +64,59 @@
     <div class="tab" data-group="DAX40">DAX 40</div>
     <div class="tab" data-group="Nikkei225">Nikkei 225</div>
     <div class="tab" data-group="Rohstoff">Rohstoffe</div>
+    <div class="tab" data-view="calc">Options-Schein-Rechner</div>
     <input type="search" id="search" placeholder="Name oder WKN suchen …">
   </div>
 
-  <div class="tablecard">
-    <div style="font-size:12px;color:var(--ink-soft);padding:8px 10px;border-bottom:1px solid var(--line);background:var(--grey-bg);">Auf eine Zeile klicken, um den Options-Schein-Rechner für diese Aktie zu öffnen.</div>
+  <div class="tablecard" id="stocktable">
     <table id="tbl">
       <thead>
         <tr>
           <th data-k="name">Name</th>
           <th data-k="wkn">WKN</th>
-          <th data-k="pe">KGV</th>
           <th data-k="price">Kurs</th>
           <th>Signal</th>
-          <th>Begründung</th>
-          <th>Empfehlung</th>
-          <th>Sonstiges</th>
+          <th data-k="pe">KGV</th>
+          <th data-k="rsi14">RSI</th>
+          <th data-k="stoch_k14">Stochastik %</th>
+          <th data-k="momentum10">Momentum (10T)</th>
         </tr>
       </thead>
       <tbody id="tbody"><tr><td colspan="8" class="loading">Lade Daten …</td></tr></tbody>
     </table>
   </div>
 
-  <div class="note">Kurse über die Yahoo-Finance-Gratis-API, ca. 15 Minuten verzögert. Begründungen werden auf Anfrage per Recherche ergänzt, nicht automatisch für jeden Titel. Keine Anlageberatung.</div>
+  <div class="tablecard" id="calcpanel" style="display:none;">
+    <div style="padding:16px 18px;">
+      <h3 style="margin:0 0 4px;font-size:15px;">Options-Schein-Rechner</h3>
+      <div style="font-size:12px;color:var(--ink-soft);margin-bottom:14px;">Unabhängig von den Aktien nutzbar — für jeden beliebigen Knock-Out-Optionsschein. Werte einfach von onvista/deinem Broker übertragen.</div>
+      <div class="calc-grid">
+        <div class="field"><label>WKN (optional, nur Notiz)</label><input type="text" id="std_wkn" placeholder="z. B. BD278X"></div>
+        <div class="field"><label>Kurs Basiswert aktuell</label><input type="number" id="std_kurs" value="100" step="0.01"></div>
+        <div class="field"><label>Basispreis Schein</label><input type="number" id="std_basispreis" value="90" step="0.01"></div>
+        <div class="field"><label>K.O.-Schwelle</label><input type="number" id="std_ko" value="91" step="0.01"></div>
+        <div class="field"><label>Bezugsverhältnis</label><input type="number" id="std_bv" value="0.1" step="0.0001"></div>
+        <div class="field"><label>Schein-Kurs Brief</label><input type="number" id="std_brief" value="1" step="0.001"></div>
+        <div class="field"><label>Schein-Kurs Geld</label><input type="number" id="std_geld" value="0.98" step="0.001"></div>
+        <div class="field"><label>Spread (%)</label><input type="number" id="std_spread" value="1.5" step="0.01"></div>
+        <div class="field"><label>Kaufbetrag (€)</label><input type="number" id="std_einsatz" value="500" step="1"></div>
+        <div class="field"><label>TP1 (Kurs Basiswert)</label><input type="number" id="std_tp1" value="110" step="0.01"></div>
+        <div class="field"><label>Stückzahl Verkauf TP1 (leer = alle)</label><input type="number" id="std_stk_tp1" placeholder="alle"></div>
+        <div class="field"><label>Stop-Loss (Basiswert)</label><input type="number" id="std_sl" value="95" step="0.01"></div>
+        <div class="field"><label>Wechselkurs (Basiswert→Schein, 1 falls gleiche Währung)</label><input type="number" id="std_fx" value="1" step="0.0001"></div>
+      </div>
+      <div style="display:flex;gap:32px;margin:4px 0 16px;">
+        <div class="field"><label>Berechneter Hebel</label><div id="std_hebel" style="font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;">–</div></div>
+        <div class="field"><label>Abstand zum K.O.</label><div id="std_abstand" style="font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;">–</div></div>
+      </div>
+      <table>
+        <thead><tr><th>Marke</th><th>Kurs Basiswert</th><th>Innerer Wert</th><th>Stückzahl</th><th>Wert gesamt</th><th>%</th></tr></thead>
+        <tbody id="std_out"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="note">Kurse über die Yahoo-Finance-Gratis-API, ca. 15 Minuten verzögert. Keine Anlageberatung.</div>
 </div>
 
 <script>
@@ -102,12 +125,20 @@ let currentFilter = "ALLE";
 let currentGroup = null;
 let sortKey = "drawdown_pct";
 let sortAsc = true;
-let openRow = null;
 
 function sigClass(signal){
   if(signal.startsWith("KANDIDAT")) return "sig-kandidat";
   if(signal.startsWith("BEOBACHTEN")) return "sig-beobachten";
   return "sig-neutral";
+}
+
+function showTableView(){
+  document.getElementById("stocktable").style.display = "";
+  document.getElementById("calcpanel").style.display = "none";
+}
+function showCalcView(){
+  document.getElementById("stocktable").style.display = "none";
+  document.getElementById("calcpanel").style.display = "block";
 }
 
 function filtered(){
@@ -132,109 +163,34 @@ function render(){
     tbody.innerHTML = '<tr><td colspan="8" class="empty">Keine Treffer</td></tr>';
     return;
   }
-  tbody.innerHTML = rows.map((r,i) => `
-    <tr data-i="${i}">
+  tbody.innerHTML = rows.map(r => {
+    const rsiTxt = r.rsi14 != null ? r.rsi14 : "–";
+    const stochTxt = r.stoch_k14 != null ? r.stoch_k14 : "–";
+    const momTxt = r.momentum10 != null ? (r.momentum10 >= 0 ? "+" : "") + r.momentum10 + "%" : "–";
+    const rsiCls = r.rsi14 != null && r.rsi14 < 30 ? "pos" : "";
+    const stochCls = r.stoch_k14 != null && r.stoch_k14 < 20 ? "pos" : "";
+    const momCls = r.momentum10 != null && r.momentum10 > 0 ? "pos" : "";
+    return `
+    <tr>
       <td>${r.name}</td>
       <td>${r.wkn}</td>
-      <td>${r.pe ?? "–"}</td>
       <td>${r.price} ${r.currency}</td>
       <td><span class="sig ${sigClass(r.signal)}">${r.signal.split(" - ")[0]}</span></td>
-      <td class="begr">${r.begruendung || "–"}</td>
-      <td>${r.empfehlung || "–"}</td>
-      <td></td>
-    </tr>`).join("");
-
-  tbody.querySelectorAll("tr[data-i]").forEach(tr => {
-    tr.addEventListener("click", () => toggleDetail(tr, rows[+tr.dataset.i]));
-  });
-}
-
-function toggleDetail(tr, row){
-  const existing = tr.nextElementSibling;
-  if(existing && existing.classList.contains("detail")){ existing.remove(); return; }
-  document.querySelectorAll(".detail").forEach(d=>d.remove());
-
-  const dtr = document.createElement("tr");
-  dtr.className = "detail";
-  const uid = "c_" + Math.random().toString(36).slice(2,8);
-  const rsiTxt = row.rsi14 != null ? row.rsi14 : "–";
-  const stochTxt = row.stoch_k14 != null ? row.stoch_k14 : "–";
-  const momTxt = row.momentum10 != null ? (row.momentum10 >= 0 ? "+" : "") + row.momentum10 + "%" : "–";
-  const rsiTag = row.rsi14 != null && row.rsi14 < 30 ? "pos" : "";
-  const stochTag = row.stoch_k14 != null && row.stoch_k14 < 20 ? "pos" : "";
-  const momTag = row.momentum10 != null && row.momentum10 > 0 ? "pos" : "";
-
-  dtr.innerHTML = `<td colspan="8">
-    <h3>Technische Indikatoren — ${row.name}</h3>
-    <div class="calc-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px;">
-      <div class="field"><label>RSI (14 Tage) — &lt;30 = überverkauft</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${rsiTag}">${rsiTxt}</div></div>
-      <div class="field"><label>Stochastik %K (14 Tage) — &lt;20 = überverkauft</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${stochTag}">${stochTxt}</div></div>
-      <div class="field"><label>Momentum (10 Tage) — positiv = Erholung begonnen</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${momTag}">${momTxt}</div></div>
-    </div>
-    <h3>Options-Schein-Rechner — ${row.name}</h3>
-    <div class="calc-grid">
-      <div class="field"><label>Kaufbetrag (€)</label><input type="number" id="${uid}_einsatz" value="500"></div>
-      <div class="field"><label>Schein-Kurs Brief</label><input type="number" id="${uid}_brief" value="1" step="0.001"></div>
-      <div class="field"><label>Schein-Kurs Geld</label><input type="number" id="${uid}_geld" value="0.98" step="0.001"></div>
-      <div class="field"><label>Spread (%)</label><input type="number" id="${uid}_spread" value="1.5" step="0.01"></div>
-      <div class="field"><label>Bezugsverhältnis</label><input type="number" id="${uid}_bv" value="0.1" step="0.001"></div>
-      <div class="field"><label>Basispreis Schein</label><input type="number" id="${uid}_basispreis" value="${(row.price*0.75).toFixed(2)}" step="0.01"></div>
-      <div class="field"><label>Kurs Basiswert aktuell</label><input type="number" id="${uid}_kurs" value="${row.price}" step="0.01"></div>
-      <div class="field"><label>TP1 (Kurs Basiswert)</label><input type="number" id="${uid}_tp1" value="${(row.price*1.1).toFixed(2)}" step="0.01"></div>
-      <div class="field"><label>Stückzahl Verkauf TP1 (leer = alle)</label><input type="number" id="${uid}_stk_tp1" placeholder="alle"></div>
-      <div class="field"><label>Stop-Loss (Basiswert)</label><input type="number" id="${uid}_sl" value="${(row.price*0.9).toFixed(2)}" step="0.01"></div>
-      <div class="field"><label>Wechselkurs (Basiswert→Schein, 1 falls gleiche Währung)</label><input type="number" id="${uid}_fx" value="1" step="0.0001"></div>
-    </div>
-    <table>
-      <thead><tr><th>Marke</th><th>Kurs Basiswert</th><th>Innerer Wert</th><th>Stückzahl</th><th>Wert gesamt</th><th>%</th></tr></thead>
-      <tbody id="${uid}_out"></tbody>
-    </table>
-  </td>`;
-  tr.after(dtr);
-
-  const ids = ["einsatz","brief","geld","spread","bv","basispreis","kurs","tp1","stk_tp1","sl","fx"].map(k=>uid+"_"+k);
-  const calc = () => calcWarrant(uid);
-  ids.forEach(id => document.getElementById(id).addEventListener("input", calc));
-  calc();
-}
-
-function calcWarrant(uid){
-  const g = k => parseFloat(document.getElementById(uid+"_"+k).value) || 0;
-  const einsatz = g("einsatz"), brief = g("brief");
-  const bv = g("bv"), basispreis = g("basispreis"), kurs = g("kurs"), tp1 = g("tp1"), sl = g("sl");
-  const fx = g("fx") || 1;
-  const spreadPct = g("spread") / 100;
-  const stkTp1Feld = document.getElementById(uid+"_stk_tp1").value;
-  if(brief <= 0 || bv <= 0) return;
-
-  const stueckGesamt = Math.floor(einsatz / brief);
-  const investiertGesamt = stueckGesamt * brief;
-
-  const marken = [
-    { label: "Kauf (jetzt)", k: kurs, stueck: stueckGesamt },
-    { label: "TP1", k: tp1, stueck: stkTp1Feld ? Math.min(parseInt(stkTp1Feld) || 0, stueckGesamt) : stueckGesamt },
-    { label: "Stop-Loss", k: sl, stueck: stueckGesamt },
-  ];
-  const rows = marken.map(m => {
-    const innererWertFremd = (m.k - basispreis) * bv;
-    const innererWert = innererWertFremd / fx;
-    const realKurs = Math.max(innererWert * (1 - spreadPct), 0);
-    const wert = m.stueck * realKurs;
-    const investiertAnteilig = m.stueck * brief;
-    const pct = investiertAnteilig > 0 ? ((wert - investiertAnteilig) / investiertAnteilig) * 100 : 0;
-    const cls = pct >= 0 ? "pos" : "neg";
-    return `<tr><td>${m.label}</td><td style="text-align:right">${m.k.toFixed(2)}</td><td style="text-align:right">${innererWert.toFixed(3)}</td><td style="text-align:right">${m.stueck}</td><td style="text-align:right">${wert.toFixed(2)} €</td><td style="text-align:right" class="${cls}">${pct>=0?"+":""}${pct.toFixed(1)}%</td></tr>`;
+      <td>${r.pe ?? "–"}</td>
+      <td class="${rsiCls}">${rsiTxt}</td>
+      <td class="${stochCls}">${stochTxt}</td>
+      <td class="${momCls}">${momTxt}</td>
+    </tr>`;
   }).join("");
-  document.getElementById(uid+"_out").innerHTML = rows;
 }
 
 document.querySelectorAll(".tab[data-filter]").forEach(tab => {
   tab.addEventListener("click", () => {
-    document.querySelectorAll(".tab[data-filter]").forEach(t=>t.classList.remove("active"));
-    document.querySelectorAll(".tab[data-group]").forEach(t=>t.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
     tab.classList.add("active");
     currentFilter = tab.dataset.filter;
     currentGroup = null;
+    showTableView();
     render();
   });
 });
@@ -244,8 +200,14 @@ document.querySelectorAll(".tab[data-group]").forEach(tab => {
     tab.classList.add("active");
     currentGroup = tab.dataset.group;
     currentFilter = "ALLE";
+    showTableView();
     render();
   });
+});
+document.querySelector('.tab[data-view="calc"]').addEventListener("click", function(){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  this.classList.add("active");
+  showCalcView();
 });
 document.getElementById("search").addEventListener("input", render);
 document.querySelectorAll("th[data-k]").forEach(th => {
@@ -256,6 +218,42 @@ document.querySelectorAll("th[data-k]").forEach(th => {
     render();
   });
 });
+
+function gStd(k){ return parseFloat(document.getElementById("std_"+k).value) || 0; }
+function calcStandalone(){
+  const kurs=gStd("kurs"), basispreis=gStd("basispreis"), ko=gStd("ko"), bv=gStd("bv");
+  const brief=gStd("brief"), spread=gStd("spread")/100, einsatz=gStd("einsatz");
+  const tp1=gStd("tp1"), sl=gStd("sl"), fx=gStd("fx")||1;
+  if(brief<=0||bv<=0) return;
+
+  const hebel = (kurs*bv)/brief;
+  document.getElementById("std_hebel").textContent = hebel.toFixed(2)+"x";
+  const abstandKo = ko>0 && kurs>0 ? ((ko-kurs)/kurs*100) : null;
+  document.getElementById("std_abstand").textContent = abstandKo!=null ? abstandKo.toFixed(2)+"%" : "–";
+
+  const stueckGesamt = Math.floor(einsatz / brief);
+  const stkTp1Feld = document.getElementById("std_stk_tp1").value;
+  const marken = [
+    { label: "Kauf (jetzt)", k: kurs, stueck: stueckGesamt },
+    { label: "TP1", k: tp1, stueck: stkTp1Feld ? Math.min(parseInt(stkTp1Feld) || 0, stueckGesamt) : stueckGesamt },
+    { label: "Stop-Loss", k: sl, stueck: stueckGesamt },
+  ];
+  const rows = marken.map(m => {
+    const innererWertFremd = (m.k - basispreis) * bv;
+    const innererWert = innererWertFremd / fx;
+    const realKurs = Math.max(innererWert * (1 - spread), 0);
+    const wert = m.stueck * realKurs;
+    const investiertAnteilig = m.stueck * brief;
+    const pct = investiertAnteilig > 0 ? ((wert - investiertAnteilig) / investiertAnteilig) * 100 : 0;
+    const cls = pct >= 0 ? "pos" : "neg";
+    return `<tr><td>${m.label}</td><td style="text-align:right">${m.k.toFixed(2)}</td><td style="text-align:right">${innererWert.toFixed(3)}</td><td style="text-align:right">${m.stueck}</td><td style="text-align:right">${wert.toFixed(2)} €</td><td style="text-align:right" class="${cls}">${pct>=0?"+":""}${pct.toFixed(1)}%</td></tr>`;
+  }).join("");
+  document.getElementById("std_out").innerHTML = rows;
+}
+["kurs","basispreis","ko","bv","brief","geld","spread","einsatz","tp1","stk_tp1","sl","fx"].forEach(k => {
+  document.getElementById("std_"+k).addEventListener("input", calcStandalone);
+});
+calcStandalone();
 
 fetch("data.json")
   .then(r => r.json())
