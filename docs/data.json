@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-13T01:15:38.134514+00:00",
+  "generated_at_utc": "2026-09-13T02:10:43.337286+00:00",
   "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
   "universe_size": 164,
   "results": [
@@ -19,6 +19,9 @@
       "ma200": 49.94,
       "ma_5y": 87.83,
       "above_ma200": false,
+      "rsi14": 26.4,
+      "stoch_k14": 5.7,
+      "momentum10": -3.3,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -39,6 +42,9 @@
       "ma200": 23.43,
       "ma_5y": 32.09,
       "above_ma200": false,
+      "rsi14": 46.2,
+      "stoch_k14": 11.1,
+      "momentum10": -7.0,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -59,6 +65,9 @@
       "ma200": 27.51,
       "ma_5y": 37.1,
       "above_ma200": true,
+      "rsi14": 50.3,
+      "stoch_k14": 64.9,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "NEUTRAL - unzureichende Daten",
       "empfehlung": "–"
@@ -79,9 +88,12 @@
       "ma200": 266.6,
       "ma_5y": 426.8,
       "above_ma200": false,
+      "rsi14": 36.0,
+      "stoch_k14": 20.2,
+      "momentum10": -12.8,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
-      "empfehlung": "Long"
+      "signal": "BEOBACHTEN - fundamental guenstig, aber noch kein technischer Wendepunkt",
+      "empfehlung": "Beobachten"
     },
     {
       "ticker": "PAH3.DE",
@@ -99,6 +111,9 @@
       "ma200": 31.4,
       "ma_5y": 42.55,
       "above_ma200": false,
+      "rsi14": 59.0,
+      "stoch_k14": 73.9,
+      "momentum10": 4.3,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -119,6 +134,9 @@
       "ma200": 233.12,
       "ma_5y": 308.95,
       "above_ma200": false,
+      "rsi14": 34.5,
+      "stoch_k14": 10.3,
+      "momentum10": -7.0,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -139,6 +157,9 @@
       "ma200": 418.14,
       "ma_5y": 523.19,
       "above_ma200": false,
+      "rsi14": 26.9,
+      "stoch_k14": 18.6,
+      "momentum10": -7.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -159,6 +180,9 @@
       "ma200": 42.84,
       "ma_5y": 65.41,
       "above_ma200": true,
+      "rsi14": 49.0,
+      "stoch_k14": 49.1,
+      "momentum10": -0.8,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -179,6 +203,9 @@
       "ma200": 166.82,
       "ma_5y": 130.21,
       "above_ma200": false,
+      "rsi14": 53.3,
+      "stoch_k14": 34.1,
+      "momentum10": -1.1,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -199,6 +226,9 @@
       "ma200": 2901.59,
       "ma_5y": 3718.45,
       "above_ma200": false,
+      "rsi14": 42.1,
+      "stoch_k14": 33.3,
+      "momentum10": -5.4,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -219,9 +249,12 @@
       "ma200": 198.76,
       "ma_5y": 281.52,
       "above_ma200": false,
+      "rsi14": 48.6,
+      "stoch_k14": 42.4,
+      "momentum10": -1.9,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
-      "empfehlung": "Long"
+      "signal": "BEOBACHTEN - fundamental guenstig, aber noch kein technischer Wendepunkt",
+      "empfehlung": "Beobachten"
     },
     {
       "ticker": "RHM.DE",
@@ -239,6 +272,9 @@
       "ma200": 1377.0,
       "ma_5y": 667.0,
       "above_ma200": false,
+      "rsi14": 25.7,
+      "stoch_k14": 7.0,
+      "momentum10": -15.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -259,6 +295,9 @@
       "ma200": 155.52,
       "ma_5y": 182.94,
       "above_ma200": false,
+      "rsi14": 26.1,
+      "stoch_k14": 19.8,
+      "momentum10": -6.8,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -279,6 +318,9 @@
       "ma200": 82.16,
       "ma_5y": 106.36,
       "above_ma200": false,
+      "rsi14": 21.1,
+      "stoch_k14": 2.9,
+      "momentum10": -9.1,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -299,8 +341,11 @@
       "ma200": 21.99,
       "ma_5y": 24.09,
       "above_ma200": false,
+      "rsi14": 24.1,
+      "stoch_k14": 7.4,
+      "momentum10": -9.2,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
+      "signal": "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt",
       "empfehlung": "Long"
     },
     {
@@ -319,9 +364,12 @@
       "ma200": 26.44,
       "ma_5y": 32.65,
       "above_ma200": false,
+      "rsi14": 36.0,
+      "stoch_k14": 32.0,
+      "momentum10": -4.6,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
-      "empfehlung": "Long"
+      "signal": "BEOBACHTEN - fundamental guenstig, aber noch kein technischer Wendepunkt",
+      "empfehlung": "Beobachten"
     },
     {
       "ticker": "UPS",
@@ -339,6 +387,9 @@
       "ma200": 102.14,
       "ma_5y": 125.92,
       "above_ma200": false,
+      "rsi14": 43.3,
+      "stoch_k14": 17.7,
+      "momentum10": -5.1,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -354,11 +405,14 @@
       "currency": "JPY",
       "_high_5y": 5628.12,
       "drawdown_pct": -45.2,
-      "pe": 41.5,
+      "pe": 42.7,
       "ma50": 2890.52,
       "ma200": 2695.91,
       "ma_5y": 3863.32,
       "above_ma200": true,
+      "rsi14": 57.6,
+      "stoch_k14": 54.5,
+      "momentum10": 1.5,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -379,8 +433,11 @@
       "ma200": 72.21,
       "ma_5y": 34.35,
       "above_ma200": false,
+      "rsi14": 35.6,
+      "stoch_k14": 18.0,
+      "momentum10": -7.0,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen (Rohstoff, kein KGV anwendbar)",
+      "signal": "KANDIDAT - stark gefallen + technisch bestaetigt (Rohstoff)",
       "empfehlung": "Long"
     },
     {
@@ -399,6 +456,9 @@
       "ma200": 8794.69,
       "ma_5y": 7550.23,
       "above_ma200": false,
+      "rsi14": 31.9,
+      "stoch_k14": 18.2,
+      "momentum10": -10.0,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -419,6 +479,9 @@
       "ma200": 117.98,
       "ma_5y": 133.9,
       "above_ma200": true,
+      "rsi14": 53.3,
+      "stoch_k14": 38.4,
+      "momentum10": -4.3,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -439,6 +502,9 @@
       "ma200": 86.24,
       "ma_5y": 64.43,
       "above_ma200": false,
+      "rsi14": 43.9,
+      "stoch_k14": 27.7,
+      "momentum10": -3.1,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -459,6 +525,9 @@
       "ma200": 25.53,
       "ma_5y": 29.13,
       "above_ma200": true,
+      "rsi14": 45.4,
+      "stoch_k14": 17.7,
+      "momentum10": -1.1,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -479,6 +548,9 @@
       "ma200": 103.34,
       "ma_5y": 105.71,
       "above_ma200": true,
+      "rsi14": 46.8,
+      "stoch_k14": 40.1,
+      "momentum10": -0.3,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -499,6 +571,9 @@
       "ma200": 5739.52,
       "ma_5y": 3064.55,
       "above_ma200": true,
+      "rsi14": 54.7,
+      "stoch_k14": 66.9,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -519,6 +594,9 @@
       "ma200": 459.85,
       "ma_5y": 382.41,
       "above_ma200": false,
+      "rsi14": 43.3,
+      "stoch_k14": 61.6,
+      "momentum10": 0.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -539,6 +617,9 @@
       "ma200": 125.18,
       "ma_5y": 146.55,
       "above_ma200": true,
+      "rsi14": 27.6,
+      "stoch_k14": 6.3,
+      "momentum10": -6.2,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -559,6 +640,9 @@
       "ma200": 38.51,
       "ma_5y": 47.06,
       "above_ma200": false,
+      "rsi14": 24.8,
+      "stoch_k14": 2.4,
+      "momentum10": -2.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -579,6 +663,9 @@
       "ma200": 411.04,
       "ma_5y": 191.41,
       "above_ma200": true,
+      "rsi14": 35.0,
+      "stoch_k14": 45.9,
+      "momentum10": -5.4,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -599,6 +686,9 @@
       "ma200": 350.8,
       "ma_5y": 438.94,
       "above_ma200": true,
+      "rsi14": 41.9,
+      "stoch_k14": 10.4,
+      "momentum10": -4.0,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -619,8 +709,11 @@
       "ma200": 84.92,
       "ma_5y": 91.82,
       "above_ma200": false,
+      "rsi14": 63.3,
+      "stoch_k14": 78.8,
+      "momentum10": 8.2,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
+      "signal": "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt",
       "empfehlung": "Long"
     },
     {
@@ -639,6 +732,9 @@
       "ma200": 166.05,
       "ma_5y": 154.76,
       "above_ma200": true,
+      "rsi14": 37.7,
+      "stoch_k14": 25.6,
+      "momentum10": -6.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -659,8 +755,11 @@
       "ma200": 73.5,
       "ma_5y": 73.11,
       "above_ma200": false,
+      "rsi14": 66.5,
+      "stoch_k14": 79.5,
+      "momentum10": 5.1,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
+      "signal": "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt",
       "empfehlung": "Long"
     },
     {
@@ -679,6 +778,9 @@
       "ma200": 48479.46,
       "ma_5y": 25538.06,
       "above_ma200": true,
+      "rsi14": 34.3,
+      "stoch_k14": 19.6,
+      "momentum10": -8.5,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -699,8 +801,11 @@
       "ma200": 186.79,
       "ma_5y": 104.77,
       "above_ma200": false,
+      "rsi14": 44.3,
+      "stoch_k14": 12.2,
+      "momentum10": -7.9,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
+      "signal": "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt",
       "empfehlung": "Long"
     },
     {
@@ -719,6 +824,9 @@
       "ma200": 53.8,
       "ma_5y": 35.36,
       "above_ma200": true,
+      "rsi14": 58.5,
+      "stoch_k14": 77.7,
+      "momentum10": 2.4,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -739,6 +847,9 @@
       "ma200": 200.45,
       "ma_5y": 227.49,
       "above_ma200": true,
+      "rsi14": 71.2,
+      "stoch_k14": 70.4,
+      "momentum10": -1.7,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -759,6 +870,9 @@
       "ma200": 191.9,
       "ma_5y": 168.1,
       "above_ma200": false,
+      "rsi14": 50.5,
+      "stoch_k14": 50.5,
+      "momentum10": 3.2,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -779,6 +893,9 @@
       "ma200": 263.98,
       "ma_5y": 101.14,
       "above_ma200": true,
+      "rsi14": 42.2,
+      "stoch_k14": 45.7,
+      "momentum10": -6.4,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -799,8 +916,11 @@
       "ma200": 1985.76,
       "ma_5y": 1973.04,
       "above_ma200": false,
+      "rsi14": 46.9,
+      "stoch_k14": 49.6,
+      "momentum10": 0.3,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
+      "signal": "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt",
       "empfehlung": "Long"
     },
     {
@@ -819,6 +939,9 @@
       "ma200": 233.62,
       "ma_5y": 215.17,
       "above_ma200": false,
+      "rsi14": 21.1,
+      "stoch_k14": 7.1,
+      "momentum10": -4.8,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -839,6 +962,9 @@
       "ma200": 21287.9,
       "ma_5y": 20821.72,
       "above_ma200": false,
+      "rsi14": 48.3,
+      "stoch_k14": 56.1,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -859,6 +985,9 @@
       "ma200": 175.36,
       "ma_5y": 191.92,
       "above_ma200": true,
+      "rsi14": 53.7,
+      "stoch_k14": 66.2,
+      "momentum10": 2.1,
       "begruendung": "",
       "signal": "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig",
       "empfehlung": "Beobachten"
@@ -879,8 +1008,11 @@
       "ma200": 38.82,
       "ma_5y": 39.02,
       "above_ma200": false,
+      "rsi14": 26.1,
+      "stoch_k14": 8.4,
+      "momentum10": -4.2,
       "begruendung": "",
-      "signal": "KANDIDAT - stark gefallen + niedriges KGV",
+      "signal": "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt",
       "empfehlung": "Long"
     },
     {
@@ -899,6 +1031,9 @@
       "ma200": 201.86,
       "ma_5y": 224.9,
       "above_ma200": false,
+      "rsi14": 18.9,
+      "stoch_k14": 5.0,
+      "momentum10": -7.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -919,6 +1054,9 @@
       "ma200": 77.67,
       "ma_5y": 95.1,
       "above_ma200": true,
+      "rsi14": 37.3,
+      "stoch_k14": 0.0,
+      "momentum10": -5.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -939,6 +1077,9 @@
       "ma200": 76.03,
       "ma_5y": 58.32,
       "above_ma200": false,
+      "rsi14": 31.6,
+      "stoch_k14": 18.5,
+      "momentum10": -6.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -959,6 +1100,9 @@
       "ma200": 75.54,
       "ma_5y": 39.51,
       "above_ma200": true,
+      "rsi14": 67.6,
+      "stoch_k14": 82.6,
+      "momentum10": 11.8,
       "begruendung": "",
       "signal": "NEUTRAL - unzureichende Daten",
       "empfehlung": "–"
@@ -979,6 +1123,9 @@
       "ma200": 166.46,
       "ma_5y": 142.96,
       "above_ma200": true,
+      "rsi14": 80.4,
+      "stoch_k14": 88.4,
+      "momentum10": 11.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -999,6 +1146,9 @@
       "ma200": 6142.26,
       "ma_5y": 4632.03,
       "above_ma200": false,
+      "rsi14": 24.3,
+      "stoch_k14": 24.5,
+      "momentum10": -4.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1019,6 +1169,9 @@
       "ma200": 36.32,
       "ma_5y": 40.15,
       "above_ma200": true,
+      "rsi14": 41.1,
+      "stoch_k14": 27.4,
+      "momentum10": -3.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1039,6 +1192,9 @@
       "ma200": 258.03,
       "ma_5y": 177.45,
       "above_ma200": false,
+      "rsi14": 56.6,
+      "stoch_k14": 97.7,
+      "momentum10": 1.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1059,6 +1215,9 @@
       "ma200": 398.93,
       "ma_5y": 287.42,
       "above_ma200": false,
+      "rsi14": 51.0,
+      "stoch_k14": 55.2,
+      "momentum10": 3.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1079,6 +1238,9 @@
       "ma200": 338.28,
       "ma_5y": 321.93,
       "above_ma200": false,
+      "rsi14": 24.5,
+      "stoch_k14": 12.5,
+      "momentum10": -5.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1099,6 +1261,9 @@
       "ma200": 104.8,
       "ma_5y": 107.89,
       "above_ma200": false,
+      "rsi14": 12.5,
+      "stoch_k14": 2.9,
+      "momentum10": -8.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1114,11 +1279,14 @@
       "currency": "USD",
       "_high_5y": 480.81,
       "drawdown_pct": -24.7,
-      "pe": 46.1,
+      "pe": 46.2,
       "ma50": 383.09,
       "ma200": 369.44,
       "ma_5y": 163.93,
       "above_ma200": false,
+      "rsi14": 45.1,
+      "stoch_k14": 57.4,
+      "momentum10": -2.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1139,6 +1307,9 @@
       "ma200": 290.97,
       "ma_5y": 263.66,
       "above_ma200": false,
+      "rsi14": 22.2,
+      "stoch_k14": 2.0,
+      "momentum10": -2.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1159,6 +1330,9 @@
       "ma200": 184.67,
       "ma_5y": 140.91,
       "above_ma200": false,
+      "rsi14": 20.3,
+      "stoch_k14": 8.9,
+      "momentum10": -13.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1179,6 +1353,9 @@
       "ma200": 5088.62,
       "ma_5y": 2451.06,
       "above_ma200": true,
+      "rsi14": 77.4,
+      "stoch_k14": 79.8,
+      "momentum10": 26.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1199,6 +1376,9 @@
       "ma200": 41.72,
       "ma_5y": 39.31,
       "above_ma200": true,
+      "rsi14": 51.2,
+      "stoch_k14": 24.0,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "NEUTRAL - unzureichende Daten",
       "empfehlung": "–"
@@ -1219,6 +1399,9 @@
       "ma200": 50.37,
       "ma_5y": 49.7,
       "above_ma200": false,
+      "rsi14": 60.8,
+      "stoch_k14": 59.4,
+      "momentum10": 2.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1239,6 +1422,9 @@
       "ma200": 5146.06,
       "ma_5y": 2815.06,
       "above_ma200": false,
+      "rsi14": 55.0,
+      "stoch_k14": 43.9,
+      "momentum10": 1.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1259,6 +1445,9 @@
       "ma200": 151.21,
       "ma_5y": 51.5,
       "above_ma200": false,
+      "rsi14": 38.5,
+      "stoch_k14": 29.0,
+      "momentum10": -4.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1279,6 +1468,9 @@
       "ma200": 776.51,
       "ma_5y": 360.05,
       "above_ma200": true,
+      "rsi14": 46.8,
+      "stoch_k14": 74.8,
+      "momentum10": 0.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1299,6 +1491,9 @@
       "ma200": 3606.13,
       "ma_5y": 2888.07,
       "above_ma200": true,
+      "rsi14": 34.2,
+      "stoch_k14": 10.2,
+      "momentum10": -7.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1319,6 +1514,9 @@
       "ma200": 3164.54,
       "ma_5y": 2458.26,
       "above_ma200": false,
+      "rsi14": 42.1,
+      "stoch_k14": 27.8,
+      "momentum10": -2.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1339,6 +1537,9 @@
       "ma200": 54.53,
       "ma_5y": 60.09,
       "above_ma200": true,
+      "rsi14": 50.8,
+      "stoch_k14": 23.6,
+      "momentum10": 0.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1359,6 +1560,9 @@
       "ma200": 551.44,
       "ma_5y": 440.86,
       "above_ma200": false,
+      "rsi14": 30.4,
+      "stoch_k14": 5.2,
+      "momentum10": -6.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1379,6 +1583,9 @@
       "ma200": 145.5,
       "ma_5y": 148.24,
       "above_ma200": false,
+      "rsi14": 29.5,
+      "stoch_k14": 3.4,
+      "momentum10": -1.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1399,6 +1606,9 @@
       "ma200": 220.74,
       "ma_5y": 194.89,
       "above_ma200": false,
+      "rsi14": 44.0,
+      "stoch_k14": 54.4,
+      "momentum10": 0.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1419,6 +1629,9 @@
       "ma200": 118.21,
       "ma_5y": 71.22,
       "above_ma200": false,
+      "rsi14": 60.4,
+      "stoch_k14": 68.9,
+      "momentum10": 4.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1439,6 +1652,9 @@
       "ma200": 621.93,
       "ma_5y": 173.07,
       "above_ma200": true,
+      "rsi14": 51.3,
+      "stoch_k14": 56.6,
+      "momentum10": 4.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1459,6 +1675,9 @@
       "ma200": 151.52,
       "ma_5y": 60.64,
       "above_ma200": true,
+      "rsi14": 40.8,
+      "stoch_k14": 11.3,
+      "momentum10": -10.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1479,6 +1698,9 @@
       "ma200": 88.55,
       "ma_5y": 82.95,
       "above_ma200": true,
+      "rsi14": 41.3,
+      "stoch_k14": 18.6,
+      "momentum10": 1.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1499,6 +1721,9 @@
       "ma200": 239.63,
       "ma_5y": 176.61,
       "above_ma200": true,
+      "rsi14": 54.0,
+      "stoch_k14": 81.6,
+      "momentum10": 0.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1519,6 +1744,9 @@
       "ma200": 893.29,
       "ma_5y": 532.58,
       "above_ma200": true,
+      "rsi14": 50.1,
+      "stoch_k14": 76.2,
+      "momentum10": 0.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1539,6 +1767,9 @@
       "ma200": 206.27,
       "ma_5y": 147.53,
       "above_ma200": true,
+      "rsi14": 35.1,
+      "stoch_k14": 18.5,
+      "momentum10": -3.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1559,6 +1790,9 @@
       "ma200": 4526.81,
       "ma_5y": 2658.72,
       "above_ma200": false,
+      "rsi14": 30.1,
+      "stoch_k14": 19.5,
+      "momentum10": -5.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal (Rohstoff)",
       "empfehlung": "–"
@@ -1579,6 +1813,9 @@
       "ma200": 622.58,
       "ma_5y": 428.26,
       "above_ma200": true,
+      "rsi14": 83.9,
+      "stoch_k14": 86.3,
+      "momentum10": 13.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1599,6 +1836,9 @@
       "ma200": 958.18,
       "ma_5y": 716.7,
       "above_ma200": false,
+      "rsi14": 31.6,
+      "stoch_k14": 8.3,
+      "momentum10": -3.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1619,6 +1859,9 @@
       "ma200": 87.14,
       "ma_5y": 79.14,
       "above_ma200": false,
+      "rsi14": 27.8,
+      "stoch_k14": 6.8,
+      "momentum10": -4.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1639,6 +1882,9 @@
       "ma200": 335.16,
       "ma_5y": 177.2,
       "above_ma200": true,
+      "rsi14": 44.0,
+      "stoch_k14": 44.2,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1659,6 +1905,9 @@
       "ma200": 336.38,
       "ma_5y": 176.6,
       "above_ma200": true,
+      "rsi14": 44.5,
+      "stoch_k14": 45.5,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1679,6 +1928,9 @@
       "ma200": 412.0,
       "ma_5y": 351.69,
       "above_ma200": false,
+      "rsi14": 33.3,
+      "stoch_k14": 17.5,
+      "momentum10": -3.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1699,6 +1951,9 @@
       "ma200": 28.27,
       "ma_5y": 22.17,
       "above_ma200": true,
+      "rsi14": 45.3,
+      "stoch_k14": 53.7,
+      "momentum10": 1.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1719,6 +1974,9 @@
       "ma200": 145.81,
       "ma_5y": 143.86,
       "above_ma200": false,
+      "rsi14": 51.7,
+      "stoch_k14": 52.5,
+      "momentum10": 1.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1739,6 +1997,9 @@
       "ma200": 321.5,
       "ma_5y": 155.31,
       "above_ma200": true,
+      "rsi14": 31.0,
+      "stoch_k14": 7.1,
+      "momentum10": -5.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1759,6 +2020,9 @@
       "ma200": 355.31,
       "ma_5y": 263.47,
       "above_ma200": true,
+      "rsi14": 18.8,
+      "stoch_k14": 0.2,
+      "momentum10": -13.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1779,6 +2043,9 @@
       "ma200": 335.4,
       "ma_5y": 227.39,
       "above_ma200": false,
+      "rsi14": 33.3,
+      "stoch_k14": 24.7,
+      "momentum10": -2.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1799,6 +2066,9 @@
       "ma200": 9813.7,
       "ma_5y": 6984.05,
       "above_ma200": true,
+      "rsi14": 41.6,
+      "stoch_k14": 9.2,
+      "momentum10": -12.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1819,6 +2089,9 @@
       "ma200": 4649.56,
       "ma_5y": 2519.68,
       "above_ma200": true,
+      "rsi14": 59.7,
+      "stoch_k14": 72.6,
+      "momentum10": 4.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1839,6 +2112,9 @@
       "ma200": 86.56,
       "ma_5y": 71.33,
       "above_ma200": false,
+      "rsi14": 45.0,
+      "stoch_k14": 43.0,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1859,6 +2135,9 @@
       "ma200": 478.46,
       "ma_5y": 390.11,
       "above_ma200": false,
+      "rsi14": 30.2,
+      "stoch_k14": 18.4,
+      "momentum10": -3.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1879,6 +2158,9 @@
       "ma200": 86.03,
       "ma_5y": 71.98,
       "above_ma200": true,
+      "rsi14": 56.4,
+      "stoch_k14": 35.6,
+      "momentum10": 1.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1899,6 +2181,9 @@
       "ma200": 343.12,
       "ma_5y": 253.43,
       "above_ma200": true,
+      "rsi14": 44.0,
+      "stoch_k14": 19.9,
+      "momentum10": -4.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1919,6 +2204,9 @@
       "ma200": 94.92,
       "ma_5y": 57.22,
       "above_ma200": true,
+      "rsi14": 53.5,
+      "stoch_k14": 85.3,
+      "momentum10": -0.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1939,6 +2227,9 @@
       "ma200": 504.45,
       "ma_5y": 372.01,
       "above_ma200": false,
+      "rsi14": 39.5,
+      "stoch_k14": 30.7,
+      "momentum10": -2.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1959,6 +2250,9 @@
       "ma200": 1062.0,
       "ma_5y": 636.19,
       "above_ma200": true,
+      "rsi14": 2.5,
+      "stoch_k14": 1.6,
+      "momentum10": -5.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1979,6 +2273,9 @@
       "ma200": 58.59,
       "ma_5y": 60.78,
       "above_ma200": true,
+      "rsi14": 34.8,
+      "stoch_k14": 38.8,
+      "momentum10": 0.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -1999,6 +2296,9 @@
       "ma200": 197.92,
       "ma_5y": 133.82,
       "above_ma200": true,
+      "rsi14": 26.8,
+      "stoch_k14": 6.6,
+      "momentum10": -3.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2019,6 +2319,9 @@
       "ma200": 192.36,
       "ma_5y": 115.42,
       "above_ma200": true,
+      "rsi14": 21.9,
+      "stoch_k14": 8.0,
+      "momentum10": -6.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2039,6 +2342,9 @@
       "ma200": 70.5,
       "ma_5y": 66.7,
       "above_ma200": true,
+      "rsi14": 30.6,
+      "stoch_k14": 0.0,
+      "momentum10": -4.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2059,6 +2365,9 @@
       "ma200": 96.99,
       "ma_5y": 88.78,
       "above_ma200": true,
+      "rsi14": 25.4,
+      "stoch_k14": 2.7,
+      "momentum10": -7.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2079,6 +2388,9 @@
       "ma200": 346.91,
       "ma_5y": 159.6,
       "above_ma200": true,
+      "rsi14": 62.6,
+      "stoch_k14": 87.6,
+      "momentum10": 8.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2099,6 +2411,9 @@
       "ma200": 43.99,
       "ma_5y": 32.41,
       "above_ma200": true,
+      "rsi14": 37.2,
+      "stoch_k14": 52.7,
+      "momentum10": -2.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2119,6 +2434,9 @@
       "ma200": 91.06,
       "ma_5y": 72.71,
       "above_ma200": false,
+      "rsi14": 38.0,
+      "stoch_k14": 5.0,
+      "momentum10": -2.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2139,6 +2457,9 @@
       "ma200": 17.79,
       "ma_5y": 11.77,
       "above_ma200": false,
+      "rsi14": 56.7,
+      "stoch_k14": 51.0,
+      "momentum10": 0.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2159,6 +2480,9 @@
       "ma200": 944.52,
       "ma_5y": 500.48,
       "above_ma200": true,
+      "rsi14": 48.2,
+      "stoch_k14": 52.5,
+      "momentum10": -0.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2179,6 +2503,9 @@
       "ma200": 5002.91,
       "ma_5y": 2799.25,
       "above_ma200": true,
+      "rsi14": 46.6,
+      "stoch_k14": 26.3,
+      "momentum10": -6.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2199,6 +2526,9 @@
       "ma200": 352.67,
       "ma_5y": 258.93,
       "above_ma200": true,
+      "rsi14": 21.2,
+      "stoch_k14": 10.8,
+      "momentum10": -6.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2219,6 +2549,9 @@
       "ma200": 159.51,
       "ma_5y": 116.0,
       "above_ma200": true,
+      "rsi14": 19.4,
+      "stoch_k14": 18.8,
+      "momentum10": -7.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2239,6 +2572,9 @@
       "ma200": 239.8,
       "ma_5y": 173.92,
       "above_ma200": true,
+      "rsi14": 48.0,
+      "stoch_k14": 40.0,
+      "momentum10": 0.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2259,6 +2595,9 @@
       "ma200": 122.35,
       "ma_5y": 98.73,
       "above_ma200": false,
+      "rsi14": 47.9,
+      "stoch_k14": 12.0,
+      "momentum10": -1.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2279,6 +2618,9 @@
       "ma200": 252.84,
       "ma_5y": 168.22,
       "above_ma200": true,
+      "rsi14": 35.5,
+      "stoch_k14": 19.5,
+      "momentum10": -7.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2299,6 +2641,9 @@
       "ma200": 1049.18,
       "ma_5y": 814.07,
       "above_ma200": true,
+      "rsi14": 30.6,
+      "stoch_k14": 15.1,
+      "momentum10": -7.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2319,6 +2664,9 @@
       "ma200": 24.71,
       "ma_5y": 18.63,
       "above_ma200": true,
+      "rsi14": 59.5,
+      "stoch_k14": 76.8,
+      "momentum10": 2.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2339,6 +2687,9 @@
       "ma200": 292.43,
       "ma_5y": 199.21,
       "above_ma200": true,
+      "rsi14": 38.5,
+      "stoch_k14": 15.3,
+      "momentum10": -5.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2359,6 +2710,9 @@
       "ma200": 118.49,
       "ma_5y": 95.51,
       "above_ma200": true,
+      "rsi14": 35.3,
+      "stoch_k14": 1.9,
+      "momentum10": -3.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2379,6 +2733,9 @@
       "ma200": 259.14,
       "ma_5y": 219.38,
       "above_ma200": true,
+      "rsi14": 14.0,
+      "stoch_k14": 4.8,
+      "momentum10": -7.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2399,6 +2756,9 @@
       "ma200": 65.4,
       "ma_5y": 44.43,
       "above_ma200": true,
+      "rsi14": 64.0,
+      "stoch_k14": 59.5,
+      "momentum10": 1.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2419,6 +2779,9 @@
       "ma200": 429.65,
       "ma_5y": 365.04,
       "above_ma200": true,
+      "rsi14": 57.5,
+      "stoch_k14": 38.3,
+      "momentum10": -1.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2439,6 +2802,9 @@
       "ma200": 188.18,
       "ma_5y": 138.08,
       "above_ma200": true,
+      "rsi14": 42.3,
+      "stoch_k14": 38.5,
+      "momentum10": -1.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2459,6 +2825,9 @@
       "ma200": 244.25,
       "ma_5y": 195.97,
       "above_ma200": true,
+      "rsi14": 49.4,
+      "stoch_k14": 33.7,
+      "momentum10": -2.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2479,6 +2848,9 @@
       "ma200": 57.69,
       "ma_5y": 52.7,
       "above_ma200": true,
+      "rsi14": 29.5,
+      "stoch_k14": 7.4,
+      "momentum10": -4.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2499,6 +2871,9 @@
       "ma200": 536.03,
       "ma_5y": 537.4,
       "above_ma200": true,
+      "rsi14": 38.6,
+      "stoch_k14": 28.7,
+      "momentum10": -3.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2519,6 +2894,9 @@
       "ma200": 66.74,
       "ma_5y": 49.46,
       "above_ma200": true,
+      "rsi14": 56.9,
+      "stoch_k14": 46.1,
+      "momentum10": 2.1,
       "begruendung": "",
       "signal": "NEUTRAL - unzureichende Daten",
       "empfehlung": "–"
@@ -2539,6 +2917,9 @@
       "ma200": 197.11,
       "ma_5y": 92.42,
       "above_ma200": true,
+      "rsi14": 52.6,
+      "stoch_k14": 41.0,
+      "momentum10": -4.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2559,6 +2940,9 @@
       "ma200": 142.28,
       "ma_5y": 104.56,
       "above_ma200": true,
+      "rsi14": 41.7,
+      "stoch_k14": 43.4,
+      "momentum10": -3.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2579,6 +2963,9 @@
       "ma200": 133.79,
       "ma_5y": 84.6,
       "above_ma200": true,
+      "rsi14": 44.3,
+      "stoch_k14": 5.8,
+      "momentum10": -3.5,
       "begruendung": "",
       "signal": "NEUTRAL - unzureichende Daten",
       "empfehlung": "–"
@@ -2599,6 +2986,9 @@
       "ma200": 190.43,
       "ma_5y": 109.7,
       "above_ma200": true,
+      "rsi14": 50.4,
+      "stoch_k14": 57.0,
+      "momentum10": -0.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2619,6 +3009,9 @@
       "ma200": 97.2,
       "ma_5y": 75.02,
       "above_ma200": true,
+      "rsi14": 35.8,
+      "stoch_k14": 13.7,
+      "momentum10": -0.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2639,6 +3032,9 @@
       "ma200": 492.51,
       "ma_5y": 397.58,
       "above_ma200": true,
+      "rsi14": 77.0,
+      "stoch_k14": 97.9,
+      "momentum10": 1.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2659,6 +3055,9 @@
       "ma200": 1482.29,
       "ma_5y": 1275.88,
       "above_ma200": true,
+      "rsi14": 39.2,
+      "stoch_k14": 48.1,
+      "momentum10": -2.3,
       "begruendung": "",
       "signal": "NEUTRAL - unzureichende Daten",
       "empfehlung": "–"
@@ -2679,6 +3078,9 @@
       "ma200": 529.86,
       "ma_5y": 440.1,
       "above_ma200": true,
+      "rsi14": 42.7,
+      "stoch_k14": 15.8,
+      "momentum10": -3.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2699,6 +3101,9 @@
       "ma200": 79.85,
       "ma_5y": 48.91,
       "above_ma200": true,
+      "rsi14": 42.6,
+      "stoch_k14": 52.8,
+      "momentum10": -0.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2719,6 +3124,9 @@
       "ma200": 6.02,
       "ma_5y": 4.5,
       "above_ma200": true,
+      "rsi14": 44.7,
+      "stoch_k14": 14.0,
+      "momentum10": -1.8,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal (Rohstoff)",
       "empfehlung": "–"
@@ -2739,6 +3147,9 @@
       "ma200": 84.3,
       "ma_5y": 57.0,
       "above_ma200": true,
+      "rsi14": 76.5,
+      "stoch_k14": 88.3,
+      "momentum10": 6.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2759,6 +3170,9 @@
       "ma200": 234.88,
       "ma_5y": 164.02,
       "above_ma200": true,
+      "rsi14": 46.0,
+      "stoch_k14": 10.2,
+      "momentum10": -0.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2779,6 +3193,9 @@
       "ma200": 173.3,
       "ma_5y": 112.79,
       "above_ma200": true,
+      "rsi14": 54.7,
+      "stoch_k14": 64.2,
+      "momentum10": 0.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2799,6 +3216,9 @@
       "ma200": 5825.59,
       "ma_5y": 2872.29,
       "above_ma200": true,
+      "rsi14": 66.4,
+      "stoch_k14": 56.1,
+      "momentum10": 0.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2819,6 +3239,9 @@
       "ma200": 123.01,
       "ma_5y": 66.68,
       "above_ma200": true,
+      "rsi14": 75.1,
+      "stoch_k14": 77.9,
+      "momentum10": 4.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2839,6 +3262,9 @@
       "ma200": 48.06,
       "ma_5y": 41.59,
       "above_ma200": true,
+      "rsi14": 51.1,
+      "stoch_k14": 24.7,
+      "momentum10": 0.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2859,6 +3285,9 @@
       "ma200": 78.24,
       "ma_5y": 61.36,
       "above_ma200": true,
+      "rsi14": 35.2,
+      "stoch_k14": 17.3,
+      "momentum10": -0.9,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2879,6 +3308,9 @@
       "ma200": 56.39,
       "ma_5y": 42.41,
       "above_ma200": true,
+      "rsi14": 55.7,
+      "stoch_k14": 70.1,
+      "momentum10": 0.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2899,6 +3331,9 @@
       "ma200": 2987.44,
       "ma_5y": 1483.9,
       "above_ma200": true,
+      "rsi14": 65.5,
+      "stoch_k14": 58.5,
+      "momentum10": 0.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2919,6 +3354,9 @@
       "ma200": 333.85,
       "ma_5y": 267.98,
       "above_ma200": true,
+      "rsi14": 49.4,
+      "stoch_k14": 24.6,
+      "momentum10": -2.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2939,6 +3377,9 @@
       "ma200": 226.31,
       "ma_5y": 161.78,
       "above_ma200": true,
+      "rsi14": 40.1,
+      "stoch_k14": 51.4,
+      "momentum10": -0.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2959,6 +3400,9 @@
       "ma200": 570.25,
       "ma_5y": 419.14,
       "above_ma200": true,
+      "rsi14": 60.5,
+      "stoch_k14": 66.0,
+      "momentum10": 8.5,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2979,6 +3423,9 @@
       "ma200": 54.53,
       "ma_5y": 38.87,
       "above_ma200": true,
+      "rsi14": 62.0,
+      "stoch_k14": 62.5,
+      "momentum10": 3.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -2999,6 +3446,9 @@
       "ma200": 2711.21,
       "ma_5y": 2152.16,
       "above_ma200": true,
+      "rsi14": 73.2,
+      "stoch_k14": 92.1,
+      "momentum10": 3.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3019,6 +3469,9 @@
       "ma200": 29.64,
       "ma_5y": 15.94,
       "above_ma200": true,
+      "rsi14": 72.6,
+      "stoch_k14": 72.2,
+      "momentum10": 1.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3039,6 +3492,9 @@
       "ma200": 317.5,
       "ma_5y": 197.12,
       "above_ma200": true,
+      "rsi14": 56.8,
+      "stoch_k14": 53.2,
+      "momentum10": 0.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3059,6 +3515,9 @@
       "ma200": 383.28,
       "ma_5y": 246.44,
       "above_ma200": true,
+      "rsi14": 51.3,
+      "stoch_k14": 40.3,
+      "momentum10": -0.7,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3079,6 +3538,9 @@
       "ma200": 284.54,
       "ma_5y": 200.56,
       "above_ma200": true,
+      "rsi14": 70.6,
+      "stoch_k14": 85.9,
+      "momentum10": 5.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3099,6 +3561,9 @@
       "ma200": 144.05,
       "ma_5y": 101.74,
       "above_ma200": true,
+      "rsi14": 51.6,
+      "stoch_k14": 88.5,
+      "momentum10": 6.1,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3119,6 +3584,9 @@
       "ma200": 53.9,
       "ma_5y": 36.65,
       "above_ma200": true,
+      "rsi14": 67.8,
+      "stoch_k14": 66.4,
+      "momentum10": 3.6,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3139,6 +3607,9 @@
       "ma200": 133.23,
       "ma_5y": 69.59,
       "above_ma200": true,
+      "rsi14": 63.3,
+      "stoch_k14": 56.7,
+      "momentum10": 0.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3159,6 +3630,9 @@
       "ma200": 153.66,
       "ma_5y": 144.32,
       "above_ma200": true,
+      "rsi14": 68.0,
+      "stoch_k14": 92.4,
+      "momentum10": 4.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3179,6 +3653,9 @@
       "ma200": 35.29,
       "ma_5y": 16.37,
       "above_ma200": true,
+      "rsi14": 73.2,
+      "stoch_k14": 89.4,
+      "momentum10": 7.3,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3199,6 +3676,9 @@
       "ma200": 112.37,
       "ma_5y": 96.84,
       "above_ma200": true,
+      "rsi14": 56.5,
+      "stoch_k14": 85.9,
+      "momentum10": 6.0,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3219,6 +3699,9 @@
       "ma200": 179.53,
       "ma_5y": 142.58,
       "above_ma200": true,
+      "rsi14": 65.2,
+      "stoch_k14": 82.9,
+      "momentum10": 7.2,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
@@ -3239,6 +3722,9 @@
       "ma200": 44.9,
       "ma_5y": 36.66,
       "above_ma200": true,
+      "rsi14": 60.8,
+      "stoch_k14": 84.8,
+      "momentum10": 2.4,
       "begruendung": "",
       "signal": "NEUTRAL - kein klares Signal",
       "empfehlung": "–"
