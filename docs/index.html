@@ -67,7 +67,7 @@
   <div class="toolbar">
     <div class="tab active" data-filter="ALLE">Alle</div>
     <div class="tab" data-filter="KANDIDAT">Kandidaten</div>
-    <div class="tab" data-group="S&P500">S&amp;P 500</div>
+    <div class="tab" data-group="S&P100">S&amp;P 100</div>
     <div class="tab" data-group="DAX40">DAX 40</div>
     <div class="tab" data-group="Nikkei225">Nikkei 225</div>
     <div class="tab" data-group="Rohstoff">Rohstoffe</div>
@@ -246,13 +246,13 @@ fetch("data.json")
       `Stand: ${new Date(json.generated_at_utc).toLocaleString("de-DE")} · Universum: ${json.universe_size} Titel · ${json.data_note}`;
     const kandidaten = data.filter(r=>r.signal.startsWith("KANDIDAT")).length;
     const beobachten = data.filter(r=>r.signal.startsWith("BEOBACHTEN")).length;
-    const sp500 = data.filter(r=>r.index_group==="S&P500").length;
+    const sp100 = data.filter(r=>r.index_group==="S&P100").length;
     const dax = data.filter(r=>r.index_group==="DAX40").length;
     document.getElementById("stats").innerHTML = `
       <div class="stat"><div class="n">${json.universe_size}</div><div class="l">Ausgewertet</div></div>
       <div class="stat"><div class="n">${kandidaten}</div><div class="l">Kandidaten</div></div>
       <div class="stat"><div class="n">${beobachten}</div><div class="l">Beobachten</div></div>
-      <div class="stat"><div class="n">${sp500}</div><div class="l">S&amp;P 500</div></div>
+      <div class="stat"><div class="n">${sp100}</div><div class="l">S&amp;P 100</div></div>
       <div class="stat"><div class="n">${dax}</div><div class="l">DAX 40</div></div>`;
     render();
   })
