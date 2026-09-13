@@ -168,6 +168,7 @@ function toggleDetail(tr, row){
       <div class="field"><label>Kurs Basiswert aktuell</label><input type="number" id="${uid}_kurs" value="${row.price}" step="0.01"></div>
       <div class="field"><label>TP1</label><input type="number" id="${uid}_tp1" value="${(row.price*1.1).toFixed(2)}" step="0.01"></div>
       <div class="field"><label>Stop-Loss (Basiswert)</label><input type="number" id="${uid}_sl" value="${(row.price*0.9).toFixed(2)}" step="0.01"></div>
+      <div class="field"><label>Wechselkurs (Basiswert→Schein, 1 falls gleiche Währung)</label><input type="number" id="${uid}_fx" value="1" step="0.0001"></div>
     </div>
     <table>
       <thead><tr><th>Marke</th><th>Kurs Basiswert</th><th>Innerer Wert</th><th>Stückzahl</th><th>Wert gesamt</th><th>%</th></tr></thead>
@@ -176,7 +177,7 @@ function toggleDetail(tr, row){
   </td>`;
   tr.after(dtr);
 
-  const ids = ["einsatz","brief","geld","bv","basispreis","kurs","tp1","sl"].map(k=>uid+"_"+k);
+  const ids = ["einsatz","brief","geld","bv","basispreis","kurs","tp1","sl","fx"].map(k=>uid+"_"+k);
   const calc = () => calcWarrant(uid);
   ids.forEach(id => document.getElementById(id).addEventListener("input", calc));
   calc();
@@ -186,6 +187,7 @@ function calcWarrant(uid){
   const g = k => parseFloat(document.getElementById(uid+"_"+k).value) || 0;
   const einsatz = g("einsatz"), brief = g("brief"), geld = g("geld"), bv = g("bv");
   const basispreis = g("basispreis"), kurs = g("kurs"), tp1 = g("tp1"), sl = g("sl");
+  const fx = g("fx") || 1;
   if(brief <= 0 || bv <= 0) return;
 
   const stueck = Math.floor(einsatz / brief);
@@ -199,7 +201,8 @@ function calcWarrant(uid){
     { label: "Stop-Loss", k: sl },
   ];
   const rows = marken.map(m => {
-    const innererWert = (m.k - basispreis) * bv;
+    const innererWertFremd = (m.k - basispreis) * bv;
+    const innererWert = innererWertFremd / fx;
     const realKurs = Math.max(innererWert * (1 - spreadPct), 0);
     const wert = stueck * realKurs;
     const pct = investiert > 0 ? ((wert - investiert) / investiert) * 100 : 0;
