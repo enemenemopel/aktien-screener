@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-13T00:55:46.012034+00:00",
+  "generated_at_utc": "2026-09-13T01:15:38.134514+00:00",
   "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
   "universe_size": 164,
   "results": [
@@ -832,7 +832,7 @@
       "is_commodity": false,
       "price": 20780.0,
       "currency": "JPY",
-      "_high_5y": 29775.92,
+      "_high_5y": 29775.91,
       "drawdown_pct": -30.2,
       "pe": 22.1,
       "ma50": 22708.0,
@@ -872,7 +872,7 @@
       "is_commodity": false,
       "price": 38.44,
       "currency": "EUR",
-      "_high_5y": 54.94,
+      "_high_5y": 54.93,
       "drawdown_pct": -30.0,
       "pe": 11.6,
       "ma50": 41.4,
