@@ -157,7 +157,20 @@ function toggleDetail(tr, row){
   const dtr = document.createElement("tr");
   dtr.className = "detail";
   const uid = "c_" + Math.random().toString(36).slice(2,8);
+  const rsiTxt = row.rsi14 != null ? row.rsi14 : "–";
+  const stochTxt = row.stoch_k14 != null ? row.stoch_k14 : "–";
+  const momTxt = row.momentum10 != null ? (row.momentum10 >= 0 ? "+" : "") + row.momentum10 + "%" : "–";
+  const rsiTag = row.rsi14 != null && row.rsi14 < 30 ? "pos" : "";
+  const stochTag = row.stoch_k14 != null && row.stoch_k14 < 20 ? "pos" : "";
+  const momTag = row.momentum10 != null && row.momentum10 > 0 ? "pos" : "";
+
   dtr.innerHTML = `<td colspan="8">
+    <h3>Technische Indikatoren — ${row.name}</h3>
+    <div class="calc-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px;">
+      <div class="field"><label>RSI (14 Tage) — &lt;30 = überverkauft</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${rsiTag}">${rsiTxt}</div></div>
+      <div class="field"><label>Stochastik %K (14 Tage) — &lt;20 = überverkauft</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${stochTag}">${stochTxt}</div></div>
+      <div class="field"><label>Momentum (10 Tage) — positiv = Erholung begonnen</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${momTag}">${momTxt}</div></div>
+    </div>
     <h3>Options-Schein-Rechner — ${row.name}</h3>
     <div class="calc-grid">
       <div class="field"><label>Kaufbetrag (€)</label><input type="number" id="${uid}_einsatz" value="500"></div>
