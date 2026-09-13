@@ -40,9 +40,25 @@ COMMODITIES = {
     "HG=F": "Kupfer",
 }
 
-# Manuell gepflegte WKN fuer Nicht-DE-Aktien, die recherchiert wurden.
+# Manuell gepflegte WKN. Fuer DAX40 fest hinterlegt (oeffentlich bekannt,
+# aendert sich praktisch nie) - yfinance liefert ISIN nicht zuverlaessig,
+# daher lohnt sich die Ableitung darueber in der Praxis kaum.
 WKN_OVERRIDES = {
     "FSLR": "A0LEKM",  # First Solar Inc.
+    "SAP.DE": "716460", "SIE.DE": "723610", "ALV.DE": "840400",
+    "DTE.DE": "555750", "AIR.DE": "938914", "MBG.DE": "710000",
+    "BAS.DE": "BASF11", "BAYN.DE": "BAY001", "BMW.DE": "519000",
+    "VOW3.DE": "766403", "DBK.DE": "514000", "MUV2.DE": "843002",
+    "RWE.DE": "703712", "IFX.DE": "623100", "ADS.DE": "A1EWWW",
+    "HEN3.DE": "604843", "LIN.DE": "A2DSYC", "FRE.DE": "578560",
+    "MRK.DE": "659990", "VNA.DE": "A1ML7J", "CON.DE": "543900",
+    "HEI.DE": "604700", "ENR.DE": "ENER6Y", "SY1.DE": "SYM999",
+    "ZAL.DE": "ZAL111", "P911.DE": "PAG911", "QIA.DE": "A2DKCH",
+    "RHM.DE": "703000", "SRT3.DE": "716563", "BEI.DE": "520000",
+    "1COV.DE": "606214", "EOAN.DE": "ENAG99", "FME.DE": "578580",
+    "MTX.DE": "A0D9PT", "SHL.DE": "SHL100", "BNR.DE": "A1DAHH",
+    "CBK.DE": "CBK100", "DHER.DE": "A2E4K4", "HNR1.DE": "840221",
+    "PAH3.DE": "PAH003",
 }
 
 
