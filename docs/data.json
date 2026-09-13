@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-13T00:46:04.840294+00:00",
+  "generated_at_utc": "2026-09-13T00:55:46.012034+00:00",
   "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
   "universe_size": 164,
   "results": [
@@ -26,7 +26,7 @@
     {
       "ticker": "ZAL.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "ZAL111",
       "name": "Zalando SE                    I",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -46,7 +46,7 @@
     {
       "ticker": "DHER.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A2E4K4",
       "name": "Delivery Hero SE              N",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -86,7 +86,7 @@
     {
       "ticker": "PAH3.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "PAH003",
       "name": "Porsche Automobil Holding SE  I",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -106,7 +106,7 @@
     {
       "ticker": "SRT3.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "716563",
       "name": "SARTORIUS AG                  V",
       "sector": "Healthcare",
       "is_commodity": false,
@@ -146,7 +146,7 @@
     {
       "ticker": "P911.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "PAG911",
       "name": "Dr. Ing. h.c. F. Porsche AG   I",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -226,7 +226,7 @@
     {
       "ticker": "RHM.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "703000",
       "name": "RHEINMETALL AG                I",
       "sector": "Industrials",
       "is_commodity": false,
@@ -246,7 +246,7 @@
     {
       "ticker": "ADS.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A1EWWW",
       "name": "adidas AG                     N",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -266,7 +266,7 @@
     {
       "ticker": "BEI.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "520000",
       "name": "BEIERSDORF AG                 I",
       "sector": "Consumer Defensive",
       "is_commodity": false,
@@ -286,7 +286,7 @@
     {
       "ticker": "VNA.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A1ML7J",
       "name": "Vonovia SE                    N",
       "sector": "Real Estate",
       "is_commodity": false,
@@ -354,7 +354,7 @@
       "currency": "JPY",
       "_high_5y": 5628.12,
       "drawdown_pct": -45.2,
-      "pe": 42.7,
+      "pe": 41.5,
       "ma50": 2890.52,
       "ma200": 2695.91,
       "ma_5y": 3863.32,
@@ -526,7 +526,7 @@
     {
       "ticker": "MRK.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "659990",
       "name": "MERCK KGAA                    I",
       "sector": "Healthcare",
       "is_commodity": false,
@@ -546,7 +546,7 @@
     {
       "ticker": "SHL.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "SHL100",
       "name": "Siemens Healthineers AG       N",
       "sector": "Healthcare",
       "is_commodity": false,
@@ -606,7 +606,7 @@
     {
       "ticker": "VOW3.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "766403",
       "name": "VOLKSWAGEN AG                 V",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -626,7 +626,7 @@
     {
       "ticker": "SAP.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "716460",
       "name": "SAP SE                        I",
       "sector": "Technology",
       "is_commodity": false,
@@ -646,7 +646,7 @@
     {
       "ticker": "BMW.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "519000",
       "name": "BAYERISCHE MOTOREN WERKE AG   S",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -686,7 +686,7 @@
     {
       "ticker": "HEI.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "604700",
       "name": "Heidelberg Materials AG       I",
       "sector": "Basic Materials",
       "is_commodity": false,
@@ -706,7 +706,7 @@
     {
       "ticker": "IFX.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "623100",
       "name": "INFINEON TECHNOLOGIES AG      N",
       "sector": "Technology",
       "is_commodity": false,
@@ -832,7 +832,7 @@
       "is_commodity": false,
       "price": 20780.0,
       "currency": "JPY",
-      "_high_5y": 29775.91,
+      "_high_5y": 29775.92,
       "drawdown_pct": -30.2,
       "pe": 22.1,
       "ma50": 22708.0,
@@ -866,13 +866,13 @@
     {
       "ticker": "FME.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "578580",
       "name": "Fresenius Medical Care AG     I",
       "sector": "Healthcare",
       "is_commodity": false,
       "price": 38.44,
       "currency": "EUR",
-      "_high_5y": 54.93,
+      "_high_5y": 54.94,
       "drawdown_pct": -30.0,
       "pe": 11.6,
       "ma50": 41.4,
@@ -906,7 +906,7 @@
     {
       "ticker": "SY1.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "SYM999",
       "name": "Symrise AG                    I",
       "sector": "Basic Materials",
       "is_commodity": false,
@@ -1006,7 +1006,7 @@
     {
       "ticker": "QIA.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A2DKCH",
       "name": "Qiagen N.V.                   A",
       "sector": "Healthcare",
       "is_commodity": false,
@@ -1114,7 +1114,7 @@
       "currency": "USD",
       "_high_5y": 480.81,
       "drawdown_pct": -24.7,
-      "pe": 46.2,
+      "pe": 46.1,
       "ma50": 383.09,
       "ma200": 369.44,
       "ma_5y": 163.93,
@@ -1186,7 +1186,7 @@
     {
       "ticker": "BAYN.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "BAY001",
       "name": "Bayer AG                      N",
       "sector": "Healthcare",
       "is_commodity": false,
@@ -1206,7 +1206,7 @@
     {
       "ticker": "MBG.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "710000",
       "name": "Mercedes-Benz Group AG        N",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -1246,7 +1246,7 @@
     {
       "ticker": "ENR.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "ENER6Y",
       "name": "Siemens Energy AG             N",
       "sector": "Industrials",
       "is_commodity": false,
@@ -1326,7 +1326,7 @@
     {
       "ticker": "BNR.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A1DAHH",
       "name": "Brenntag SE                   N",
       "sector": "Basic Materials",
       "is_commodity": false,
@@ -1666,7 +1666,7 @@
     {
       "ticker": "LIN.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A2DSYC",
       "name": "Linde plc                     R",
       "sector": "unbekannt",
       "is_commodity": false,
@@ -1686,7 +1686,7 @@
     {
       "ticker": "DTE.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "555750",
       "name": "DEUTSCHE TELEKOM AG           N",
       "sector": "Communication Services",
       "is_commodity": false,
@@ -1886,7 +1886,7 @@
     {
       "ticker": "MTX.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "A0D9PT",
       "name": "MTU Aero Engines AG           N",
       "sector": "Industrials",
       "is_commodity": false,
@@ -1926,7 +1926,7 @@
     {
       "ticker": "MUV2.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "843002",
       "name": "MUENCHENER RUECKVERS.-GES. AG N",
       "sector": "Financial Services",
       "is_commodity": false,
@@ -2026,7 +2026,7 @@
     {
       "ticker": "HEN3.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "604843",
       "name": "Henkel AG & Co. KGaA          I",
       "sector": "Consumer Defensive",
       "is_commodity": false,
@@ -2086,7 +2086,7 @@
     {
       "ticker": "FRE.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "578560",
       "name": "Fresenius SE & Co. KGaA       N",
       "sector": "Healthcare",
       "is_commodity": false,
@@ -2126,7 +2126,7 @@
     {
       "ticker": "EOAN.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "ENAG99",
       "name": "E.ON SE                       N",
       "sector": "Utilities",
       "is_commodity": false,
@@ -2266,7 +2266,7 @@
     {
       "ticker": "SIE.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "723610",
       "name": "SIEMENS AG                    N",
       "sector": "Industrials",
       "is_commodity": false,
@@ -2426,7 +2426,7 @@
     {
       "ticker": "AIR.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "938914",
       "name": "Airbus SE                     A",
       "sector": "Industrials",
       "is_commodity": false,
@@ -2446,7 +2446,7 @@
     {
       "ticker": "HNR1.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "840221",
       "name": "HANNOVER RUECK SE NA O.N.",
       "sector": "Financial Services",
       "is_commodity": false,
@@ -2506,7 +2506,7 @@
     {
       "ticker": "CON.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "543900",
       "name": "CONTINENTAL AG                I",
       "sector": "Consumer Cyclical",
       "is_commodity": false,
@@ -2826,7 +2826,7 @@
     {
       "ticker": "BAS.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "BASF11",
       "name": "BASF SE                       N",
       "sector": "Basic Materials",
       "is_commodity": false,
@@ -3006,7 +3006,7 @@
     {
       "ticker": "DBK.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "514000",
       "name": "DEUTSCHE BANK AG              N",
       "sector": "Financial Services",
       "is_commodity": false,
@@ -3046,7 +3046,7 @@
     {
       "ticker": "ALV.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "840400",
       "name": "Allianz SE                    v",
       "sector": "Financial Services",
       "is_commodity": false,
@@ -3106,7 +3106,7 @@
     {
       "ticker": "RWE.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "703712",
       "name": "RWE AG                        I",
       "sector": "Utilities",
       "is_commodity": false,
@@ -3166,7 +3166,7 @@
     {
       "ticker": "CBK.DE",
       "index_group": "DAX40",
-      "wkn": "–",
+      "wkn": "CBK100",
       "name": "Commerzbank AG                I",
       "sector": "Financial Services",
       "is_commodity": false,
