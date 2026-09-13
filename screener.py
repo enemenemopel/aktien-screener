@@ -46,6 +46,30 @@ WKN_OVERRIDES = {
 }
 
 
+NIKKEI_TOP20 = [
+    "7203.T",  # Toyota
+    "6758.T",  # Sony
+    "9984.T",  # SoftBank Group
+    "8306.T",  # Mitsubishi UFJ
+    "6098.T",  # Recruit Holdings
+    "9432.T",  # NTT
+    "6501.T",  # Hitachi
+    "8035.T",  # Tokyo Electron
+    "4063.T",  # Shin-Etsu Chemical
+    "6902.T",  # Denso
+    "7267.T",  # Honda
+    "8316.T",  # Sumitomo Mitsui
+    "4568.T",  # Daiichi Sankyo
+    "9433.T",  # KDDI
+    "6367.T",  # Daikin
+    "6981.T",  # Murata
+    "8058.T",  # Mitsubishi Corp
+    "8031.T",  # Mitsui & Co
+    "7974.T",  # Nintendo
+    "4661.T",  # Oriental Land
+]
+
+
 def fetch_tables(url):
     """Wikipedia blockt Anfragen ohne Browser-User-Agent mit HTTP 403 -
     daher erst per requests mit Header abrufen, dann an pandas uebergeben."""
@@ -54,17 +78,15 @@ def fetch_tables(url):
     return pd.read_html(StringIO(resp.text))
 
 
-def get_sp500_tickers():
-    url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-    df = fetch_tables(url)[0]
-    return [t.replace(".", "-") for t in df["Symbol"].tolist()]
-
-
-def get_nikkei225_tickers():
-    url = "https://en.wikipedia.org/wiki/Nikkei_225"
+def get_sp100_tickers():
+    """S&P 100 statt S&P 500: die ~100 groessten, liquidesten US-Aktien.
+    Deutlich schnellerer Lauf als das volle S&P 500, und als Naeherung fuer
+    "groesste Marktkapitalisierung" gut geeignet, ohne vorher Marktkap-Daten
+    abrufen zu muessen (das waere selbst der langsame Teil)."""
+    url = "https://en.wikipedia.org/wiki/S%26P_100"
     for table in fetch_tables(url):
-        if "Code" in table.columns:
-            return [f"{int(code)}.T" for code in table["Code"].tolist()]
+        if "Symbol" in table.columns:
+            return [t.replace(".", "-") for t in table["Symbol"].tolist()]
     return []
 
 
@@ -74,16 +96,13 @@ def build_universe():
         groups[t] = "DAX40"
     for t in COMMODITIES:
         groups[t] = "Rohstoff"
+    for t in NIKKEI_TOP20:
+        groups[t] = "Nikkei225"
     try:
-        for t in get_sp500_tickers():
-            groups.setdefault(t, "S&P500")
+        for t in get_sp100_tickers():
+            groups.setdefault(t, "S&P100")
     except Exception as e:
-        print("S&P 500 Liste konnte nicht geladen werden:", e)
-    try:
-        for t in get_nikkei225_tickers():
-            groups.setdefault(t, "Nikkei225")
-    except Exception as e:
-        print("Nikkei 225 Liste konnte nicht geladen werden:", e)
+        print("S&P 100 Liste konnte nicht geladen werden:", e)
     return groups
 
 
