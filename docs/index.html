@@ -87,34 +87,30 @@
   </div>
 
   <div class="tablecard" id="calcpanel" style="display:none;">
-    <div style="padding:16px 18px;">
+    <div style="padding:16px 18px;max-width:420px;">
       <h3 style="margin:0 0 4px;font-size:15px;">Options-Schein-Rechner</h3>
-      <div style="font-size:12px;color:var(--ink-soft);margin-bottom:14px;">Unabhängig von den Aktien nutzbar — für jeden beliebigen Knock-Out-Optionsschein. Werte einfach von onvista/deinem Broker übertragen.</div>
-      <div class="calc-grid">
-        <div class="field"><label>WKN (optional, nur Notiz)</label><input type="text" id="std_wkn" placeholder="z. B. BD278X"></div>
-        <div class="field"><label>Kurs Basiswert aktuell</label><input type="number" id="std_kurs" value="100" step="0.01"></div>
-        <div class="field"><label>Basispreis Schein</label><input type="number" id="std_basispreis" value="90" step="0.01"></div>
-        <div class="field"><label>K.O.-Schwelle</label><input type="number" id="std_ko" value="91" step="0.01"></div>
-        <div class="field"><label>Bezugsverhältnis</label><input type="number" id="std_bv" value="0.1" step="0.0001"></div>
-        <div class="field"><label>Schein-Kurs Brief</label><input type="number" id="std_brief" value="1" step="0.001"></div>
-        <div class="field"><label>Schein-Kurs Geld</label><input type="number" id="std_geld" value="0.98" step="0.001"></div>
-        <div class="field"><label>Spread (%)</label><input type="number" id="std_spread" value="1.5" step="0.01"></div>
-        <div class="field"><label>Kaufbetrag (€)</label><input type="number" id="std_einsatz" value="500" step="1"></div>
-        <div class="field"><label>TP1 (Kurs Basiswert)</label><input type="number" id="std_tp1" value="110" step="0.01"></div>
-        <div class="field"><label>Stückzahl Verkauf TP1 (leer = alle)</label><input type="number" id="std_stk_tp1" placeholder="alle"></div>
-        <div class="field"><label>Stop-Loss (Basiswert)</label><input type="number" id="std_sl" value="95" step="0.01"></div>
-        <div class="field"><label>Wechselkurs (Basiswert→Schein, 1 falls gleiche Währung)</label><input type="number" id="std_fx" value="1" step="0.0001"></div>
-      </div>
-      <div style="display:flex;gap:32px;margin:4px 0 16px;">
-        <div class="field"><label>Berechneter Hebel</label><div id="std_hebel" style="font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;">–</div></div>
-        <div class="field"><label>Abstand zum K.O.</label><div id="std_abstand" style="font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;">–</div></div>
-      </div>
+      <div style="font-size:12px;color:var(--ink-soft);margin-bottom:16px;">Unabhängig von den Aktien nutzbar — für jeden beliebigen Knock-Out-Optionsschein. Werte einfach von onvista/deinem Broker übertragen.</div>
+
+      <div class="field" style="margin-bottom:10px;"><label>Kaufbetrag (€)</label><input type="number" id="std_einsatz" value="500" step="1"></div>
+      <div class="field" style="margin-bottom:10px;"><label>Wechselkurs (Basiswert→Schein, 1 falls gleiche Währung)</label><input type="number" id="std_fx" value="1" step="0.0001"></div>
+      <div class="field" style="margin-bottom:10px;"><label>Kurs Basiswert aktuell</label><input type="number" id="std_kurs" value="100" step="0.01"></div>
+      <div class="field" style="margin-bottom:10px;"><label>WKN (optional, nur Notiz)</label><input type="text" id="std_wkn" placeholder="z. B. BD278X"></div>
+      <div class="field" style="margin-bottom:10px;"><label>Basispreis Schein</label><input type="number" id="std_basispreis" value="90" step="0.01"></div>
+      <div class="field" style="margin-bottom:10px;"><label>Schein-Kurs Brief</label><input type="number" id="std_brief" value="1" step="0.001"></div>
+      <div class="field" style="margin-bottom:10px;"><label>TP1 (Kurs Basiswert)</label><input type="number" id="std_tp1" value="110" step="0.01"></div>
+      <div class="field" style="margin-bottom:10px;"><label>Stückzahl Verkauf TP1 (leer = alle)</label><input type="number" id="std_stk_tp1" placeholder="alle"></div>
+      <div class="field" style="margin-bottom:10px;"><label>Bezugsverhältnis</label><input type="number" id="std_bv" value="1" step="0.0001"></div>
+      <div class="field" style="margin-bottom:16px;"><label>Spread (%)</label><input type="number" id="std_spread" value="1.5" step="0.01"></div>
+
+      <div class="field" style="margin-bottom:16px;"><label>Berechneter Hebel</label><div id="std_hebel" style="font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;">–</div></div>
+
       <table>
         <thead><tr><th>Marke</th><th>Kurs Basiswert</th><th>Innerer Wert</th><th>Stückzahl</th><th>Wert gesamt</th><th>%</th></tr></thead>
         <tbody id="std_out"></tbody>
       </table>
     </div>
   </div>
+</div>
 
   <div class="note">Kurse über die Yahoo-Finance-Gratis-API, ca. 15 Minuten verzögert. Keine Anlageberatung.</div>
 </div>
@@ -221,22 +217,19 @@ document.querySelectorAll("th[data-k]").forEach(th => {
 
 function gStd(k){ return parseFloat(document.getElementById("std_"+k).value) || 0; }
 function calcStandalone(){
-  const kurs=gStd("kurs"), basispreis=gStd("basispreis"), ko=gStd("ko"), bv=gStd("bv");
+  const kurs=gStd("kurs"), basispreis=gStd("basispreis"), bv=gStd("bv");
   const brief=gStd("brief"), spread=gStd("spread")/100, einsatz=gStd("einsatz");
-  const tp1=gStd("tp1"), sl=gStd("sl"), fx=gStd("fx")||1;
+  const tp1=gStd("tp1"), fx=gStd("fx")||1;
   if(brief<=0||bv<=0) return;
 
-  const hebel = (kurs*bv)/brief;
+  const hebel = (kurs/fx*bv)/brief;
   document.getElementById("std_hebel").textContent = hebel.toFixed(2)+"x";
-  const abstandKo = ko>0 && kurs>0 ? ((ko-kurs)/kurs*100) : null;
-  document.getElementById("std_abstand").textContent = abstandKo!=null ? abstandKo.toFixed(2)+"%" : "–";
 
   const stueckGesamt = Math.floor(einsatz / brief);
   const stkTp1Feld = document.getElementById("std_stk_tp1").value;
   const marken = [
     { label: "Kauf (jetzt)", k: kurs, stueck: stueckGesamt },
     { label: "TP1", k: tp1, stueck: stkTp1Feld ? Math.min(parseInt(stkTp1Feld) || 0, stueckGesamt) : stueckGesamt },
-    { label: "Stop-Loss", k: sl, stueck: stueckGesamt },
   ];
   const rows = marken.map(m => {
     const innererWertFremd = (m.k - basispreis) * bv;
@@ -250,7 +243,7 @@ function calcStandalone(){
   }).join("");
   document.getElementById("std_out").innerHTML = rows;
 }
-["kurs","basispreis","ko","bv","brief","geld","spread","einsatz","tp1","stk_tp1","sl","fx"].forEach(k => {
+["kurs","basispreis","bv","brief","spread","einsatz","tp1","stk_tp1","fx"].forEach(k => {
   document.getElementById("std_"+k).addEventListener("input", calcStandalone);
 });
 calcStandalone();
