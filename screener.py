@@ -77,13 +77,22 @@ def get_sp500_tickers():
     return [t.replace(".", "-") for t in df["Symbol"].tolist()]
 
 
-def get_nikkei225_tickers():
-    """Volle Nikkei 225."""
-    url = "https://en.wikipedia.org/wiki/Nikkei_225"
-    for table in fetch_tables(url):
-        if "Code" in table.columns:
-            return [f"{int(code)}.T" for code in table["Code"].tolist()]
-    return []
+# Nikkei 225: Wikipedia fuehrt aktuell keine zuverlaessig scrapebare
+# Konstituenten-Tabelle mehr (Spalte "Code" existiert nicht mehr auf der
+# Seite) - daher eine kuratierte Liste bekannter, grosser Nikkei-225-Werte
+# statt automatischem Scraping. Nicht alle 225, aber die liquidesten.
+NIKKEI_CURATED = [
+    "7203.T", "6758.T", "9984.T", "8306.T", "6098.T", "9432.T", "6501.T",
+    "8035.T", "4063.T", "6902.T", "7267.T", "8316.T", "4568.T", "9433.T",
+    "6367.T", "6981.T", "8058.T", "8031.T", "7974.T", "4661.T", "6861.T",
+    "6954.T", "6857.T", "9983.T", "7201.T", "6752.T", "7751.T", "6702.T",
+    "6701.T", "7752.T", "5108.T", "6503.T", "6971.T", "6594.T", "4523.T",
+    "4519.T", "4502.T", "4503.T", "8309.T", "8411.T", "8604.T", "8766.T",
+    "8725.T", "9022.T", "9020.T", "9021.T", "9202.T", "9201.T", "9613.T",
+    "4755.T", "7269.T", "7270.T", "7261.T", "6301.T", "6326.T", "4452.T",
+    "4911.T", "2502.T", "2503.T", "2914.T", "3382.T", "9064.T", "8002.T",
+    "8001.T", "8053.T",
+]
 
 
 def get_eurostoxx50_tickers():
@@ -104,16 +113,13 @@ def build_universe():
         groups[t] = "DAX40"
     for t in COMMODITIES:
         groups[t] = "Rohstoff"
+    for t in NIKKEI_CURATED:
+        groups[t] = "Nikkei225"
     try:
         for t in get_sp500_tickers():
             groups.setdefault(t, "S&P500")
     except Exception as e:
         print("S&P 500 Liste konnte nicht geladen werden:", e)
-    try:
-        for t in get_nikkei225_tickers():
-            groups.setdefault(t, "Nikkei225")
-    except Exception as e:
-        print("Nikkei 225 Liste konnte nicht geladen werden:", e)
     try:
         for t in get_eurostoxx50_tickers():
             groups.setdefault(t, "EuroStoxx50")
@@ -265,6 +271,11 @@ def main():
     universe = build_universe()
     tickers = sorted(universe.keys())
     print(f"{len(tickers)} Ticker im Universum")
+
+    from collections import Counter
+    breakdown = Counter(universe.values())
+    for group, count in sorted(breakdown.items()):
+        print(f"  {group}: {count}")
 
     results = []
     for i, ticker in enumerate(tickers):
