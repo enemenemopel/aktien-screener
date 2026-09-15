@@ -14,6 +14,7 @@ oder spaeter eine Boerse-Datenquelle (z. B. onvista) ergaenzen.
 """
 
 import json
+import math
 import time
 from datetime import datetime, timezone
 from io import StringIO
@@ -210,7 +211,7 @@ def analyze_ticker(ticker, index_group):
             "currency": info.get("currency", ""),
             "_high_5y": round(high_5y, 2),  # nur intern fuer drawdown_pct, nicht im Export
             "drawdown_pct": round(drawdown_pct, 1),
-            "pe": round(pe, 1) if pe else None,
+            "pe": round(pe, 1) if isinstance(pe, (int, float)) and not math.isnan(pe) else None,
             "ma50": round(float(ma50), 2) if pd.notna(ma50) else None,
             "ma200": round(float(ma200), 2) if pd.notna(ma200) else None,
             "ma_5y": round(ma_5y, 2),
@@ -296,6 +297,19 @@ def main():
         "universe_size": len(tickers),
         "results": results,
     }
+
+    def clean(obj):
+        """Ersetzt NaN/Infinity (ungueltig in JSON) rekursiv durch null,
+        damit ein einzelner defekter Wert nie die ganze Datei unlesbar macht."""
+        if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+            return None
+        if isinstance(obj, dict):
+            return {k: clean(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [clean(v) for v in obj]
+        return obj
+
+    output = clean(output)
 
     with open("docs/data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
