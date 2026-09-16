@@ -138,43 +138,132 @@ def get_wkn(ticker, info):
     return "–"
 
 
-def calc_rsi(closes, period=14):
-    """RSI (Relative Strength Index): misst Staerke/Geschwindigkeit von
-    Kursbewegungen auf einer Skala 0-100. < 30 gilt als "ueberverkauft"."""
-    delta = closes.diff()
-    gain = delta.clip(lower=0)
-    loss = -delta.clip(upper=0)
-    avg_gain = gain.rolling(period).mean()
-    avg_loss = loss.rolling(period).mean()
-    last_gain, last_loss = avg_gain.iloc[-1], avg_loss.iloc[-1]
-    if pd.isna(last_gain) or pd.isna(last_loss):
-        return None
-    if last_loss == 0:
-        return 100.0
-    rs = last_gain / last_loss
-    return round(100 - (100 / (1 + rs)), 1)
+def calc_adx(hist, period=14):
+    """ADX (Average Directional Index) + DI/-DI: misst die STAERKE eines
+    Trends (nicht die Richtung). >25 gilt als starker Trend."""
+    high, low, close = hist["High"], hist["Low"], hist["Close"]
+    prev_close = close.shift(1)
+    tr = pd.concat([high - low, (high - prev_close).abs(), (low - prev_close).abs()], axis=1).max(axis=1)
+    up_move = high.diff()
+    down_move = -low.diff()
+    plus_dm = ((up_move > down_move) & (up_move > 0)) * up_move
+    minus_dm = ((down_move > up_move) & (down_move > 0)) * down_move
+    atr = tr.ewm(alpha=1 / period, adjust=False).mean()
+    plus_di = 100 * plus_dm.ewm(alpha=1 / period, adjust=False).mean() / atr
+    minus_di = 100 * minus_dm.ewm(alpha=1 / period, adjust=False).mean() / atr
+    dx = 100 * (plus_di - minus_di).abs() / (plus_di + minus_di)
+    adx = dx.ewm(alpha=1 / period, adjust=False).mean()
+    last = lambda s: round(float(s.iloc[-1]), 1) if pd.notna(s.iloc[-1]) else None
+    return last(adx), last(plus_di), last(minus_di)
 
 
-def calc_stochastic(hist, period=14):
-    """Stochastik %K: Position des aktuellen Kurses in seiner juengsten
-    Hoch/Tief-Spanne, Skala 0-100. < 20 gilt als "ueberverkauft"."""
-    low_min = hist["Low"].rolling(period).min().iloc[-1]
-    high_max = hist["High"].rolling(period).max().iloc[-1]
-    close = hist["Close"].iloc[-1]
-    if pd.isna(low_min) or pd.isna(high_max) or high_max == low_min:
-        return None
-    return round((close - low_min) / (high_max - low_min) * 100, 1)
+def calc_tsi(closes, long=25, short=13):
+    """TSI (True Strength Index), hier als Verhaeltnis -1 bis +1 (nicht
+    x100 skaliert) analog zur vorgegebenen Punktetabelle."""
+    momentum = closes.diff()
+    ema1 = momentum.ewm(span=long, adjust=False).mean()
+    ema2 = ema1.ewm(span=short, adjust=False).mean()
+    abs_ema1 = momentum.abs().ewm(span=long, adjust=False).mean()
+    abs_ema2 = abs_ema1.ewm(span=short, adjust=False).mean()
+    tsi = ema2 / abs_ema2
+    val = tsi.iloc[-1]
+    prev = tsi.iloc[-2] if len(tsi) > 1 else None
+    val = round(float(val), 3) if pd.notna(val) else None
+    prev = round(float(prev), 3) if prev is not None and pd.notna(prev) else None
+    return val, prev
 
 
-def calc_momentum(closes, period=10):
-    """Momentum: reine prozentuale Kursveraenderung ueber die letzten
-    `period` Tage. Positiv = Aufwaertstrend hat bereits begonnen."""
-    if len(closes) <= period:
+def calc_bollinger_pctb(closes, period=20, num_std=2):
+    """Bollinger %B: Position des Kurses innerhalb der Bollinger-Baender.
+    <0.2 = nahe/unter dem unteren Band (potenzieller Einstiegsbereich)."""
+    sma = closes.rolling(period).mean()
+    std = closes.rolling(period).std()
+    upper, lower = sma + num_std * std, sma - num_std * std
+    band_width = upper.iloc[-1] - lower.iloc[-1]
+    if pd.isna(band_width) or band_width == 0:
         return None
-    prev, curr = closes.iloc[-period - 1], closes.iloc[-1]
-    if prev == 0:
+    return round(float((closes.iloc[-1] - lower.iloc[-1]) / band_width), 3)
+
+
+def calc_volume_ratio(volumes, period=20):
+    """Aktuelles Volumen als % des 20-Tage-Durchschnittsvolumens."""
+    avg = volumes.rolling(period).mean().iloc[-1]
+    if pd.isna(avg) or avg == 0:
         return None
-    return round((curr - prev) / prev * 100, 1)
+    return round(float(volumes.iloc[-1] / avg * 100), 1)
+
+
+def punkte_sma200(price, sma200):
+    if sma200 is None:
+        return None
+    return 20 if price > sma200 else 0
+
+
+def punkte_sma50_vs_200(sma50, sma200):
+    if sma50 is None or sma200 is None:
+        return None
+    return 15 if sma50 > sma200 else 0
+
+
+def punkte_adx(adx):
+    if adx is None:
+        return None
+    if adx < 15:
+        return 0
+    if adx < 20:
+        return 5
+    if adx < 25:
+        return 10
+    return 15
+
+
+def punkte_tsi(tsi, tsi_prev):
+    if tsi is None:
+        return None
+    steigend = tsi_prev is not None and tsi > tsi_prev
+    # Tabellen-Stufen; bei "0 bis +0.7"-Bereichen zaehlt der obere Wert nur,
+    # wenn TSI zusaetzlich steigt (sonst eine Stufe niedriger) - das war im
+    # Original nicht fuer jeden Fall exakt beziffert, das ist meine
+    # konsistente Interpretation davon.
+    if tsi < -0.7:
+        return 0
+    if tsi < 0:
+        return 5
+    if tsi < 0.3:
+        return 12 if steigend else 5
+    if tsi < 0.7:
+        return 18 if steigend else 12
+    return 20 if steigend else 18
+
+
+def punkte_bb(pctb):
+    if pctb is None:
+        return None
+    if pctb < 0:
+        return 15
+    if pctb < 0.20:
+        return 20
+    if pctb < 0.40:
+        return 17
+    if pctb < 0.60:
+        return 10
+    if pctb < 0.80:
+        return 5
+    return 0
+
+
+def punkte_volumen(vol_ratio_pct):
+    if vol_ratio_pct is None:
+        return None
+    if vol_ratio_pct < 80:
+        return 0
+    if vol_ratio_pct < 100:
+        return 3
+    if vol_ratio_pct < 120:
+        return 5
+    if vol_ratio_pct < 150:
+        return 8
+    return 10
 
 
 def analyze_ticker(ticker, index_group):
@@ -192,10 +281,13 @@ def analyze_ticker(ticker, index_group):
         ma50 = hist["Close"].rolling(50).mean().iloc[-1]
         ma200 = hist["Close"].rolling(200).mean().iloc[-1]
         ma_5y = float(hist["Close"].mean())
+        ma50_val = round(float(ma50), 2) if pd.notna(ma50) else None
+        ma200_val = round(float(ma200), 2) if pd.notna(ma200) else None
 
-        rsi14 = calc_rsi(hist["Close"])
-        stoch_k14 = calc_stochastic(hist)
-        momentum10 = calc_momentum(hist["Close"])
+        adx14, plus_di14, minus_di14 = calc_adx(hist)
+        tsi, tsi_prev = calc_tsi(hist["Close"])
+        bb_pctb = calc_bollinger_pctb(hist["Close"])
+        vol_ratio_pct = calc_volume_ratio(hist["Volume"]) if "Volume" in hist.columns else None
 
         pe = info.get("trailingPE")
 
@@ -212,13 +304,17 @@ def analyze_ticker(ticker, index_group):
             "_high_5y": round(high_5y, 2),  # nur intern fuer drawdown_pct, nicht im Export
             "drawdown_pct": round(drawdown_pct, 1),
             "pe": round(pe, 1) if isinstance(pe, (int, float)) and not math.isnan(pe) else None,
-            "ma50": round(float(ma50), 2) if pd.notna(ma50) else None,
-            "ma200": round(float(ma200), 2) if pd.notna(ma200) else None,
+            "ma50": ma50_val,
+            "ma200": ma200_val,
             "ma_5y": round(ma_5y, 2),
             "above_ma200": bool(price > ma200) if pd.notna(ma200) else None,
-            "rsi14": rsi14,
-            "stoch_k14": stoch_k14,
-            "momentum10": momentum10,
+            "adx14": adx14,
+            "plus_di14": plus_di14,
+            "minus_di14": minus_di14,
+            "tsi": tsi,
+            "tsi_prev": tsi_prev,
+            "bb_pctb": bb_pctb,
+            "vol_ratio_pct": vol_ratio_pct,
             "begruendung": "",  # wird per Chat-Recherche auf Anfrage ergaenzt, kein Dauerlauf
         }
     except Exception as e:
@@ -226,22 +322,50 @@ def analyze_ticker(ticker, index_group):
         return None
 
 
+def tech_score(row):
+    """100-Punkte-System fuer die Qualitaet des technischen Setups:
+    SMA200 (20) + SMA50-vs-200 (15) + ADX (15) + TSI (20) + Bollinger %B (20)
+    + Volumen (10). Fehlt eine Komponente (z.B. zu kurze Historie), zaehlt
+    sie mit 0 Punkten, wird aber separat als 'unvollstaendig' markiert."""
+    komponenten = {
+        "sma200": punkte_sma200(row["price"], row.get("ma200")),
+        "sma50_vs_200": punkte_sma50_vs_200(row.get("ma50"), row.get("ma200")),
+        "adx": punkte_adx(row.get("adx14")),
+        "tsi": punkte_tsi(row.get("tsi"), row.get("tsi_prev")),
+        "bb": punkte_bb(row.get("bb_pctb")),
+        "volumen": punkte_volumen(row.get("vol_ratio_pct")),
+    }
+    vollstaendig = all(v is not None for v in komponenten.values())
+    score = sum(v or 0 for v in komponenten.values())
+    return score, 100, vollstaendig
+
+
+def setup_kategorie(score):
+    if score >= 90:
+        return "sehr starkes Setup"
+    if score >= 80:
+        return "starkes Setup"
+    if score >= 65:
+        return "interessantes Setup"
+    if score >= 50:
+        return "schwaches Setup"
+    return "kein interessantes Setup"
+
+
 def classify(row):
     if row["drawdown_pct"] is None:
         return "NEUTRAL - unzureichende Daten"
 
-    technisch_ueberverkauft = (
-        (row.get("rsi14") is not None and row["rsi14"] < 30)
-        or (row.get("stoch_k14") is not None and row["stoch_k14"] < 20)
-    )
-    momentum_dreht = row.get("momentum10") is not None and row["momentum10"] > 0
+    score, max_score, vollstaendig = tech_score(row)
+    kategorie = setup_kategorie(score)
+    unvollst = "" if vollstaendig else " (unvollstaendige Daten)"
 
     if row.get("is_commodity"):
-        # Kein KGV bei Rohstoffen: Signal basiert auf Kursrueckgang + Technik.
+        # Kein KGV bei Rohstoffen: Signal basiert auf Kursrueckgang + Technik-Score.
         if row["drawdown_pct"] <= -20:
-            if technisch_ueberverkauft or momentum_dreht:
-                return "KANDIDAT - stark gefallen + technisch bestaetigt (Rohstoff)"
-            return "BEOBACHTEN - stark gefallen, aber noch kein technischer Wendepunkt (Rohstoff)"
+            if score >= 65:
+                return f"KANDIDAT - stark gefallen + {kategorie} (Score {score}/{max_score}, Rohstoff){unvollst}"
+            return f"BEOBACHTEN - stark gefallen, aber {kategorie} (Score {score}/{max_score}, Rohstoff){unvollst}"
         return "NEUTRAL - kein klares Signal (Rohstoff)"
 
     if row["pe"] is None:
@@ -250,11 +374,11 @@ def classify(row):
     cheap = row["pe"] < 15
 
     if strong_drawdown and cheap:
-        if technisch_ueberverkauft and momentum_dreht:
-            return "KANDIDAT - fundamental + technisch stark bestaetigt"
-        if technisch_ueberverkauft or momentum_dreht:
-            return "KANDIDAT - fundamental guenstig, teilweise technisch bestaetigt"
-        return "BEOBACHTEN - fundamental guenstig, aber noch kein technischer Wendepunkt"
+        if score >= 80:
+            return f"KANDIDAT - fundamental guenstig + {kategorie} (Score {score}/{max_score}){unvollst}"
+        if score >= 65:
+            return f"KANDIDAT - fundamental guenstig, {kategorie} (Score {score}/{max_score}){unvollst}"
+        return f"BEOBACHTEN - fundamental guenstig, aber {kategorie} (Score {score}/{max_score}){unvollst}"
     if strong_drawdown and not cheap:
         return "BEOBACHTEN - stark gefallen, aber (noch) nicht guenstig"
     return "NEUTRAL - kein klares Signal"
@@ -282,6 +406,7 @@ def main():
     for i, ticker in enumerate(tickers):
         row = analyze_ticker(ticker, universe[ticker])
         if row:
+            row["tech_score"], row["tech_score_max"], row["tech_score_vollstaendig"] = tech_score(row)
             row["signal"] = classify(row)
             row["empfehlung"] = empfehlung_aus_signal(row["signal"])
             results.append(row)
