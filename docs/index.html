@@ -158,19 +158,22 @@ function toggleDetail(tr, row){
   const dtr = document.createElement("tr");
   dtr.className = "detail";
   const uid = "c_" + Math.random().toString(36).slice(2,8);
-  const rsiTxt = row.rsi14 != null ? row.rsi14 : "–";
-  const stochTxt = row.stoch_k14 != null ? row.stoch_k14 : "–";
-  const momTxt = row.momentum10 != null ? (row.momentum10 >= 0 ? "+" : "") + row.momentum10 + "%" : "–";
-  const rsiTag = row.rsi14 != null && row.rsi14 < 30 ? "pos" : "";
-  const stochTag = row.stoch_k14 != null && row.stoch_k14 < 20 ? "pos" : "";
-  const momTag = row.momentum10 != null && row.momentum10 > 0 ? "pos" : "";
+  const fmt = (v, digits=1) => v != null ? v.toFixed ? v.toFixed(digits) : v : "–";
+  const sma200Ok = row.ma200 != null && row.price > row.ma200;
+  const sma50vs200Ok = row.ma50 != null && row.ma200 != null && row.ma50 > row.ma200;
+  const scoreTxt = row.tech_score != null ? `${row.tech_score} / ${row.tech_score_max}` : "–";
+  const scoreTag = row.tech_score >= 80 ? "pos" : (row.tech_score >= 65 ? "" : "neg");
 
   dtr.innerHTML = `<td colspan="8">
-    <h3>Technische Indikatoren — ${row.name}</h3>
-    <div class="calc-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px;">
-      <div class="field"><label>RSI (14 Tage) — &lt;30 = überverkauft</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${rsiTag}">${rsiTxt}</div></div>
-      <div class="field"><label>Stochastik %K (14 Tage) — &lt;20 = überverkauft</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${stochTag}">${stochTxt}</div></div>
-      <div class="field"><label>Momentum (10 Tage) — positiv = Erholung begonnen</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:16px;" class="${momTag}">${momTxt}</div></div>
+    <h3>Technisches Setup (100-Punkte-System) — ${row.name}</h3>
+    <div class="calc-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:10px;">
+      <div class="field"><label>Kurs vs. SMA 200 (20 Pkt.)</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${sma200Ok?'pos':''}">${fmt(row.ma200,2)} ${sma200Ok?'✓ über':'unter'}</div></div>
+      <div class="field"><label>SMA 50 vs. SMA 200 (15 Pkt.)</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${sma50vs200Ok?'pos':''}">${fmt(row.ma50,2)} ${sma50vs200Ok?'✓ über SMA200':'unter/gleich'}</div></div>
+      <div class="field"><label>ADX 14 (15 Pkt.) — Trendstärke</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${row.adx14>=25?'pos':''}">${fmt(row.adx14)} (+DI ${fmt(row.plus_di14)} / -DI ${fmt(row.minus_di14)})</div></div>
+      <div class="field"><label>TSI (20 Pkt.) — Momentum</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${row.tsi>0?'pos':''}">${fmt(row.tsi,3)}</div></div>
+      <div class="field"><label>Bollinger %B (20 Pkt.) — Timing</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${row.bb_pctb!=null&&row.bb_pctb<0.2?'pos':''}">${fmt(row.bb_pctb,3)}</div></div>
+      <div class="field"><label>Volumen (10 Pkt.) — % vom Ø</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${row.vol_ratio_pct>=120?'pos':''}">${fmt(row.vol_ratio_pct)}%</div></div>
+      <div class="field"><label>Gesamt-Score</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:700;" class="${scoreTag}">${scoreTxt}</div></div>
     </div>
     <h3>Options-Schein-Rechner — ${row.name}</h3>
     <div class="calc-grid">
