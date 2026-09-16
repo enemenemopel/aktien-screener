@@ -32,9 +32,9 @@
   .tablecard{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
   table{width:100%;border-collapse:collapse;font-size:13px;}
   th{text-align:right;font-size:11px;font-weight:600;color:var(--ink-soft);padding:10px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid var(--line);background:var(--grey-bg);}
-  th:first-child,th:nth-child(2),th:nth-child(6){text-align:left;}
+  th:first-child,th:nth-child(2),th:nth-child(8){text-align:left;}
   td{text-align:right;padding:9px 10px;font-family:ui-monospace,Menlo,monospace;border-bottom:1px solid var(--line);vertical-align:top;}
-  td:first-child,td:nth-child(2),td:nth-child(6){text-align:left;font-family:-apple-system,sans-serif;}
+  td:first-child,td:nth-child(2),td:nth-child(8){text-align:left;font-family:-apple-system,sans-serif;}
   tbody tr{cursor:pointer;}
   tbody tr:hover{background:var(--grey-bg);}
   .begr{color:var(--ink-soft);font-size:12.5px;max-width:260px;white-space:normal;}
@@ -84,13 +84,15 @@
           <th data-k="wkn">WKN</th>
           <th data-k="pe">KGV</th>
           <th data-k="price">Kurs</th>
+          <th data-k="drawdown_pct">Δ 5J-Hoch</th>
+          <th data-k="tech_score">Score</th>
           <th>Signal</th>
           <th>Begründung</th>
           <th>Empfehlung</th>
           <th>Sonstiges</th>
         </tr>
       </thead>
-      <tbody id="tbody"><tr><td colspan="8" class="loading">Lade Daten …</td></tr></tbody>
+      <tbody id="tbody"><tr><td colspan="10" class="loading">Lade Daten …</td></tr></tbody>
     </table>
   </div>
 
@@ -130,7 +132,7 @@ function render(){
   const rows = filtered();
   const tbody = document.getElementById("tbody");
   if(rows.length===0){
-    tbody.innerHTML = '<tr><td colspan="8" class="empty">Keine Treffer</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="10" class="empty">Keine Treffer</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map((r,i) => `
@@ -139,6 +141,8 @@ function render(){
       <td>${r.wkn}</td>
       <td>${r.pe ?? "–"}</td>
       <td>${r.price} ${r.currency}</td>
+      <td>${r.drawdown_pct ?? "–"}%</td>
+      <td>${r.tech_score != null ? r.tech_score + "/" + r.tech_score_max : "–"}</td>
       <td><span class="sig ${sigClass(r.signal)}">${r.signal.split(" - ")[0]}</span></td>
       <td class="begr">${r.begruendung || "–"}</td>
       <td>${r.empfehlung || "–"}</td>
@@ -164,7 +168,7 @@ function toggleDetail(tr, row){
   const scoreTxt = row.tech_score != null ? `${row.tech_score} / ${row.tech_score_max}` : "–";
   const scoreTag = row.tech_score >= 80 ? "pos" : (row.tech_score >= 65 ? "" : "neg");
 
-  dtr.innerHTML = `<td colspan="8">
+  dtr.innerHTML = `<td colspan="10">
     <h3>Technisches Setup (100-Punkte-System) — ${row.name}</h3>
     <div class="calc-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:10px;">
       <div class="field"><label>Kurs vs. SMA 200 (20 Pkt.)</label><div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;" class="${sma200Ok?'pos':''}">${fmt(row.ma200,2)} ${sma200Ok?'✓ über':'unter'}</div></div>
@@ -281,7 +285,7 @@ fetch("data.json")
   })
   .catch(() => {
     document.getElementById("meta").textContent = "Noch keine data.json vorhanden – Workflow muss zuerst einmal laufen.";
-    document.getElementById("tbody").innerHTML = '<tr><td colspan="8" class="empty">Noch keine Daten. Führe den Workflow einmal manuell aus (Actions → Aktien-Screener → Run workflow).</td></tr>';
+    document.getElementById("tbody").innerHTML = '<tr><td colspan="10" class="empty">Noch keine Daten. Führe den Workflow einmal manuell aus (Actions → Aktien-Screener → Run workflow).</td></tr>';
   });
 </script>
 </body>
