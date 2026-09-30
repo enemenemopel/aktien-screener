@@ -24,10 +24,13 @@ jobs:
       - name: Screener ausfuehren
         run: python screener.py
 
+      - name: Trend-Screener ausfuehren
+        run: python trend_screener.py
+
       - name: Ergebnis committen
         run: |
           git config user.name "screener-bot"
           git config user.email "screener-bot@users.noreply.github.com"
-          git add docs/data.json
+          git add docs/data.json docs/trend_data.json
           git diff --staged --quiet || git commit -m "Screener-Update $(date -u +%F)"
           git push
