@@ -18,7 +18,7 @@ Klassen: **A** = alle automatisch pruefbaren Kriterien erfuellt, **B** = maximal
 **C** = Trend intakt, aber kein bestaetigtes Signal. Kriterien werden nicht gelockert; ohne Treffer bleibt
 die Liste leer.
 
-Wachstum: Schwelle Umsatz ODER EPS > 20 % pro Jahr fuer 2026 und 2027 (Konstante `GROWTH_MIN`); 2028 darf fehlen (`GROWTH_2028_OPTIONAL`) und wird dann als "nicht verifiziert" ausgewiesen. Grenzen: yfinance liefert Konsensschaetzungen nur fuer das laufende und naechste Geschaeftsjahr. Fuer 2028
+Wachstum: Nur das EPS-Wachstum zaehlt: 2027 > 25 % und 2028 > 8 % gegenueber dem Vorjahr, fuer 2026 gibt es keine Bedingung (Konstante `EPS_GROWTH_MIN`); 2028 darf fehlen (`GROWTH_2028_OPTIONAL`) und wird dann als "nicht verifiziert" ausgewiesen. Grenzen: yfinance liefert Konsensschaetzungen nur fuer das laufende und naechste Geschaeftsjahr. Fuer 2028
 (und damit fuer Klasse A) wird eine optionale `consensus.csv` benoetigt mit den Spalten
 `ticker,rev_2026,rev_2027,rev_2028,eps_2026,eps_2027,eps_2028` (Prozent gegenueber Vorjahr).
 "Keine gravierenden Warnsignale" (Gewinnwarnungen, Insiderverkaeufe, Guidance) ist nicht automatisch
