@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trend-Pullback-Screener</title>
+<style>
+  :root { --bg:#fff; --fg:#1c1e21; --muted:#6b7280; --line:#e5e7eb; --ok:#15803d; --warn:#b45309; --bad:#b91c1c; --head:#f3f4f6; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111418; --fg:#e5e7eb; --muted:#9ca3af; --line:#2a2f37; --ok:#4ade80; --warn:#fbbf24; --bad:#f87171; --head:#1a1f26; } }
+  body { margin:0; padding:16px; background:var(--bg); color:var(--fg); font:14px/1.45 system-ui, sans-serif; }
+  h1 { font-size:20px; margin:0 0 4px; } h2 { font-size:16px; margin:24px 0 8px; }
+  .muted { color:var(--muted); } .note { border:1px solid var(--line); padding:10px 12px; border-radius:8px; margin:12px 0; }
+  .wrap { overflow-x:auto; } table { border-collapse:collapse; width:100%; min-width:1100px; }
+  th, td { padding:6px 8px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+  th { background:var(--head); position:sticky; top:0; } th:first-child, td:first-child { text-align:left; }
+  .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+  details { margin:6px 0; } summary { cursor:pointer; }
+</style>
+</head>
+<body>
+<h1>Trend-Pullback-Screener</h1>
+<div class="muted" id="meta">Lade Daten …</div>
+<div class="note" id="notes"></div>
+<div id="out"></div>
+<script>
+const fmt = (v, d = 1, suf = "") => (v === null || v === undefined) ? '<span class="muted">n. v.</span>' : Number(v).toFixed(d) + suf;
+const yes = v => v === true ? '<span class="ok">✓</span>' : v === false ? '<span class="bad">✗</span>' : '<span class="muted">n. v.</span>';
+const g = (z, y, k) => z.wachstum && z.wachstum[y] ? fmt(z.wachstum[y][k], 0, " %") : '<span class="muted">n. v.</span>';
+const TITLES = { A: "A – Vollständiger Treffer (automatisch prüfbare Kriterien)", B: "B – Fast-Treffer (max. 2 Kriterien fehlen)", C: "C – Beobachtungsliste (Trend intakt, kein bestätigtes Signal)" };
+
+function row(z) {
+  return `<tr>
+    <td>${z.name} <span class="muted">${z.ticker}</span></td>
+    <td>${fmt(z.preis, 2)}</td><td>${fmt(z.sma40, 2)}</td><td>${fmt(z.sma40_abstand_pct, 1, " %")}</td>
+    <td>${yes(z.kriterien.ichimoku_bullish)}</td><td>${fmt(z.rsi14, 1)}</td>
+    <td>${fmt(z.stoch_k, 1)} / ${fmt(z.stoch_d, 1)}</td><td>${z.stoch_kreuz || "n. v."}</td>
+    <td>${fmt(z.rsl30, 2)}</td><td>${fmt(z.rsl250, 2)}</td>
+    <td>${fmt(z.kgv, 1)}</td><td>${fmt(z.forward_kgv, 1)}</td><td>${fmt(z.peg, 2)}</td>
+    <td>${g(z, "2026", "umsatz_pct")} / ${g(z, "2026", "eps_pct")}</td>
+    <td>${g(z, "2027", "umsatz_pct")} / ${g(z, "2027", "eps_pct")}</td>
+    <td>${g(z, "2028", "umsatz_pct")} / ${g(z, "2028", "eps_pct")}</td>
+    <td>${z.naechste_quartalszahlen}</td><td>${z.kriterien_erfuellt}</td>
+    <td style="text-align:left">${(z.fehlende_kriterien || []).join(", ") || "–"}</td>
+  </tr>`;
+}
+
+function table(list) {
+  return `<div class="wrap"><table><thead><tr>
+    <th>Unternehmen</th><th>Kurs</th><th>SMA 40</th><th>Abst.</th><th>Ichimoku</th><th>RSI</th>
+    <th>Stoch K/D</th><th>Kreuz</th><th>RSL 30T</th><th>RSL 250T</th><th>KGV</th><th>Fwd-KGV</th><th>PEG</th>
+    <th>2026 Ums./EPS</th><th>2027 Ums./EPS</th><th>2028 Ums./EPS</th><th>Zahlen</th><th>Erfüllt</th><th>Fehlt</th>
+  </tr></thead><tbody>${list.map(row).join("")}</tbody></table></div>`;
+}
+
+function entry(z) {
+  const e = z.einstieg; if (!e) return "";
+  return `<details><summary>${z.name}: Einstiegsanalyse</summary>
+    Unterstützung: ${Object.entries(e.unterstuetzungszonen).map(([k, v]) => k + " " + fmt(v, 2)).join(" · ")}<br>
+    Einstiegsspanne: ${e.einstiegsspanne ? e.einstiegsspanne.join(" – ") : "n. v."} ·
+    Invalidierung unter: ${fmt(e.invalidierung_unter, 2)} · Ziel (60T-Hoch): ${fmt(e.ziel_60t_hoch, 2)} ·
+    Chance/Risiko: ${fmt(e.chance_risiko, 2)}<br><span class="muted">${e.hinweis}</span></details>`;
+}
+
+fetch("trend_data.json").then(r => r.json()).then(d => {
+  document.getElementById("meta").textContent =
+    `Letzter Handelstag: ${d.letzter_handelstag || "n. v."} · analysiert: ${d.analysiert} von ${d.universe_size} · erzeugt: ${d.generated_at_utc}`;
+  document.getElementById("notes").innerHTML =
+    `<b>RSL-Methode:</b> ${d.rsl_methode}<br><br><b>Hinweis:</b> ${d.hinweis_klasse_a}<br><span class="muted">${d.data_note}</span>`;
+  let html = "";
+  for (const k of ["A", "B", "C"]) {
+    const list = d.results.filter(z => z.klasse === k);
+    html += `<h2>${TITLES[k]} (${list.length})</h2>`;
+    html += list.length ? table(list) + list.map(entry).join("") :
+      '<div class="muted">Keine Treffer. Kriterien werden bewusst nicht gelockert.</div>';
+  }
+  document.getElementById("out").innerHTML = html;
+}).catch(() => { document.getElementById("meta").textContent = "trend_data.json noch nicht vorhanden – Workflow zuerst ausführen."; });
+</script>
+</body>
+</html>
