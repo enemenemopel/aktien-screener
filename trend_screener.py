@@ -56,8 +56,11 @@ CORR_LOOKBACK = 60                 # Referenzhoch der letzten 60 Handelstage
 CORR_RANGE = (-25.0, -5.0)         # Korrektur zwischen -5 % und -25 % vom Hoch
 
 PEG_MAX = 1.5                      # "angemessen" = 0 < PEG <= 1.5
-GROWTH_MIN = 20.0                  # % pro Jahr (EPS und/oder Umsatz); urspruenglich 50, auf Wunsch gelockert
-GROWTH_2028_OPTIONAL = True        # 2028 darf fehlen (dann "nicht verifiziert"); ist es vorhanden, muss es die Schwelle erfuellen
+# EPS-Wachstum: Mindestwert je Jahr in % gegenueber dem Vorjahr (None = keine Bedingung).
+# Ersetzt die fruehere Regel "Umsatz ODER EPS > 20 %". Umsatzwachstum wird weiter
+# angezeigt, zaehlt aber nicht mehr fuer das Kriterium. 2026 hat keine eigene Bedingung.
+EPS_GROWTH_MIN = {2026: None, 2027: 25.0, 2028: 8.0}
+GROWTH_2028_OPTIONAL = True        # 2028 darf fehlen (dann "nicht verifiziert"); liegt es vor, muss es die Schwelle erfuellen
 YEARS = (2026, 2027, 2028)
 
 MIN_BARS = RSL_LONG + 30
@@ -90,7 +93,7 @@ CRITERIA = [
     ("rsl30", "RSL 30T > 1,05"),
     ("rsl250", "RSL 250T > 1,20"),
     ("kgv_angemessen", "KGV/PEG angemessen"),
-    ("wachstum_2026_2028", f"Wachstum 2026/2027 (2028 falls verfuegbar) > {GROWTH_MIN:.0f} %"),
+    ("wachstum_2026_2028", f"EPS-Wachstum 2027 > {EPS_GROWTH_MIN[2027]:.0f} % (2028 > {EPS_GROWTH_MIN[2028]:.0f} %, falls verfuegbar)"),
     ("keine_warnsignale", "Keine gravierenden Warnsignale"),
 ]
 AUTO_KEYS = [k for k, _ in CRITERIA if k != "keine_warnsignale"]
@@ -409,17 +412,21 @@ def fetch_fundamentals(ticker, consensus):
                     growth[y][kind] = float(v)
                     quelle[y] = "consensus.csv"
 
-    statuses = []
+    # Nur EPS-Wachstum zaehlt. Jahre mit Mindestwert muessen verifiziert und ueber dem Wert
+    # liegen; 2028 darf fehlen (bleibt dann "nicht verifiziert"). Liegt es vor und verfehlt
+    # den Wert, ist das ein Fail.
+    checks = []
     for y in YEARS:
-        vals = [v for v in (growth[y]["rev"], growth[y]["eps"]) if v is not None]
-        statuses.append(None if not vals else bool(any(v > GROWTH_MIN for v in vals)))
-    # 2026 und 2027 muessen verifiziert und ueber der Schwelle sein. 2028 darf fehlen
-    # (bleibt dann "nicht verifiziert"); liegt es vor und verfehlt die Schwelle, ist das ein Fail.
-    if GROWTH_2028_OPTIONAL and statuses[2] is None:
-        growth_ok = all_or_none(*statuses[:2])
-    else:
-        growth_ok = all_or_none(*statuses)
-    growth_2028_verifiziert = statuses[2] is not None
+        limit = EPS_GROWTH_MIN.get(y)
+        if limit is None:
+            continue
+        eps = growth[y]["eps"]
+        s = None if eps is None else bool(eps > limit)
+        if y == 2028 and GROWTH_2028_OPTIONAL and s is None:
+            continue
+        checks.append(s)
+    growth_ok = all_or_none(*checks) if checks else None
+    growth_2028_verifiziert = growth[2028]["eps"] is not None
 
     def cum_cagr(kind):
         vals = [growth[y][kind] for y in YEARS]
@@ -689,12 +696,16 @@ def main():
         "analysiert": len(tech_rows),
         "rsl_methode": RSL_METHOD,
         "kriterien": [{"key": k, "name": n} for k, n in CRITERIA],
-        "wachstum_schwelle_pct": GROWTH_MIN,
-        "wachstum_2028_optional": GROWTH_2028_OPTIONAL,
+        "wachstum_regeln": {
+            "eps_min_pct": {str(y): v for y, v in EPS_GROWTH_MIN.items()},
+            "hinweis": "Nur EPS-Wachstum gegenueber Vorjahr zaehlt; None = keine Bedingung fuer dieses Jahr",
+            "2028_optional": GROWTH_2028_OPTIONAL,
+        },
         "hinweis_klasse_a": (
-            f"Klasse A = alle automatisch pruefbaren Pflichtbedingungen erfuellt. Wachstumsschwelle: "
-            f"Umsatz ODER EPS > {GROWTH_MIN:.0f} % pro Jahr fuer 2026 und 2027; 2028 darf fehlen "
-            "(dann 'Wachstum 2028' unter 'nicht verifiziert'), muss aber die Schwelle erfuellen, wenn es vorliegt. "
+            "Klasse A = alle automatisch pruefbaren Pflichtbedingungen erfuellt. Wachstumsregel: "
+            f"EPS-Wachstum 2027 > {EPS_GROWTH_MIN[2027]:.0f} % und 2028 > {EPS_GROWTH_MIN[2028]:.0f} %; "
+            "2028 darf fehlen (dann 'Wachstum 2028' unter 'nicht verifiziert'), muss aber die Schwelle "
+            "erfuellen, wenn es vorliegt. Fuer 2026 gibt es keine Bedingung. "
             "'Keine gravierenden Warnsignale' (Gewinnwarnungen, Insiderverkaeufe, Guidance, "
             "Revisionen) muss weiterhin manuell geprueft werden. 2028-Wachstum ist nur mit "
             "consensus.csv sicher verifizierbar."
