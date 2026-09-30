@@ -11,9 +11,10 @@ alle Pflichtbedingungen erfuellt, ist die Trefferliste leer.
 
 Ehrliche Grenzen der Datenquelle:
 - yfinance liefert Konsensschaetzungen nur fuer das laufende und das naechste
-  Geschaeftsjahr. 2028 ist damit NICHT verifiziert, solange keine
-  consensus.csv mit 2028-Werten vorliegt (siehe load_consensus). Ohne 2028
-  kann keine Aktie automatisch als "A" eingestuft werden.
+  Geschaeftsjahr. 2028 ist damit meist NICHT verifiziert, solange keine
+  consensus.csv mit 2028-Werten vorliegt (siehe load_consensus). Das Skript
+  behandelt 2028 deshalb als optional (GROWTH_2028_OPTIONAL): fehlt es, wird es
+  als "nicht verifiziert" ausgewiesen; liegt es vor, muss es die Schwelle erfuellen.
 - FCF-Wachstum, Insiderverkaeufe, Guidance, Analystenrevisionen und
   Gewinnwarnungen sind nicht automatisch pruefbar -> "nicht verifiziert".
 """
@@ -55,7 +56,8 @@ CORR_LOOKBACK = 60                 # Referenzhoch der letzten 60 Handelstage
 CORR_RANGE = (-25.0, -5.0)         # Korrektur zwischen -5 % und -25 % vom Hoch
 
 PEG_MAX = 1.5                      # "angemessen" = 0 < PEG <= 1.5
-GROWTH_MIN = 50.0                  # % pro Jahr (EPS und/oder Umsatz)
+GROWTH_MIN = 20.0                  # % pro Jahr (EPS und/oder Umsatz); urspruenglich 50, auf Wunsch gelockert
+GROWTH_2028_OPTIONAL = True        # 2028 darf fehlen (dann "nicht verifiziert"); ist es vorhanden, muss es die Schwelle erfuellen
 YEARS = (2026, 2027, 2028)
 
 MIN_BARS = RSL_LONG + 30
@@ -87,7 +89,7 @@ CRITERIA = [
     ("rsl30", "RSL 30T > 1,05"),
     ("rsl250", "RSL 250T > 1,20"),
     ("kgv_angemessen", "KGV/PEG angemessen"),
-    ("wachstum_2026_2028", "Wachstum 2026-2028 > 50 %"),
+    ("wachstum_2026_2028", f"Wachstum 2026/2027 (2028 falls verfuegbar) > {GROWTH_MIN:.0f} %"),
     ("keine_warnsignale", "Keine gravierenden Warnsignale"),
 ]
 AUTO_KEYS = [k for k, _ in CRITERIA if k != "keine_warnsignale"]
@@ -410,7 +412,13 @@ def fetch_fundamentals(ticker, consensus):
     for y in YEARS:
         vals = [v for v in (growth[y]["rev"], growth[y]["eps"]) if v is not None]
         statuses.append(None if not vals else bool(any(v > GROWTH_MIN for v in vals)))
-    growth_ok = all_or_none(*statuses)
+    # 2026 und 2027 muessen verifiziert und ueber der Schwelle sein. 2028 darf fehlen
+    # (bleibt dann "nicht verifiziert"); liegt es vor und verfehlt die Schwelle, ist das ein Fail.
+    if GROWTH_2028_OPTIONAL and statuses[2] is None:
+        growth_ok = all_or_none(*statuses[:2])
+    else:
+        growth_ok = all_or_none(*statuses)
+    growth_2028_verifiziert = statuses[2] is not None
 
     def cum_cagr(kind):
         vals = [growth[y][kind] for y in YEARS]
@@ -469,6 +477,7 @@ def fetch_fundamentals(ticker, consensus):
         "naechste_quartalszahlen": next_earnings or "nicht verifiziert",
         "wkn": get_wkn(ticker, info),
         "kriterien_fundamental": {"kgv_angemessen": peg_ok, "wachstum_2026_2028": growth_ok},
+        "wachstum_2028_verifiziert": growth_2028_verifiziert,
     }
 
 
@@ -636,6 +645,8 @@ def main():
         x["kriterien_erfuellt_n"] = erfuellt
         x["fehlende_kriterien"] = [dict(CRITERIA).get(k, k) for k in missing]
         x["nicht_verifiziert"] = [dict(CRITERIA)[k] for k, _ in CRITERIA if x["kriterien"].get(k) is None]
+        if not x.get("wachstum_2028_verifiziert"):
+            x["nicht_verifiziert"].append("Wachstum 2028")
         if klasse in ("A", "B"):
             x["einstieg"] = entry_analysis(x)
         results.append(x)
@@ -655,11 +666,15 @@ def main():
         "analysiert": len(tech_rows),
         "rsl_methode": RSL_METHOD,
         "kriterien": [{"key": k, "name": n} for k, n in CRITERIA],
+        "wachstum_schwelle_pct": GROWTH_MIN,
+        "wachstum_2028_optional": GROWTH_2028_OPTIONAL,
         "hinweis_klasse_a": (
-            "Klasse A = alle automatisch pruefbaren Pflichtbedingungen erfuellt. "
+            f"Klasse A = alle automatisch pruefbaren Pflichtbedingungen erfuellt. Wachstumsschwelle: "
+            f"Umsatz ODER EPS > {GROWTH_MIN:.0f} % pro Jahr fuer 2026 und 2027; 2028 darf fehlen "
+            "(dann 'Wachstum 2028' unter 'nicht verifiziert'), muss aber die Schwelle erfuellen, wenn es vorliegt. "
             "'Keine gravierenden Warnsignale' (Gewinnwarnungen, Insiderverkaeufe, Guidance, "
             "Revisionen) muss weiterhin manuell geprueft werden. 2028-Wachstum ist nur mit "
-            "consensus.csv verifizierbar."
+            "consensus.csv sicher verifizierbar."
         ),
         "anzahl": counts,
         "results": results,
