@@ -69,6 +69,7 @@ STALE_DAYS = 5                     # aelter als 5 Tage gegenueber dem neuesten D
 INTRADAY_CUTOFF_UTC_HOUR = 22
 
 US_BENCH = ("^GSPC", "S&P 500")
+LOADED_COUNTS = {}                 # wird beim Aufbau des Universums gefuellt und ins JSON geschrieben
 BENCHMARKS = {
     "S&P500": US_BENCH,
     "Nasdaq100": US_BENCH,
@@ -542,11 +543,29 @@ def final_check(row):
     return all(checks)
 
 
+def _flatten_columns(table):
+    """Macht aus verschachtelten Spaltennamen (MultiIndex) und Fussnoten wie
+    'Ticker[a]' einfache Namen ('Ticker'). Gibt eine Kopie zurueck."""
+    table = table.copy()
+    names = []
+    for col in table.columns:
+        parts = col if isinstance(col, tuple) else (col,)
+        clean = []
+        for p in parts:
+            p = re.sub(r"\[.*?\]", "", str(p)).strip()
+            if p and not p.startswith("Unnamed") and (not clean or clean[-1] != p):
+                clean.append(p)
+        names.append(" ".join(clean))
+    table.columns = names
+    return table
+
+
 def tickers_from_tables(url, columns=("Ticker", "Symbol"), min_rows=50):
     """Liest eine Konstituenten-Tabelle von Wikipedia. Nimmt die erste Tabelle
     mit passender Spalte und mindestens `min_rows` Zeilen (Schutz vor
     Nebentabellen). Punkte werden zu Bindestrichen (BRK.B -> BRK-B, Yahoo-Format)."""
     for table in fetch_tables(url):
+        table = _flatten_columns(table)
         for col in columns:
             if col in table.columns and len(table) >= min_rows:
                 vals = [str(t).strip() for t in table[col].dropna().tolist()]
@@ -569,13 +588,16 @@ def build_trend_universe():
     Schlaegt eine Liste fehl, wird nur geloggt - der Lauf bricht nicht ab.
     Doppelte Ticker behalten die erste Gruppe (S&P 500 vor Nasdaq-100 vor S&P 400)."""
     groups = {t: g for t, g in build_universe().items() if g in ("S&P500", "DAX40", "EuroStoxx50")}
+    LOADED_COUNTS.clear()
     for group, getter in (("Nasdaq100", get_nasdaq100_tickers), ("S&P400", get_sp400_tickers)):
         try:
             tickers = getter()
         except Exception as e:
             print(f"{group}: Liste konnte nicht geladen werden - {e}")
             tickers = []
-        print(f"{group}: {len(tickers)} Ticker geladen")
+        new = [t for t in tickers if t not in groups]
+        LOADED_COUNTS[group] = {"geladen": len(tickers), "davon_neu": len(new)}
+        print(f"{group}: {len(tickers)} Ticker geladen, davon {len(new)} nicht bereits in anderen Gruppen")
         for t in tickers:
             groups.setdefault(t, group)
     return groups
@@ -663,6 +685,7 @@ def main():
         "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
         "universe_size": len(tickers),
         "universum_gruppen": {g: sum(1 for t in tickers if universe[t] == g) for g in BENCHMARKS},
+        "universum_listen_geladen": dict(LOADED_COUNTS),
         "analysiert": len(tech_rows),
         "rsl_methode": RSL_METHOD,
         "kriterien": [{"key": k, "name": n} for k, n in CRITERIA],
