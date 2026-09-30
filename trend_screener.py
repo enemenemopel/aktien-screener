@@ -1,5 +1,5 @@
 """
-Trend-Pullback-Screener (S&P 500, DAX 40, EURO STOXX 50)
+Trend-Pullback-Screener (S&P 500, Nasdaq-100, S&P 400, DAX 40, EURO STOXX 50)
 
 Sucht Aktien im uebergeordneten Aufwaertstrend mit kontrollierter Korrektur
 und frischem Einstiegssignal. ALLE technischen Indikatoren werden hier aus
@@ -21,13 +21,14 @@ Ehrliche Grenzen der Datenquelle:
 import json
 import math
 import os
+import re
 import time
 from datetime import date, datetime, timezone
 
 import pandas as pd
 import yfinance as yf
 
-from screener import build_universe, get_wkn
+from screener import build_universe, fetch_tables, get_wkn
 
 # ----------------------------------------------------------------------------
 # Parameter - alle Schwellen an einer Stelle
@@ -61,9 +62,15 @@ MIN_BARS = RSL_LONG + 30
 MIN_MARKET_CAP = 2e9               # Waehrung des Titels, grobe Untergrenze gegen Kleinstwerte
 MIN_AVG_TURNOVER = 10e6            # Durchschnittlicher Tagesumsatz (20T) in Waehrung des Titels
 STALE_DAYS = 5                     # aelter als 5 Tage gegenueber dem neuesten Datenstand = ausgeschlossen
+# Boersen (US/Europa) sind spaetestens gegen 21:00 UTC geschlossen. Laeuft das Skript
+# vorher, ist die Kerze von "heute" noch nicht abgeschlossen (kein Schlusskurs) und wird verworfen.
+INTRADAY_CUTOFF_UTC_HOUR = 22
 
+US_BENCH = ("^GSPC", "S&P 500")
 BENCHMARKS = {
-    "S&P500": ("^GSPC", "S&P 500"),
+    "S&P500": US_BENCH,
+    "Nasdaq100": US_BENCH,
+    "S&P400": US_BENCH,
     "DAX40": ("^GDAXI", "DAX"),
     "EuroStoxx50": ("^STOXX50E", "EURO STOXX 50"),
 }
@@ -151,7 +158,18 @@ def load_history(symbol, period="2y"):
         return None
     if hist is None or hist.empty:
         return None
-    return clean_index(hist).dropna(subset=["Close", "High", "Low"])
+    hist = clean_index(hist).dropna(subset=["Close", "High", "Low"])
+    return drop_unfinished_bar(hist)
+
+
+def drop_unfinished_bar(hist, now=None):
+    """Verwirft die Kerze von heute, solange die Boersen noch offen sein koennen.
+    Sonst wuerde ein Zwischenstand als Schlusskurs gewertet (und Aktien
+    verschiedener Boersen haetten unterschiedliche Datenstaende)."""
+    now = now or datetime.now(timezone.utc)
+    if len(hist) and hist.index[-1].date() >= now.date() and now.hour < INTRADAY_CUTOFF_UTC_HOUR:
+        return hist.iloc[:-1]
+    return hist
 
 
 # ----------------------------------------------------------------------------
@@ -420,7 +438,7 @@ def fetch_fundamentals(ticker, consensus):
         pass
 
     return {
-        "name": info.get("shortName", ticker),
+        "name": re.sub(r"\s{2,}I$", "", str(info.get("shortName", ticker))).strip(),
         "sektor": info.get("sector", "unbekannt"),
         "waehrung": info.get("currency", ""),
         "marktkapitalisierung": mcap,
@@ -515,17 +533,60 @@ def final_check(row):
     return all(checks)
 
 
+def tickers_from_tables(url, columns=("Ticker", "Symbol"), min_rows=50):
+    """Liest eine Konstituenten-Tabelle von Wikipedia. Nimmt die erste Tabelle
+    mit passender Spalte und mindestens `min_rows` Zeilen (Schutz vor
+    Nebentabellen). Punkte werden zu Bindestrichen (BRK.B -> BRK-B, Yahoo-Format)."""
+    for table in fetch_tables(url):
+        for col in columns:
+            if col in table.columns and len(table) >= min_rows:
+                vals = [str(t).strip() for t in table[col].dropna().tolist()]
+                return [v.replace(".", "-") for v in vals if v and v.lower() != "nan"]
+    return []
+
+
+def get_nasdaq100_tickers():
+    return tickers_from_tables("https://en.wikipedia.org/wiki/Nasdaq-100", min_rows=80)
+
+
+def get_sp400_tickers():
+    return tickers_from_tables("https://en.wikipedia.org/wiki/List_of_S%26P_400_companies", min_rows=300)
+
+
+def build_trend_universe():
+    """S&P 500, DAX 40, EURO STOXX 50 (aus screener.py) plus Nasdaq-100 und
+    S&P MidCap 400. Schnelle Wachstumswerte sitzen eher ausserhalb der grossen
+    Blue-Chip-Indizes; das erweitert das Universum, lockert aber kein Kriterium.
+    Schlaegt eine Liste fehl, wird nur geloggt - der Lauf bricht nicht ab.
+    Doppelte Ticker behalten die erste Gruppe (S&P 500 vor Nasdaq-100 vor S&P 400)."""
+    groups = {t: g for t, g in build_universe().items() if g in ("S&P500", "DAX40", "EuroStoxx50")}
+    for group, getter in (("Nasdaq100", get_nasdaq100_tickers), ("S&P400", get_sp400_tickers)):
+        try:
+            tickers = getter()
+        except Exception as e:
+            print(f"{group}: Liste konnte nicht geladen werden - {e}")
+            tickers = []
+        print(f"{group}: {len(tickers)} Ticker geladen")
+        for t in tickers:
+            groups.setdefault(t, group)
+    return groups
+
+
 def main():
     consensus = load_consensus()
-    universe = {t: g for t, g in build_universe().items() if g in BENCHMARKS}
+    universe = build_trend_universe()
     tickers = sorted(universe)
     print(f"{len(tickers)} Ticker im Universum (ohne Nikkei/Rohstoffe)")
 
     bench = {}
+    bench_by_symbol = {}
     for group, (sym, name) in BENCHMARKS.items():
-        h = load_history(sym)
-        bench[group] = None if h is None else h["Close"]
-        print(f"Benchmark {name}: {'ok, Stand ' + bench[group].index[-1].date().isoformat() if h is not None else 'NICHT verfuegbar'}")
+        if sym not in bench_by_symbol:
+            h = load_history(sym)
+            bench_by_symbol[sym] = None if h is None else h["Close"]
+            state = "ok, Stand " + h.index[-1].date().isoformat() if h is not None else "NICHT verfuegbar"
+            print(f"Benchmark {name}: {state}")
+        bench[group] = bench_by_symbol[sym]
 
     tech_rows = []
     for i, t in enumerate(tickers):
@@ -590,6 +651,7 @@ def main():
         "letzter_handelstag": latest.isoformat() if latest else None,
         "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
         "universe_size": len(tickers),
+        "universum_gruppen": {g: sum(1 for t in tickers if universe[t] == g) for g in BENCHMARKS},
         "analysiert": len(tech_rows),
         "rsl_methode": RSL_METHOD,
         "kriterien": [{"key": k, "name": n} for k, n in CRITERIA],
