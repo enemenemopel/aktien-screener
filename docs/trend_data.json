@@ -1,0 +1,3868 @@
+{
+  "generated_at_utc": "2026-09-30T11:40:05.492683+00:00",
+  "letzter_handelstag": "2026-09-30",
+  "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
+  "universe_size": 579,
+  "analysiert": 574,
+  "rsl_methode": "RSL(N) = (Kurs heute / Kurs vor N Handelstagen) / (Benchmark heute / Benchmark vor N Handelstagen). Benchmark: S&P 500 fuer US-Aktien, DAX fuer DAX-Werte, EURO STOXX 50 fuer uebrige Euro-Werte. Zusaetzlich wird die klassische RSL nach Levy (Kurs / Durchschnittskurs der letzten N Tage) als Zusatzinfo ausgewiesen; fuer die Pflichtbedingung zaehlt der Benchmark-Vergleich.",
+  "kriterien": [
+    {
+      "key": "kurs_ueber_sma40",
+      "name": "Kurs > SMA 40"
+    },
+    {
+      "key": "sma40_steigend",
+      "name": "SMA 40 steigend"
+    },
+    {
+      "key": "ichimoku_bullish",
+      "name": "Ichimoku bullish"
+    },
+    {
+      "key": "korrektur",
+      "name": "Korrektur vorhanden"
+    },
+    {
+      "key": "rsi_nicht_ueberkauft",
+      "name": "RSI nicht ueberkauft"
+    },
+    {
+      "key": "stoch_unter_50",
+      "name": "Slow Stochastic < 50"
+    },
+    {
+      "key": "stoch_kreuz_bullisch",
+      "name": "Bullisches %K/%D-Kreuz"
+    },
+    {
+      "key": "rsl30",
+      "name": "RSL 30T > 1,05"
+    },
+    {
+      "key": "rsl250",
+      "name": "RSL 250T > 1,20"
+    },
+    {
+      "key": "kgv_angemessen",
+      "name": "KGV/PEG angemessen"
+    },
+    {
+      "key": "wachstum_2026_2028",
+      "name": "Wachstum 2026-2028 > 50 %"
+    },
+    {
+      "key": "keine_warnsignale",
+      "name": "Keine gravierenden Warnsignale"
+    }
+  ],
+  "hinweis_klasse_a": "Klasse A = alle automatisch pruefbaren Pflichtbedingungen erfuellt. 'Keine gravierenden Warnsignale' (Gewinnwarnungen, Insiderverkaeufe, Guidance, Revisionen) muss weiterhin manuell geprueft werden. 2028-Wachstum ist nur mit consensus.csv verifizierbar.",
+  "anzahl": {
+    "A": 0,
+    "B": 3,
+    "C": 30
+  },
+  "results": [
+    {
+      "ticker": "MPC",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 392.03,
+      "sma40": 371.27,
+      "sma40_abstand_pct": 5.6,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 404.94,
+        "kijun": 389.38,
+        "senkou_a": 335.47,
+        "senkou_b": 302.61,
+        "wolke_oben": 335.47,
+        "wolke_unten": 302.61,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 55.2,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 24.6,
+      "stoch_d": 23.9,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 1,
+      "stoch_kreuz_niveau": 23.9,
+      "stoch_kreuz_im_sweetspot": true,
+      "rsl30": 1.108,
+      "rsl250": 1.803,
+      "rsl30_levy": 1.016,
+      "rsl250_levy": 1.611,
+      "korrektur_vom_60t_hoch_pct": -7.7,
+      "hoch_60t": 424.89,
+      "tief_10t": 378.8,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": true,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Marathon Petroleum Corporation",
+      "sektor": "Energy",
+      "waehrung": "USD",
+      "marktkapitalisierung": 110091730944,
+      "mcap_ausreichend": true,
+      "kgv": 13.6,
+      "forward_kgv": 8.3,
+      "peg": 0.9,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 23.4,
+          "eps_pct": 420.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": -12.3,
+          "eps_pct": -15.4,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 13.6,
+        "nettomarge_pct": 5.5,
+        "roe_pct": 42.1,
+        "verschuldung_debt_to_equity": 133.3,
+        "cash": 7768000000,
+        "free_cashflow_ttm": 9249375232,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-03",
+      "wkn": "–",
+      "klasse": "B",
+      "kriterien_erfuellt": "10/12",
+      "kriterien_erfuellt_n": 10,
+      "fehlende_kriterien": [
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ],
+      "einstieg": {
+        "unterstuetzungszonen": {
+          "SMA 40": 371.27,
+          "Kijun-sen": 389.38,
+          "Wolkenoberkante": 335.47
+        },
+        "sma40_stuetze": true,
+        "kijun_stuetze": true,
+        "wolke_stuetze": true,
+        "einstiegsspanne": [
+          389.38,
+          392.03
+        ],
+        "invalidierung_unter": 332.12,
+        "invalidierung_regel": "Schlusskurs unter dem Niveau 1 % unter min(SMA 40, Wolkenoberkante)",
+        "ziel_60t_hoch": 424.89,
+        "chance_risiko": 0.55,
+        "hinweis": "Rein rechnerisch, keine Anlageempfehlung, kein Hebelprodukt."
+      }
+    },
+    {
+      "ticker": "DELL",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 539.59,
+      "sma40": 498.51,
+      "sma40_abstand_pct": 8.2,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 562.98,
+        "kijun": 508.7,
+        "senkou_a": 453.61,
+        "senkou_b": 435.24,
+        "wolke_oben": 453.61,
+        "wolke_unten": 435.24,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 53.6,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 47.5,
+      "stoch_d": 48.8,
+      "stoch_kreuz": "bevorstehend",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.135,
+      "rsl250": 3.361,
+      "rsl30_levy": 1.06,
+      "rsl250_levy": 2.094,
+      "korrektur_vom_60t_hoch_pct": -8.3,
+      "hoch_60t": 588.4,
+      "tief_10t": 530.45,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": true,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Dell Technologies Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 343078207488,
+      "mcap_ausreichend": true,
+      "kgv": 31.4,
+      "forward_kgv": 18.5,
+      "peg": 0.64,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        },
+        "2027": {
+          "umsatz_pct": 70.4,
+          "eps_pct": 151.4,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": 15.8,
+          "eps_pct": 0.8,
+          "quelle": "yfinance-Konsens"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 12.0,
+        "nettomarge_pct": 7.5,
+        "roe_pct": null,
+        "verschuldung_debt_to_equity": null,
+        "cash": 11569999872,
+        "free_cashflow_ttm": 6033375232,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-27",
+      "wkn": "–",
+      "klasse": "B",
+      "kriterien_erfuellt": "9/12",
+      "kriterien_erfuellt_n": 9,
+      "fehlende_kriterien": [
+        "Bullisches %K/%D-Kreuz",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ],
+      "einstieg": {
+        "unterstuetzungszonen": {
+          "SMA 40": 498.51,
+          "Kijun-sen": 508.7,
+          "Wolkenoberkante": 453.61
+        },
+        "sma40_stuetze": true,
+        "kijun_stuetze": true,
+        "wolke_stuetze": true,
+        "einstiegsspanne": [
+          508.7,
+          539.59
+        ],
+        "invalidierung_unter": 449.07,
+        "invalidierung_regel": "Schlusskurs unter dem Niveau 1 % unter min(SMA 40, Wolkenoberkante)",
+        "ziel_60t_hoch": 588.4,
+        "chance_risiko": 0.54,
+        "hinweis": "Rein rechnerisch, keine Anlageempfehlung, kein Hebelprodukt."
+      }
+    },
+    {
+      "ticker": "PSX",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 252.25,
+      "sma40": 244.52,
+      "sma40_abstand_pct": 3.2,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 262.81,
+        "kijun": 255.33,
+        "senkou_a": 226.56,
+        "senkou_b": 205.09,
+        "wolke_oben": 226.56,
+        "wolke_unten": 205.09,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": false
+      },
+      "rsi14": 50.9,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 15.6,
+      "stoch_d": 20.5,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.064,
+      "rsl250": 1.665,
+      "rsl30_levy": 0.995,
+      "rsl250_levy": 1.477,
+      "korrektur_vom_60t_hoch_pct": -8.0,
+      "hoch_60t": 274.21,
+      "tief_10t": 248.51,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": true,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Phillips 66",
+      "sektor": "Energy",
+      "waehrung": "USD",
+      "marktkapitalisierung": 101135859712,
+      "mcap_ausreichend": true,
+      "kgv": 14.4,
+      "forward_kgv": 10.1,
+      "peg": 0.81,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 21.1,
+          "eps_pct": 335.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": -10.2,
+          "eps_pct": -11.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 8.5,
+        "nettomarge_pct": 4.7,
+        "roe_pct": 23.5,
+        "verschuldung_debt_to_equity": 62.9,
+        "cash": 4099000064,
+        "free_cashflow_ttm": 4545375232,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-28",
+      "wkn": "–",
+      "klasse": "B",
+      "kriterien_erfuellt": "9/12",
+      "kriterien_erfuellt_n": 9,
+      "fehlende_kriterien": [
+        "Bullisches %K/%D-Kreuz",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ],
+      "einstieg": {
+        "unterstuetzungszonen": {
+          "SMA 40": 244.52,
+          "Kijun-sen": 255.33,
+          "Wolkenoberkante": 226.56
+        },
+        "sma40_stuetze": true,
+        "kijun_stuetze": false,
+        "wolke_stuetze": true,
+        "einstiegsspanne": [
+          244.52,
+          252.25
+        ],
+        "invalidierung_unter": 224.29,
+        "invalidierung_regel": "Schlusskurs unter dem Niveau 1 % unter min(SMA 40, Wolkenoberkante)",
+        "ziel_60t_hoch": 274.21,
+        "chance_risiko": 0.79,
+        "hinweis": "Rein rechnerisch, keine Anlageempfehlung, kein Hebelprodukt."
+      }
+    },
+    {
+      "ticker": "CBK.DE",
+      "index_group": "DAX40",
+      "benchmark": "DAX",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 40.76,
+      "sma40": 40.73,
+      "sma40_abstand_pct": 0.1,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 41.71,
+        "kijun": 41.33,
+        "senkou_a": 38.7,
+        "senkou_b": 37.98,
+        "wolke_oben": 38.7,
+        "wolke_unten": 37.98,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": false
+      },
+      "rsi14": 46.8,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 42.0,
+      "stoch_d": 49.5,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.09,
+      "rsl250": 1.262,
+      "rsl30_levy": 0.988,
+      "rsl250_levy": 1.165,
+      "korrektur_vom_60t_hoch_pct": -4.7,
+      "hoch_60t": 42.75,
+      "tief_10t": 40.51,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Commerzbank AG                I",
+      "sektor": "Financial Services",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 44087754752,
+      "mcap_ausreichend": true,
+      "kgv": 15.6,
+      "forward_kgv": 10.4,
+      "peg": 0.83,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 9.3,
+          "eps_pct": 14.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 7.6,
+          "eps_pct": 24.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 43.7,
+        "nettomarge_pct": 26.4,
+        "roe_pct": 9.7,
+        "verschuldung_debt_to_equity": null,
+        "cash": 102639001600,
+        "free_cashflow_ttm": null,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-05",
+      "wkn": "CBK100",
+      "klasse": "C",
+      "kriterien_erfuellt": "8/12",
+      "kriterien_erfuellt_n": 8,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Bullisches %K/%D-Kreuz",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "PFG",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 113.97,
+      "sma40": 113.53,
+      "sma40_abstand_pct": 0.4,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 115.03,
+        "kijun": 114.51,
+        "senkou_a": 111.37,
+        "senkou_b": 109.8,
+        "wolke_oben": 111.37,
+        "wolke_unten": 109.8,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": false
+      },
+      "rsi14": 49.1,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 38.6,
+      "stoch_d": 37.3,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 1,
+      "stoch_kreuz_niveau": 39.4,
+      "stoch_kreuz_im_sweetspot": true,
+      "rsl30": 1.026,
+      "rsl250": 1.24,
+      "rsl30_levy": 1.003,
+      "rsl250_levy": 1.187,
+      "korrektur_vom_60t_hoch_pct": -3.8,
+      "hoch_60t": 118.51,
+      "tief_10t": 111.57,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Principal Financial Group Inc",
+      "sektor": "Financial Services",
+      "waehrung": "USD",
+      "marktkapitalisierung": 24401506304,
+      "mcap_ausreichend": true,
+      "kgv": 16.3,
+      "forward_kgv": 10.9,
+      "peg": 1.06,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 1.8,
+          "eps_pct": 15.6,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 8.5,
+          "eps_pct": 8.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 12.3,
+        "nettomarge_pct": 9.9,
+        "roe_pct": 12.9,
+        "verschuldung_debt_to_equity": 35.3,
+        "cash": 6367699968,
+        "free_cashflow_ttm": 1056374976,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-26",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "8/12",
+      "kriterien_erfuellt_n": 8,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSL 30T > 1,05",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "VLO",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 387.72,
+      "sma40": 360.3,
+      "sma40_abstand_pct": 7.6,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 392.0,
+        "kijun": 377.02,
+        "senkou_a": 327.7,
+        "senkou_b": 292.26,
+        "wolke_oben": 327.7,
+        "wolke_unten": 292.26,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 58.1,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 42.9,
+      "stoch_d": 40.0,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.128,
+      "rsl250": 2.028,
+      "rsl30_levy": 1.039,
+      "rsl250_levy": 1.631,
+      "korrektur_vom_60t_hoch_pct": -6.2,
+      "hoch_60t": 413.28,
+      "tief_10t": 364.96,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": true,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Valero Energy Corporation",
+      "sektor": "Energy",
+      "waehrung": "USD",
+      "marktkapitalisierung": 111635234816,
+      "mcap_ausreichend": true,
+      "kgv": 16.2,
+      "forward_kgv": 10.2,
+      "peg": 1.92,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 23.0,
+          "eps_pct": 348.5,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": -13.5,
+          "eps_pct": -20.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 12.3,
+        "nettomarge_pct": 5.4,
+        "roe_pct": 27.6,
+        "verschuldung_debt_to_equity": 40.1,
+        "cash": 7873999872,
+        "free_cashflow_ttm": 8416374784,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-22",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "8/12",
+      "kriterien_erfuellt_n": 8,
+      "fehlende_kriterien": [
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "DE",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 680.5,
+      "sma40": 653.1,
+      "sma40_abstand_pct": 4.2,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 696.65,
+        "kijun": 669.21,
+        "senkou_a": 616.8,
+        "senkou_b": 604.73,
+        "wolke_oben": 616.8,
+        "wolke_unten": 604.73,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 53.7,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 38.4,
+      "stoch_d": 48.1,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.145,
+      "rsl250": 1.309,
+      "rsl30_levy": 1.021,
+      "rsl250_levy": 1.216,
+      "korrektur_vom_60t_hoch_pct": -4.1,
+      "hoch_60t": 709.48,
+      "tief_10t": 665.45,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Deere & Company",
+      "sektor": "Industrials",
+      "waehrung": "USD",
+      "marktkapitalisierung": 183480090624,
+      "mcap_ausreichend": true,
+      "kgv": 37.9,
+      "forward_kgv": 29.8,
+      "peg": 1.6,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 5.7,
+          "eps_pct": -2.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 8.7,
+          "eps_pct": 25.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 13.4,
+        "nettomarge_pct": 10.2,
+        "roe_pct": 18.2,
+        "verschuldung_debt_to_equity": 230.3,
+        "cash": 6940000256,
+        "free_cashflow_ttm": 4516250112,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-25",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "GILD",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 151.28,
+      "sma40": 144.39,
+      "sma40_abstand_pct": 4.8,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 150.54,
+        "kijun": 148.29,
+        "senkou_a": 138.61,
+        "senkou_b": 134.03,
+        "wolke_oben": 138.61,
+        "wolke_unten": 134.03,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 60.1,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 76.3,
+      "stoch_d": 72.4,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 0,
+      "stoch_kreuz_niveau": 76.3,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.106,
+      "rsl250": 1.218,
+      "rsl30_levy": 1.024,
+      "rsl250_levy": 1.151,
+      "korrektur_vom_60t_hoch_pct": -0.9,
+      "hoch_60t": 152.67,
+      "tief_10t": 146.12,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Gilead Sciences, Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 187580416000,
+      "mcap_ausreichend": true,
+      "kgv": null,
+      "forward_kgv": 15.3,
+      "peg": 2.25,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 4.3,
+          "eps_pct": -105.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 6.5,
+          "eps_pct": 2419.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 33.7,
+        "nettomarge_pct": -10.6,
+        "roe_pct": -20.7,
+        "verschuldung_debt_to_equity": 223.5,
+        "cash": 4881999872,
+        "free_cashflow_ttm": 9768875008,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-29",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "HPE",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 61.49,
+      "sma40": 56.33,
+      "sma40_abstand_pct": 9.2,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 61.33,
+        "kijun": 55.62,
+        "senkou_a": 55.3,
+        "senkou_b": 51.95,
+        "wolke_oben": 55.3,
+        "wolke_unten": 51.95,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 57.8,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 71.3,
+      "stoch_d": 79.0,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.08,
+      "rsl250": 2.222,
+      "rsl30_levy": 1.086,
+      "rsl250_levy": 1.838,
+      "korrektur_vom_60t_hoch_pct": -3.2,
+      "hoch_60t": 63.52,
+      "tief_10t": 54.88,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Hewlett Packard Enterprise Comp",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 81625817088,
+      "mcap_ausreichend": true,
+      "kgv": 31.7,
+      "forward_kgv": 13.4,
+      "peg": 0.5,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 35.5,
+          "eps_pct": 97.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 17.1,
+          "eps_pct": 20.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 12.6,
+        "nettomarge_pct": 6.7,
+        "roe_pct": 10.9,
+        "verschuldung_debt_to_equity": 76.5,
+        "cash": 6216000000,
+        "free_cashflow_ttm": 4738625024,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-09-02",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "INGA.AS",
+      "index_group": "EuroStoxx50",
+      "benchmark": "EURO STOXX 50",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 31.6,
+      "sma40": 31.18,
+      "sma40_abstand_pct": 1.4,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 31.89,
+        "kijun": 31.2,
+        "senkou_a": 30.03,
+        "senkou_b": 28.58,
+        "wolke_oben": 30.03,
+        "wolke_unten": 28.58,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 52.5,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 39.1,
+      "stoch_d": 42.0,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.083,
+      "rsl250": 1.409,
+      "rsl30_levy": 1.008,
+      "rsl250_levy": 1.265,
+      "korrektur_vom_60t_hoch_pct": -2.2,
+      "hoch_60t": 32.31,
+      "tief_10t": 31.38,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": true,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "ING GROEP N.V.",
+      "sektor": "Financial Services",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 89959636992,
+      "mcap_ausreichend": true,
+      "kgv": 13.7,
+      "forward_kgv": 10.9,
+      "peg": 2.14,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 6.9,
+          "eps_pct": 17.8,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 7.4,
+          "eps_pct": 16.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 49.1,
+        "nettomarge_pct": 34.5,
+        "roe_pct": 17.1,
+        "verschuldung_debt_to_equity": null,
+        "cash": 247878991872,
+        "free_cashflow_ttm": null,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-29",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "IQV",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 268.99,
+      "sma40": 257.1,
+      "sma40_abstand_pct": 4.6,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 271.14,
+        "kijun": 264.96,
+        "senkou_a": 238.04,
+        "senkou_b": 211.31,
+        "wolke_oben": 238.04,
+        "wolke_unten": 211.31,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 58.4,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 70.7,
+      "stoch_d": 74.7,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.126,
+      "rsl250": 1.235,
+      "rsl30_levy": 1.021,
+      "rsl250_levy": 1.297,
+      "korrektur_vom_60t_hoch_pct": -2.2,
+      "hoch_60t": 275.02,
+      "tief_10t": 264.88,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "IQVIA Holdings, Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 44275752960,
+      "mcap_ausreichend": true,
+      "kgv": 33.5,
+      "forward_kgv": 18.6,
+      "peg": 0.99,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 6.8,
+          "eps_pct": 8.8,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 6.1,
+          "eps_pct": 11.5,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 13.0,
+        "nettomarge_pct": 8.1,
+        "roe_pct": 22.8,
+        "verschuldung_debt_to_equity": 258.0,
+        "cash": 2080000000,
+        "free_cashflow_ttm": 2149750016,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-27",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "LITE",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 973.49,
+      "sma40": 898.31,
+      "sma40_abstand_pct": 8.4,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 941.61,
+        "kijun": 905.61,
+        "senkou_a": 845.3,
+        "senkou_b": 797.26,
+        "wolke_oben": 845.3,
+        "wolke_unten": 797.26,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 57.3,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 61.8,
+      "stoch_d": 55.6,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 0,
+      "stoch_kreuz_niveau": 61.8,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.014,
+      "rsl250": 5.217,
+      "rsl30_levy": 1.074,
+      "rsl250_levy": 1.536,
+      "korrektur_vom_60t_hoch_pct": -1.6,
+      "hoch_60t": 988.98,
+      "tief_10t": 855.09,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": null,
+        "keine_warnsignale": null
+      },
+      "name": "Lumentum Holdings Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 87322050560,
+      "mcap_ausreichend": true,
+      "kgv": null,
+      "forward_kgv": 28.0,
+      "peg": 0.63,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        },
+        "2027": {
+          "umsatz_pct": 110.0,
+          "eps_pct": 150.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": 52.2,
+          "eps_pct": 59.6,
+          "quelle": "yfinance-Konsens"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 28.0,
+        "nettomarge_pct": -230.1,
+        "roe_pct": -240.0,
+        "verschuldung_debt_to_equity": 36.0,
+        "cash": 2738400000,
+        "free_cashflow_ttm": 224700000,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-05",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "RSL 30T > 1,05",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Wachstum 2026-2028 > 50 %",
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "MRK",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 149.28,
+      "sma40": 143.62,
+      "sma40_abstand_pct": 3.9,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 149.45,
+        "kijun": 149.16,
+        "senkou_a": 139.67,
+        "senkou_b": 132.25,
+        "wolke_oben": 139.67,
+        "wolke_unten": 132.25,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 58.9,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 58.6,
+      "stoch_d": 55.5,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 0,
+      "stoch_kreuz_niveau": 58.6,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.115,
+      "rsl250": 1.596,
+      "rsl30_levy": 1.009,
+      "rsl250_levy": 1.306,
+      "korrektur_vom_60t_hoch_pct": -4.0,
+      "hoch_60t": 155.53,
+      "tief_10t": 143.5,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Merck & Company, Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 368299376640,
+      "mcap_ausreichend": true,
+      "kgv": 119.4,
+      "forward_kgv": 15.7,
+      "peg": 2.73,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 3.3,
+          "eps_pct": -69.5,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 4.6,
+          "eps_pct": 246.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": -0.2,
+        "nettomarge_pct": 4.8,
+        "roe_pct": 7.0,
+        "verschuldung_debt_to_equity": 128.4,
+        "cash": 7141000192,
+        "free_cashflow_ttm": 15171500032,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-29",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "RWE.DE",
+      "index_group": "DAX40",
+      "benchmark": "DAX",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 59.38,
+      "sma40": 58.62,
+      "sma40_abstand_pct": 1.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 59.59,
+        "kijun": 58.98,
+        "senkou_a": 57.81,
+        "senkou_b": 56.82,
+        "wolke_oben": 57.81,
+        "wolke_unten": 56.82,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 52.1,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 55.7,
+      "stoch_d": 54.7,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 0,
+      "stoch_kreuz_niveau": 55.7,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.073,
+      "rsl250": 1.487,
+      "rsl30_levy": 1.007,
+      "rsl250_levy": 1.133,
+      "korrektur_vom_60t_hoch_pct": -2.0,
+      "hoch_60t": 60.62,
+      "tief_10t": 58.22,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "RWE AG                        I",
+      "sektor": "Utilities",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 46315520000,
+      "mcap_ausreichend": true,
+      "kgv": 13.2,
+      "forward_kgv": 17.8,
+      "peg": 35.6,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 19.8,
+          "eps_pct": 21.4,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 4.2,
+          "eps_pct": 6.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 4.6,
+        "nettomarge_pct": 20.3,
+        "roe_pct": 8.5,
+        "verschuldung_debt_to_equity": 50.4,
+        "cash": 12824000512,
+        "free_cashflow_ttm": -11109499904,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-11",
+      "wkn": "703712",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "SY1.DE",
+      "index_group": "DAX40",
+      "benchmark": "DAX",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 93.24,
+      "sma40": 90.74,
+      "sma40_abstand_pct": 2.8,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 91.43,
+        "kijun": 90.63,
+        "senkou_a": 89.32,
+        "senkou_b": 88.38,
+        "wolke_oben": 89.32,
+        "wolke_unten": 88.38,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 58.5,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 85.4,
+      "stoch_d": 85.4,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 0,
+      "stoch_kreuz_niveau": 85.4,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.099,
+      "rsl250": 1.215,
+      "rsl30_levy": 1.023,
+      "rsl250_levy": 1.198,
+      "korrektur_vom_60t_hoch_pct": -0.3,
+      "hoch_60t": 93.5,
+      "tief_10t": 88.36,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Symrise AG                    I",
+      "sektor": "Basic Materials",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 12790679552,
+      "mcap_ausreichend": true,
+      "kgv": 52.7,
+      "forward_kgv": 21.3,
+      "peg": 2.97,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 1.9,
+          "eps_pct": 8.4,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 4.6,
+          "eps_pct": 9.8,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 15.8,
+        "nettomarge_pct": 5.0,
+        "roe_pct": 6.7,
+        "verschuldung_debt_to_equity": 60.6,
+        "cash": 451076992,
+        "free_cashflow_ttm": 220897376,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-07-30",
+      "wkn": "SYM999",
+      "klasse": "C",
+      "kriterien_erfuellt": "7/12",
+      "kriterien_erfuellt_n": 7,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "BIIB",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 227.07,
+      "sma40": 216.66,
+      "sma40_abstand_pct": 4.8,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 222.54,
+        "kijun": 219.71,
+        "senkou_a": 210.55,
+        "senkou_b": 204.09,
+        "wolke_oben": 210.55,
+        "wolke_unten": 204.09,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 61.0,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 89.3,
+      "stoch_d": 89.8,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.096,
+      "rsl250": 1.413,
+      "rsl30_levy": 1.034,
+      "rsl250_levy": 1.21,
+      "korrektur_vom_60t_hoch_pct": -0.7,
+      "hoch_60t": 228.69,
+      "tief_10t": 214.59,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Biogen Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 33550501888,
+      "mcap_ausreichend": true,
+      "kgv": 40.4,
+      "forward_kgv": 13.7,
+      "peg": 2.36,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 5.6,
+          "eps_pct": -17.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 2.0,
+          "eps_pct": 31.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 25.1,
+        "nettomarge_pct": 8.3,
+        "roe_pct": 4.6,
+        "verschuldung_debt_to_equity": 44.3,
+        "cash": 1284999936,
+        "free_cashflow_ttm": 1266987520,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-28",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "CRL",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 295.96,
+      "sma40": 282.68,
+      "sma40_abstand_pct": 4.7,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 286.4,
+        "kijun": 285.29,
+        "senkou_a": 270.97,
+        "senkou_b": 239.12,
+        "wolke_oben": 270.97,
+        "wolke_unten": 239.12,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 61.7,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 87.4,
+      "stoch_d": 80.4,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.043,
+      "rsl250": 1.649,
+      "rsl30_levy": 1.034,
+      "rsl250_levy": 1.464,
+      "korrektur_vom_60t_hoch_pct": -0.9,
+      "hoch_60t": 298.58,
+      "tief_10t": 270.88,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Charles River Laboratories Inte",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 14255720448,
+      "mcap_ausreichend": true,
+      "kgv": null,
+      "forward_kgv": 23.2,
+      "peg": 0.12,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": -2.4,
+          "eps_pct": 10.4,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 2.2,
+          "eps_pct": 12.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 15.1,
+        "nettomarge_pct": -6.0,
+        "roe_pct": -7.5,
+        "verschuldung_debt_to_equity": 105.0,
+        "cash": 192024992,
+        "free_cashflow_ttm": 468856000,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-04",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "RSL 30T > 1,05",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "CRWD",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 262.74,
+      "sma40": 222.15,
+      "sma40_abstand_pct": 18.3,
+      "sma40_abstand_bevorzugt": false,
+      "ichimoku": {
+        "tenkan": 249.27,
+        "kijun": 224.47,
+        "senkou_a": 204.04,
+        "senkou_b": 190.97,
+        "wolke_oben": 204.04,
+        "wolke_unten": 190.97,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 66.0,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 88.2,
+      "stoch_d": 89.1,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.24,
+      "rsl250": 1.869,
+      "rsl30_levy": 1.173,
+      "rsl250_levy": 1.788,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 262.74,
+      "tief_10t": 230.85,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "CrowdStrike Holdings, Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 269028638720,
+      "mcap_ausreichend": true,
+      "kgv": 8758.0,
+      "forward_kgv": 163.6,
+      "peg": 8.3,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        },
+        "2027": {
+          "umsatz_pct": 24.8,
+          "eps_pct": 34.7,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": 22.6,
+          "eps_pct": 27.9,
+          "quelle": "yfinance-Konsens"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": -2.3,
+        "nettomarge_pct": 0.8,
+        "roe_pct": 1.5,
+        "verschuldung_debt_to_equity": 16.0,
+        "cash": 5013847040,
+        "free_cashflow_ttm": 1995385472,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-12-01",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "ENI.MI",
+      "index_group": "EuroStoxx50",
+      "benchmark": "EURO STOXX 50",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 23.97,
+      "sma40": 23.55,
+      "sma40_abstand_pct": 1.8,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 23.84,
+        "kijun": 23.56,
+        "senkou_a": 23.23,
+        "senkou_b": 22.01,
+        "wolke_oben": 23.23,
+        "wolke_unten": 22.01,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 53.6,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 74.4,
+      "stoch_d": 82.0,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.038,
+      "rsl250": 1.519,
+      "rsl30_levy": 1.016,
+      "rsl250_levy": 1.208,
+      "korrektur_vom_60t_hoch_pct": -2.5,
+      "hoch_60t": 24.58,
+      "tief_10t": 22.93,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "ENI",
+      "sektor": "Energy",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 68807311360,
+      "mcap_ausreichend": true,
+      "kgv": 12.5,
+      "forward_kgv": 9.9,
+      "peg": 0.44,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 20.7,
+          "eps_pct": 73.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": -7.7,
+          "eps_pct": -10.7,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 10.7,
+        "nettomarge_pct": 5.9,
+        "roe_pct": 10.9,
+        "verschuldung_debt_to_equity": 65.0,
+        "cash": 15088000000,
+        "free_cashflow_ttm": -8982875136,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-23",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "RSL 30T > 1,05",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "FTNT",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 175.96,
+      "sma40": 163.91,
+      "sma40_abstand_pct": 7.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 173.73,
+        "kijun": 165.43,
+        "senkou_a": 157.47,
+        "senkou_b": 152.57,
+        "wolke_oben": 157.47,
+        "wolke_unten": 152.57,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 59.6,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 78.3,
+      "stoch_d": 82.4,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.14,
+      "rsl250": 1.825,
+      "rsl30_levy": 1.069,
+      "rsl250_levy": 1.594,
+      "korrektur_vom_60t_hoch_pct": -1.6,
+      "hoch_60t": 178.74,
+      "tief_10t": 166.09,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Fortinet, Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 129104265216,
+      "mcap_ausreichend": true,
+      "kgv": 62.2,
+      "forward_kgv": 46.6,
+      "peg": 1.94,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 19.4,
+          "eps_pct": 25.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 11.4,
+          "eps_pct": 9.5,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 33.6,
+        "nettomarge_pct": 28.2,
+        "roe_pct": 117.4,
+        "verschuldung_debt_to_equity": 36.2,
+        "cash": 4069600000,
+        "free_cashflow_ttm": 2265587456,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-04",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "NDA-FI.HE",
+      "index_group": "EuroStoxx50",
+      "benchmark": "EURO STOXX 50",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 17.72,
+      "sma40": 17.59,
+      "sma40_abstand_pct": 0.7,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 17.8,
+        "kijun": 17.73,
+        "senkou_a": 17.22,
+        "senkou_b": 16.71,
+        "wolke_oben": 17.22,
+        "wolke_unten": 16.71,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": false
+      },
+      "rsi14": 51.6,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 50.7,
+      "stoch_d": 57.5,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.06,
+      "rsl250": 1.213,
+      "rsl30_levy": 1.003,
+      "rsl250_levy": 1.149,
+      "korrektur_vom_60t_hoch_pct": -1.6,
+      "hoch_60t": 18.01,
+      "tief_10t": 17.49,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Nordea Bank Abp",
+      "sektor": "Financial Services",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 60120346624,
+      "mcap_ausreichend": true,
+      "kgv": 12.9,
+      "forward_kgv": 11.1,
+      "peg": 8.85,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 3.1,
+          "eps_pct": 4.8,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 5.5,
+          "eps_pct": 9.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 54.2,
+        "nettomarge_pct": 40.6,
+        "roe_pct": 15.3,
+        "verschuldung_debt_to_equity": null,
+        "cash": 67302998016,
+        "free_cashflow_ttm": null,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-15",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "NTAP",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 209.18,
+      "sma40": 193.61,
+      "sma40_abstand_pct": 8.0,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 200.46,
+        "kijun": 185.52,
+        "senkou_a": 191.8,
+        "senkou_b": 178.94,
+        "wolke_oben": 191.8,
+        "wolke_unten": 178.94,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 66.2,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 94.1,
+      "stoch_d": 87.4,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 1,
+      "stoch_kreuz_niveau": 85.7,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.034,
+      "rsl250": 1.567,
+      "rsl30_levy": 1.087,
+      "rsl250_levy": 1.584,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 209.18,
+      "tief_10t": 186.13,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "NetApp, Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 41086926848,
+      "mcap_ausreichend": true,
+      "kgv": 29.6,
+      "forward_kgv": 18.8,
+      "peg": 2.27,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        },
+        "2027": {
+          "umsatz_pct": 18.1,
+          "eps_pct": 23.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": 5.8,
+          "eps_pct": 11.1,
+          "quelle": "yfinance-Konsens"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 26.7,
+        "nettomarge_pct": 19.2,
+        "roe_pct": 114.8,
+        "verschuldung_debt_to_equity": 169.5,
+        "cash": 3576000000,
+        "free_cashflow_ttm": 1171374976,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-12-01",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "RSL 30T > 1,05",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "P",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 130.05,
+      "sma40": 104.35,
+      "sma40_abstand_pct": 24.6,
+      "sma40_abstand_bevorzugt": false,
+      "ichimoku": {
+        "tenkan": 116.04,
+        "kijun": 111.04,
+        "senkou_a": 100.84,
+        "senkou_b": 91.95,
+        "wolke_oben": 100.84,
+        "wolke_unten": 91.95,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 73.1,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 91.7,
+      "stoch_d": 86.1,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 1,
+      "stoch_kreuz_niveau": 85.6,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.122,
+      "rsl250": 1.353,
+      "rsl30_levy": 1.236,
+      "rsl250_levy": 1.632,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 130.05,
+      "tief_10t": 95.43,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Everpure, Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 43336208384,
+      "mcap_ausreichend": true,
+      "kgv": 178.2,
+      "forward_kgv": 36.6,
+      "peg": 2.64,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        },
+        "2027": {
+          "umsatz_pct": 38.0,
+          "eps_pct": 39.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": 39.1,
+          "eps_pct": 52.0,
+          "quelle": "yfinance-Konsens"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 5.3,
+        "nettomarge_pct": 5.9,
+        "roe_pct": 17.7,
+        "verschuldung_debt_to_equity": 14.6,
+        "cash": 1007891008,
+        "free_cashflow_ttm": -114351752,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-08-26",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "RVTY",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 152.77,
+      "sma40": 128.82,
+      "sma40_abstand_pct": 18.6,
+      "sma40_abstand_bevorzugt": false,
+      "ichimoku": {
+        "tenkan": 146.57,
+        "kijun": 136.98,
+        "senkou_a": 116.5,
+        "senkou_b": 110.88,
+        "wolke_oben": 116.5,
+        "wolke_unten": 110.88,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 74.8,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 97.2,
+      "stoch_d": 93.8,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.328,
+      "rsl250": 1.524,
+      "rsl30_levy": 1.147,
+      "rsl250_levy": 1.478,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 152.77,
+      "tief_10t": 140.08,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": true,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Revvity, Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 17047054336,
+      "mcap_ausreichend": true,
+      "kgv": 73.4,
+      "forward_kgv": 25.9,
+      "peg": 0.73,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": -0.1,
+          "eps_pct": 5.7,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 5.3,
+          "eps_pct": 10.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 17.1,
+        "nettomarge_pct": 8.2,
+        "roe_pct": 3.2,
+        "verschuldung_debt_to_equity": 46.2,
+        "cash": 1022942976,
+        "free_cashflow_ttm": 604992128,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-26",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "TMO",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 679.61,
+      "sma40": 621.77,
+      "sma40_abstand_pct": 9.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 664.89,
+        "kijun": 638.67,
+        "senkou_a": 585.66,
+        "senkou_b": 545.75,
+        "wolke_oben": 585.66,
+        "wolke_unten": 545.75,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 73.8,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 94.1,
+      "stoch_d": 93.4,
+      "stoch_kreuz": "erfolgt",
+      "stoch_kreuz_tage_her": 1,
+      "stoch_kreuz_niveau": 93.6,
+      "stoch_kreuz_im_sweetspot": false,
+      "rsl30": 1.173,
+      "rsl250": 1.226,
+      "rsl30_levy": 1.074,
+      "rsl250_levy": 1.248,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 679.61,
+      "tief_10t": 638.0,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": true,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Thermo Fisher Scientific Inc",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 251283947520,
+      "mcap_ausreichend": true,
+      "kgv": 36.6,
+      "forward_kgv": 24.7,
+      "peg": 2.02,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 7.4,
+          "eps_pct": 9.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 5.1,
+          "eps_pct": 9.6,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 18.8,
+        "nettomarge_pct": 15.0,
+        "roe_pct": 13.5,
+        "verschuldung_debt_to_equity": 80.6,
+        "cash": 4064000000,
+        "free_cashflow_ttm": 6237250048,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-21",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "VTRS",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 18.12,
+      "sma40": 16.73,
+      "sma40_abstand_pct": 8.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 17.65,
+        "kijun": 17.28,
+        "senkou_a": 16.56,
+        "senkou_b": 16.54,
+        "wolke_oben": 16.56,
+        "wolke_unten": 16.54,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 69.7,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 91.2,
+      "stoch_d": 88.3,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.136,
+      "rsl250": 1.652,
+      "rsl30_levy": 1.076,
+      "rsl250_levy": 1.289,
+      "korrektur_vom_60t_hoch_pct": -0.8,
+      "hoch_60t": 18.27,
+      "tief_10t": 16.67,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Viatris Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 20812466176,
+      "mcap_ausreichend": true,
+      "kgv": null,
+      "forward_kgv": 6.8,
+      "peg": 3.29,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 3.4,
+          "eps_pct": 7.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 1.7,
+          "eps_pct": 6.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 12.6,
+        "nettomarge_pct": -2.8,
+        "roe_pct": -2.8,
+        "verschuldung_debt_to_equity": 95.5,
+        "cash": 1510499968,
+        "free_cashflow_ttm": 2677337600,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-05",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "WAT",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 443.26,
+      "sma40": 414.44,
+      "sma40_abstand_pct": 7.0,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 431.74,
+        "kijun": 419.22,
+        "senkou_a": 396.17,
+        "senkou_b": 383.47,
+        "wolke_oben": 396.17,
+        "wolke_unten": 383.47,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 68.8,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 94.8,
+      "stoch_d": 89.7,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.098,
+      "rsl250": 1.289,
+      "rsl30_levy": 1.064,
+      "rsl250_levy": 1.221,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 443.26,
+      "tief_10t": 415.94,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Waters Corporation",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 43521863680,
+      "mcap_ausreichend": true,
+      "kgv": 112.2,
+      "forward_kgv": 26.8,
+      "peg": 1.65,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 104.3,
+          "eps_pct": 11.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 10.3,
+          "eps_pct": 13.5,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 9.4,
+        "nettomarge_pct": 3.6,
+        "roe_pct": 1.9,
+        "verschuldung_debt_to_equity": 36.0,
+        "cash": 539000000,
+        "free_cashflow_ttm": -142067632,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-30",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "6/12",
+      "kriterien_erfuellt_n": 6,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "ANET",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 202.86,
+      "sma40": 196.17,
+      "sma40_abstand_pct": 3.4,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 202.49,
+        "kijun": 196.64,
+        "senkou_a": 191.5,
+        "senkou_b": 180.11,
+        "wolke_oben": 191.5,
+        "wolke_unten": 180.11,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 55.8,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 72.1,
+      "stoch_d": 78.4,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.015,
+      "rsl250": 1.214,
+      "rsl30_levy": 1.036,
+      "rsl250_levy": 1.315,
+      "korrektur_vom_60t_hoch_pct": -3.6,
+      "hoch_60t": 210.5,
+      "tief_10t": 192.98,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Arista Networks, Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 255852036096,
+      "mcap_ausreichend": true,
+      "kgv": 64.4,
+      "forward_kgv": 39.1,
+      "peg": 1.53,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 40.6,
+          "eps_pct": 38.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 28.2,
+          "eps_pct": 26.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 45.4,
+        "nettomarge_pct": 38.4,
+        "roe_pct": 31.5,
+        "verschuldung_debt_to_equity": null,
+        "cash": 13343299584,
+        "free_cashflow_ttm": 3891512576,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-03",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "RSL 30T > 1,05",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "BBVA.MC",
+      "index_group": "EuroStoxx50",
+      "benchmark": "EURO STOXX 50",
+      "datenstand": "2026-09-30",
+      "liquide": true,
+      "preis": 25.04,
+      "sma40": 24.96,
+      "sma40_abstand_pct": 0.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 25.09,
+        "kijun": 25.08,
+        "senkou_a": 24.3,
+        "senkou_b": 22.78,
+        "wolke_oben": 24.3,
+        "wolke_unten": 22.78,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": false
+      },
+      "rsi14": 52.3,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 58.8,
+      "stoch_d": 60.6,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.042,
+      "rsl250": 1.464,
+      "rsl30_levy": 1.001,
+      "rsl250_levy": 1.24,
+      "korrektur_vom_60t_hoch_pct": -1.5,
+      "hoch_60t": 25.41,
+      "tief_10t": 24.6,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "BANCO BILBAO VIZCAYA ARGENTARIA",
+      "sektor": "Financial Services",
+      "waehrung": "EUR",
+      "marktkapitalisierung": 138058858496,
+      "mcap_ausreichend": true,
+      "kgv": 13.3,
+      "forward_kgv": 10.8,
+      "peg": 2.23,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 15.4,
+          "eps_pct": 17.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 6.4,
+          "eps_pct": 12.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 56.4,
+        "nettomarge_pct": 32.6,
+        "roe_pct": 18.9,
+        "verschuldung_debt_to_equity": null,
+        "cash": 183573004288,
+        "free_cashflow_ttm": null,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-29",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "RSL 30T > 1,05",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "ILMN",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 272.0,
+      "sma40": 218.81,
+      "sma40_abstand_pct": 24.3,
+      "sma40_abstand_bevorzugt": false,
+      "ichimoku": {
+        "tenkan": 255.99,
+        "kijun": 239.5,
+        "senkou_a": 201.79,
+        "senkou_b": 187.99,
+        "wolke_oben": 201.79,
+        "wolke_unten": 187.99,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 74.3,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 91.1,
+      "stoch_d": 92.6,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.422,
+      "rsl250": 2.497,
+      "rsl30_levy": 1.198,
+      "rsl250_levy": 1.8,
+      "korrektur_vom_60t_hoch_pct": -0.7,
+      "hoch_60t": 273.9,
+      "tief_10t": 223.7,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Illumina, Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 41072001024,
+      "mcap_ausreichend": true,
+      "kgv": 50.7,
+      "forward_kgv": 44.6,
+      "peg": 3.35,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 6.5,
+          "eps_pct": 10.7,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 6.4,
+          "eps_pct": 14.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 21.1,
+        "nettomarge_pct": 18.3,
+        "roe_pct": 32.3,
+        "verschuldung_debt_to_equity": 89.0,
+        "cash": 1168000000,
+        "free_cashflow_ttm": 797625024,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-29",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "MRNA",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 203.46,
+      "sma40": 130.56,
+      "sma40_abstand_pct": 55.8,
+      "sma40_abstand_bevorzugt": false,
+      "ichimoku": {
+        "tenkan": 179.2,
+        "kijun": 169.45,
+        "senkou_a": 116.15,
+        "senkou_b": 111.03,
+        "wolke_oben": 116.15,
+        "wolke_unten": 111.03,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 76.4,
+      "rsi_drehend_hoch": true,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 93.5,
+      "stoch_d": 93.7,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 3.187,
+      "rsl250": 6.868,
+      "rsl30_levy": 1.321,
+      "rsl250_levy": 3.509,
+      "korrektur_vom_60t_hoch_pct": 0.0,
+      "hoch_60t": 203.46,
+      "tief_10t": 142.3,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": null,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Moderna, Inc.",
+      "sektor": "Healthcare",
+      "waehrung": "USD",
+      "marktkapitalisierung": 81228537856,
+      "mcap_ausreichend": true,
+      "kgv": null,
+      "forward_kgv": -45.5,
+      "peg": null,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 8.1,
+          "eps_pct": -15.6,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 16.0,
+          "eps_pct": 42.9,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": -557.9,
+        "nettomarge_pct": -141.4,
+        "roe_pct": -39.0,
+        "verschuldung_debt_to_equity": 19.0,
+        "cash": 5137999872,
+        "free_cashflow_ttm": 299249984,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-05",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "KGV/PEG angemessen",
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "PANW",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 388.41,
+      "sma40": 365.43,
+      "sma40_abstand_pct": 6.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 376.15,
+        "kijun": 358.85,
+        "senkou_a": 362.33,
+        "senkou_b": 325.01,
+        "wolke_oben": 362.33,
+        "wolke_unten": 325.01,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 58.2,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": true,
+      "stoch_k": 84.1,
+      "stoch_d": 85.2,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.044,
+      "rsl250": 1.663,
+      "rsl30_levy": 1.074,
+      "rsl250_levy": 1.626,
+      "korrektur_vom_60t_hoch_pct": -1.9,
+      "hoch_60t": 396.0,
+      "tief_10t": 356.0,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": true,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": false,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Palo Alto Networks, Inc.",
+      "sektor": "Technology",
+      "waehrung": "USD",
+      "marktkapitalisierung": 317719379968,
+      "mcap_ausreichend": true,
+      "kgv": 995.9,
+      "forward_kgv": 79.6,
+      "peg": 2.0,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        },
+        "2027": {
+          "umsatz_pct": 23.5,
+          "eps_pct": 9.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": 14.5,
+          "eps_pct": 40.2,
+          "quelle": "yfinance-Konsens"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 5.4,
+        "nettomarge_pct": 2.7,
+        "roe_pct": 1.7,
+        "verschuldung_debt_to_equity": 9.3,
+        "cash": 3071000064,
+        "free_cashflow_ttm": 4240624896,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-19",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "RSL 30T > 1,05",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    },
+    {
+      "ticker": "WBD",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-09-29",
+      "liquide": true,
+      "preis": 30.85,
+      "sma40": 28.46,
+      "sma40_abstand_pct": 8.4,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 29.33,
+        "kijun": 29.33,
+        "senkou_a": 27.37,
+        "senkou_b": 26.97,
+        "wolke_oben": 27.37,
+        "wolke_unten": 26.97,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 74.7,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 98.4,
+      "stoch_d": 97.9,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.115,
+      "rsl250": 1.377,
+      "rsl30_levy": 1.066,
+      "rsl250_levy": 1.164,
+      "korrektur_vom_60t_hoch_pct": -0.2,
+      "hoch_60t": 30.9,
+      "tief_10t": 27.74,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Warner Bros. Discovery, Inc. - ",
+      "sektor": "Communication Services",
+      "waehrung": "USD",
+      "marktkapitalisierung": 77345169408,
+      "mcap_ausreichend": true,
+      "kgv": null,
+      "forward_kgv": 495.8,
+      "peg": 55.18,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": -2.8,
+          "eps_pct": -488.0,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": 3.0,
+          "eps_pct": 96.1,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 5.1,
+        "nettomarge_pct": -8.8,
+        "roe_pct": -8.8,
+        "verschuldung_debt_to_equity": 94.2,
+        "cash": 3411000064,
+        "free_cashflow_ttm": 16167374848,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-11-05",
+      "wkn": "–",
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
+        "KGV/PEG angemessen",
+        "Wachstum 2026-2028 > 50 %"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale"
+      ]
+    }
+  ]
+}
