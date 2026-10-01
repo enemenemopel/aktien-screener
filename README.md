@@ -23,3 +23,12 @@ Wachstum: Nur das EPS-Wachstum zaehlt: 2027 > 25 % und 2028 > 8 % gegenueber dem
 `ticker,rev_2026,rev_2027,rev_2028,eps_2026,eps_2027,eps_2028` (Prozent gegenueber Vorjahr).
 "Keine gravierenden Warnsignale" (Gewinnwarnungen, Insiderverkaeufe, Guidance) ist nicht automatisch
 pruefbar und bleibt manuell. Keine Anlageberatung.
+
+## Long-Score (0-100)
+
+Jede Aktie in `trend.html` bekommt einen transparenten Score (Mauszeiger auf den Wert zeigt die Aufschluesselung):
+Trend SMA 40 (10), Ichimoku (10), RSL 30T (8), RSL 250T (8), Korrektur (8), RSI (8), Slow Stochastic + Kreuz (14),
+Bewertung PEG (8), EPS-Wachstum 2027/2028 (14), Qualitaet (12). Punkte sind gestuft (Mindestwert = 60 %, deutlich
+darueber = voll). Nicht pruefbare Werte geben 0 Punkte und werden als "nicht verifiziert" ausgewiesen. Der Score
+ersetzt die Pflichtbedingungen nicht: Klasse A/B/C bleibt massgeblich, Warnsignale werden nicht bewertet.
+Gewichte und Stufen stehen in `SCORE_WEIGHTS` und `long_score()` in `trend_screener.py`.

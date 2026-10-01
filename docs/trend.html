@@ -22,8 +22,9 @@
   .search input:focus { outline:2px solid var(--muted); outline-offset:1px; }
   .search input::-webkit-search-cancel-button { -webkit-appearance:none; appearance:none; }
   .search button { padding:7px 10px; font:inherit; color:var(--fg); background:var(--head); border:1px solid var(--line); border-radius:8px; cursor:pointer; }
-  th { top:58px; }
+  th { top:0; }
   .hidden { display:none; }
+  .score { font-variant-numeric:tabular-nums; }
 </style>
 </head>
 <body>
@@ -49,9 +50,17 @@ const TITLES = { A: "A – Vollständiger Treffer (automatisch prüfbare Kriteri
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const key = z => esc((z.name + " " + z.ticker).toLowerCase());
 
+function scoreCls(z) { const s = z.score ? z.score.gesamt : 0; return s >= 85 ? "ok" : s >= 70 ? "ok" : s >= 55 ? "warn" : "bad"; }
+function scoreTip(z) {
+  const s = z.score; if (!s) return "";
+  const lines = Object.values(s.komponenten).map(c => `${c.name}: ${c.punkte}/${c.max}` + (c.unverifiziert ? ` (davon ${c.unverifiziert} nicht verifiziert)` : ""));
+  return esc([`${s.text} – ${s.einstufung}`, ...lines, s.unverifizierte_punkte ? `Nicht verifizierte Punkte: ${s.unverifizierte_punkte}` : "", s.hinweis || ""].filter(Boolean).join("\n"));
+}
+
 function row(z) {
   return `<tr data-s="${key(z)}">
     <td>${esc(z.name)} <span class="muted">${esc(z.ticker)}</span></td>
+    <td title="${scoreTip(z)}"><b class="score ${scoreCls(z)}">${z.score ? z.score.text : "n. v."}</b></td>
     <td>${fmt(z.preis, 2)}</td><td>${fmt(z.sma40, 2)}</td><td>${fmt(z.sma40_abstand_pct, 1, " %")}</td>
     <td>${yes(z.kriterien.ichimoku_bullish)}</td><td>${fmt(z.rsi14, 1)}</td>
     <td>${fmt(z.stoch_k, 1)} / ${fmt(z.stoch_d, 1)}</td><td>${z.stoch_kreuz || "n. v."}</td>
@@ -67,7 +76,7 @@ function row(z) {
 
 function table(list) {
   return `<div class="wrap"><table><thead><tr>
-    <th>Unternehmen</th><th>Kurs</th><th>SMA 40</th><th>Abst.</th><th>Ichimoku</th><th>RSI</th>
+    <th>Unternehmen</th><th title="Long-Score 0-100 (Mauszeiger auf den Wert fuer die Aufschluesselung)">Long-Score</th><th>Kurs</th><th>SMA 40</th><th>Abst.</th><th>Ichimoku</th><th>RSI</th>
     <th>Stoch K/D</th><th>Kreuz</th><th>RSL 30T</th><th>RSL 250T</th><th>KGV</th><th>Fwd-KGV</th><th>PEG</th>
     <th>2026 Ums./EPS</th><th>2027 Ums./EPS</th><th>2028 Ums./EPS</th><th>Zahlen</th><th>Erfüllt</th><th>Fehlt</th>
   </tr></thead><tbody>${list.map(row).join("")}</tbody></table></div>`;
@@ -110,7 +119,7 @@ fetch("trend_data.json").then(r => r.json()).then(d => {
   document.getElementById("meta").textContent =
     `Letzter Handelstag: ${d.letzter_handelstag || "n. v."} · analysiert: ${d.analysiert} von ${d.universe_size} · erzeugt: ${d.generated_at_utc}`;
   document.getElementById("notes").innerHTML =
-    `<b>RSL-Methode:</b> ${d.rsl_methode}<br><br><b>Hinweis:</b> ${d.hinweis_klasse_a}<br><span class="muted">${d.data_note}</span>`;
+    `<b>Long-Score (0–100):</b> ${Object.values(d.score_gewichte || {}).map(c => c.name + " " + c.max).join(" · ")}. Gestufte Punkte, nicht verifizierbare Werte geben 0 Punkte (im Tooltip als „nicht verifiziert“ ausgewiesen). Der Score ersetzt die Pflichtbedingungen nicht: Klasse A/B/C bleibt maßgeblich, Warnsignale werden nicht bewertet.<br><br><b>RSL-Methode:</b> ${d.rsl_methode}<br><br><b>Hinweis:</b> ${d.hinweis_klasse_a}<br><span class="muted">${d.data_note}</span>`;
   let html = "";
   for (const k of ["A", "B", "C"]) {
     const list = d.results.filter(z => z.klasse === k);

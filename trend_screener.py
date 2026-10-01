@@ -610,6 +610,128 @@ def build_trend_universe():
     return groups
 
 
+# ----------------------------------------------------------------------------
+# Long-Score (0-100)
+# ----------------------------------------------------------------------------
+# Transparente, rein mechanische Punktevergabe nach deinen Kriterien. Der Score
+# misst, wie gut und wie klar die Kriterien erfuellt sind (nicht nur ja/nein) und
+# ersetzt NICHT die Pflichtbedingungen: Klasse A/B/C bleibt die Hauptaussage.
+# Nicht pruefbare Werte geben 0 Punkte und werden als "unverifizierte Punkte"
+# ausgewiesen - der Score wird also nie durch erfundene Werte aufgeblasen.
+# Nicht im Score: "Keine gravierenden Warnsignale" (manuelle Pruefung).
+SCORE_WEIGHTS = {
+    "sma40": ("Trend SMA 40", 10),
+    "ichimoku": ("Ichimoku", 10),
+    "rsl30": ("RSL 30T", 8),
+    "rsl250": ("RSL 250T", 8),
+    "korrektur": ("Korrektur", 8),
+    "rsi": ("RSI(14)", 8),
+    "stochastik": ("Slow Stochastic + Kreuz", 14),
+    "bewertung": ("Bewertung (PEG)", 8),
+    "eps_wachstum": ("EPS-Wachstum 2027/2028", 14),
+    "qualitaet": ("Qualitaet (Marge, ROE, Schulden, FCF)", 12),
+}
+assert sum(w for _, w in SCORE_WEIGHTS.values()) == 100
+
+SCORE_LABELS = [(85, "sehr starkes Long-Setup"), (70, "starkes Long-Setup"),
+                (55, "interessantes Long-Setup"), (40, "schwaches Long-Setup")]
+
+
+def _ramp(value, zero, minimum, full, max_pts):
+    """Gestufte Punkte: bis `zero` 0, am Mindestwert `minimum` 60 %, ab `full` 100 %,
+    dazwischen linear. None = nicht verifiziert."""
+    if value is None:
+        return None
+    if value <= zero:
+        return 0.0
+    if value >= full:
+        return float(max_pts)
+    if value < minimum:
+        return 0.6 * max_pts * (value - zero) / (minimum - zero)
+    return max_pts * (0.6 + 0.4 * (value - minimum) / (full - minimum))
+
+
+def _tf(flag, pts):
+    """True -> pts, False -> 0, None -> None (nicht verifiziert)."""
+    return None if flag is None else (pts if flag else 0.0)
+
+
+def long_score(x):
+    """Berechnet den Long-Score aus den bereits berechneten Werten einer Aktie."""
+    c, ich = x["kriterien"], x["ichimoku"]
+    g = x.get("wachstum") or {}
+    q = x.get("qualitaet") or {}
+    comp = {}
+
+    def put(key, parts, note=""):
+        earned = sum(p for _, p in parts if p is not None)
+        unver = sum(m for m, p in parts if p is None)
+        label, mx = SCORE_WEIGHTS[key]
+        assert sum(m for m, _ in parts) == mx, key
+        comp[key] = {"name": label, "max": mx, "punkte": round(earned, 1),
+                     "unverifiziert": round(unver, 1), "hinweis": note}
+
+    # Trend SMA 40: Kurs darueber + steigend (6), Abstand 0-15 % ideal (4)
+    above, rising, dist = c.get("kurs_ueber_sma40"), c.get("sma40_steigend"), x.get("sma40_abstand_pct")
+    p_trend = None if above is None else (0.0 if not above else (6.0 if rising else 2.0 if rising is False else None))
+    p_dist = None if above is None or dist is None else (0.0 if not above or dist < 0 else 4.0 if dist <= 15 else 2.0 if dist <= 25 else 0.0)
+    put("sma40", [(6, p_trend), (4, p_dist)], f"Abstand {dist} %" if dist is not None else "")
+
+    # Ichimoku: Kurs ueber Wolke (4), Wolke bullish (3), Tenkan >= Kijun (3)
+    put("ichimoku", [(4, _tf(ich.get("kurs_ueber_wolke"), 4)), (3, _tf(ich.get("wolke_bullish"), 3)),
+                     (3, _tf(ich.get("tenkan_ueber_kijun"), 3))])
+
+    # RSL: Mindestwert = 60 %, deutlich darueber = volle Punkte
+    put("rsl30", [(8, _ramp(x.get("rsl30"), 0.95, RSL_SHORT_MIN, 1.20, 8))], f"RSL {x.get('rsl30')}")
+    put("rsl250", [(8, _ramp(x.get("rsl250"), 1.00, RSL_LONG_MIN, 1.60, 8))], f"RSL {x.get('rsl250')}")
+
+    # Korrektur vom 60-Tage-Hoch: -10 bis -20 % ideal
+    dd = x.get("korrektur_vom_60t_hoch_pct")
+    p_corr = None if dd is None else (8.0 if -20 <= dd <= -10 else 6.0 if (-10 < dd <= -5 or -25 <= dd < -20)
+                                      else 3.0 if (-5 < dd <= -2 or -30 <= dd < -25) else 0.0)
+    put("korrektur", [(8, p_corr)], f"{dd} % vom 60T-Hoch" if dd is not None else "")
+
+    # RSI: 40-55 ideal (6), 35-60 (4), 30-70 (2); dazu dreht nach oben (2)
+    rsi = x.get("rsi14")
+    p_rsi = None if rsi is None else (6.0 if 40 <= rsi <= 55 else 4.0 if 35 <= rsi <= 60 else 2.0 if 30 <= rsi <= 70 else 0.0)
+    p_turn = None if rsi is None or x.get("rsi_drehend_hoch") is None else (2.0 if x["rsi_drehend_hoch"] and rsi <= RSI_MAX else 0.0)
+    put("rsi", [(6, p_rsi), (2, p_turn)], f"RSI {rsi}")
+
+    # Stochastik: unter 50 (4), Kreuz erfolgt 8 / bevorstehend 4, Kreuz im Bereich 20-40 (2)
+    k = x.get("stoch_k")
+    state = x.get("stoch_kreuz")
+    p_k = None if k is None else (4.0 if k < STOCH_MAX else 0.0)
+    p_cross = None if state is None else {"erfolgt": 8.0, "bevorstehend": 4.0}.get(state, 0.0)
+    p_sweet = None if state is None else (_tf(x.get("stoch_kreuz_im_sweetspot"), 2) if state == "erfolgt" else 0.0)
+    put("stochastik", [(4, p_k), (8, p_cross), (2, p_sweet)], f"Kreuz: {state}")
+
+    # Bewertung: PEG <= 1 voll, <= 1,5 (angemessen) 6, <= 2 3
+    peg = x.get("peg")
+    p_peg = None if peg is None else (0.0 if peg <= 0 else 8.0 if peg <= 1.0 else 6.0 if peg <= PEG_MAX else 3.0 if peg <= 2.0 else 0.0)
+    put("bewertung", [(8, p_peg)], f"PEG {peg}")
+
+    # EPS-Wachstum: 2027 (8): ab Mindestwert 60 %, ab 50 % voll; 2028 (6): ab Mindestwert 60 %, ab 25 % voll
+    e27 = (g.get("2027") or {}).get("eps_pct")
+    e28 = (g.get("2028") or {}).get("eps_pct")
+    put("eps_wachstum", [(8, _ramp(e27, 0, EPS_GROWTH_MIN[2027], 50, 8)), (6, _ramp(e28, 0, EPS_GROWTH_MIN[2028], 25, 6))],
+        "EPS 2027: " + ("n. v." if e27 is None else f"{e27} %") + ", 2028: " + ("n. v." if e28 is None else f"{e28} %"))
+
+    # Qualitaet: je 3 Punkte
+    om, roe, de, fcf = q.get("operative_marge_pct"), q.get("roe_pct"), q.get("verschuldung_debt_to_equity"), q.get("free_cashflow_ttm")
+    put("qualitaet", [
+        (3, None if om is None else (3.0 if om > 10 else 1.5 if om > 0 else 0.0)),
+        (3, None if roe is None else (3.0 if roe > 15 else 1.5 if roe > 8 else 0.0)),
+        (3, None if de is None else (3.0 if de <= 100 else 1.5 if de <= 200 else 0.0)),
+        (3, None if fcf is None else (3.0 if fcf > 0 else 0.0)),
+    ])
+
+    total = round(sum(v["punkte"] for v in comp.values()))
+    unver = round(sum(v["unverifiziert"] for v in comp.values()))
+    label = next((t for lim, t in SCORE_LABELS if total >= lim), "kein interessantes Long-Setup")
+    return {"gesamt": total, "max": 100, "text": f"{total}/100", "einstufung": label,
+            "unverifizierte_punkte": unver, "komponenten": comp}
+
+
 def main():
     consensus = load_consensus()
     universe = build_trend_universe()
@@ -669,10 +791,16 @@ def main():
             klasse = "B"                                 # Endkontrolle nicht bestanden
             missing = ["endkontrolle"]
         erfuellt = sum(1 for k, _ in CRITERIA if x["kriterien"].get(k) is True)
+        x["score"] = long_score(x)
         x["klasse"] = klasse
         x["kriterien_erfuellt"] = f"{erfuellt}/{len(CRITERIA)}"
         x["kriterien_erfuellt_n"] = erfuellt
         x["fehlende_kriterien"] = [dict(CRITERIA).get(k, k) for k in missing]
+        x["score"]["pflicht_erfuellt"] = klasse == "A"
+        x["score"]["hinweis"] = ("Alle automatisch pruefbaren Pflichtkriterien erfuellt (Warnsignale manuell pruefen)."
+                                 if klasse == "A" else
+                                 "Achtung: Pflichtkriterien fehlen (" + ", ".join(x["fehlende_kriterien"]) +
+                                 "). Der Score ersetzt die Pflichtbedingungen nicht.")
         x["nicht_verifiziert"] = [dict(CRITERIA)[k] for k, _ in CRITERIA if x["kriterien"].get(k) is None]
         if not x.get("wachstum_2028_verifiziert"):
             x["nicht_verifiziert"].append("Wachstum 2028")
@@ -683,7 +811,7 @@ def main():
             print(f"Fundamentaldaten {j}/{len(candidates)}")
         time.sleep(0.3)
 
-    results.sort(key=lambda z: (z["klasse"], -z["kriterien_erfuellt_n"]))
+    results.sort(key=lambda z: (z["klasse"], -z["kriterien_erfuellt_n"], -z["score"]["gesamt"]))
     counts = {k: sum(1 for z in results if z["klasse"] == k) for k in "ABC"}
 
     output = {
@@ -696,6 +824,7 @@ def main():
         "analysiert": len(tech_rows),
         "rsl_methode": RSL_METHOD,
         "kriterien": [{"key": k, "name": n} for k, n in CRITERIA],
+        "score_gewichte": {k: {"name": n, "max": w} for k, (n, w) in SCORE_WEIGHTS.items()},
         "wachstum_regeln": {
             "eps_min_pct": {str(y): v for y, v in EPS_GROWTH_MIN.items()},
             "hinweis": "Nur EPS-Wachstum gegenueber Vorjahr zaehlt; None = keine Bedingung fuer dieses Jahr",
