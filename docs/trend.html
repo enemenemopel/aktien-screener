@@ -15,11 +15,30 @@
   th { background:var(--head); position:sticky; top:0; } th:first-child, td:first-child { text-align:left; }
   .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
   details { margin:6px 0; } summary { cursor:pointer; }
+  .topbar { position:sticky; top:0; z-index:5; background:var(--bg); margin:-16px -16px 8px; padding:12px 16px 10px; border-bottom:1px solid var(--line); }
+  .topbar-row { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; justify-content:space-between; }
+  .search { display:flex; gap:6px; align-items:center; flex:1 1 260px; max-width:420px; }
+  .search input { flex:1; min-width:0; padding:7px 10px; font:inherit; color:var(--fg); background:var(--bg); border:1px solid var(--line); border-radius:8px; }
+  .search input:focus { outline:2px solid var(--muted); outline-offset:1px; }
+  .search input::-webkit-search-cancel-button { -webkit-appearance:none; appearance:none; }
+  .search button { padding:7px 10px; font:inherit; color:var(--fg); background:var(--head); border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+  th { top:0; }
+  .hidden { display:none; }
+  .score { font-variant-numeric:tabular-nums; }
 </style>
 </head>
 <body>
-<h1>Trend-Pullback-Screener</h1>
-<div class="muted" id="meta">Lade Daten …</div>
+<div class="topbar">
+  <div class="topbar-row">
+    <h1>Trend-Pullback-Screener</h1>
+    <div class="search">
+      <input id="q" type="search" placeholder="Suche nach Name oder Ticker …" autocomplete="off" aria-label="Suche nach Name oder Ticker">
+      <button id="qclear" type="button" aria-label="Suche leeren">✕</button>
+    </div>
+  </div>
+  <div class="muted" id="meta">Lade Daten …</div>
+  <div class="muted" id="qinfo"></div>
+</div>
 <div class="note" id="notes"></div>
 <div id="out"></div>
 <script>
@@ -28,9 +47,20 @@ const yes = v => v === true ? '<span class="ok">✓</span>' : v === false ? '<sp
 const g = (z, y, k) => z.wachstum && z.wachstum[y] ? fmt(z.wachstum[y][k], 0, " %") : '<span class="muted">n. v.</span>';
 const TITLES = { A: "A – Vollständiger Treffer (automatisch prüfbare Kriterien)", B: "B – Fast-Treffer (max. 2 Kriterien fehlen)", C: "C – Beobachtungsliste (Trend intakt, kein bestätigtes Signal)" };
 
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const key = z => esc((z.name + " " + z.ticker).toLowerCase());
+
+function scoreCls(z) { const s = z.score ? z.score.gesamt : 0; return s >= 85 ? "ok" : s >= 70 ? "ok" : s >= 55 ? "warn" : "bad"; }
+function scoreTip(z) {
+  const s = z.score; if (!s) return "";
+  const lines = Object.values(s.komponenten).map(c => `${c.name}: ${c.punkte}/${c.max}` + (c.unverifiziert ? ` (davon ${c.unverifiziert} nicht verifiziert)` : ""));
+  return esc([`${s.text} – ${s.einstufung}`, ...lines, s.unverifizierte_punkte ? `Nicht verifizierte Punkte: ${s.unverifizierte_punkte}` : "", s.hinweis || ""].filter(Boolean).join("\n"));
+}
+
 function row(z) {
-  return `<tr>
-    <td>${z.name} <span class="muted">${z.ticker}</span></td>
+  return `<tr data-s="${key(z)}">
+    <td>${esc(z.name)} <span class="muted">${esc(z.ticker)}</span></td>
+    <td title="${scoreTip(z)}"><b class="score ${scoreCls(z)}">${z.score ? z.score.text : "n. v."}</b></td>
     <td>${fmt(z.preis, 2)}</td><td>${fmt(z.sma40, 2)}</td><td>${fmt(z.sma40_abstand_pct, 1, " %")}</td>
     <td>${yes(z.kriterien.ichimoku_bullish)}</td><td>${fmt(z.rsi14, 1)}</td>
     <td>${fmt(z.stoch_k, 1)} / ${fmt(z.stoch_d, 1)}</td><td>${z.stoch_kreuz || "n. v."}</td>
@@ -46,7 +76,7 @@ function row(z) {
 
 function table(list) {
   return `<div class="wrap"><table><thead><tr>
-    <th>Unternehmen</th><th>Kurs</th><th>SMA 40</th><th>Abst.</th><th>Ichimoku</th><th>RSI</th>
+    <th>Unternehmen</th><th title="Long-Score 0-100 (Mauszeiger auf den Wert fuer die Aufschluesselung)">Long-Score</th><th>Kurs</th><th>SMA 40</th><th>Abst.</th><th>Ichimoku</th><th>RSI</th>
     <th>Stoch K/D</th><th>Kreuz</th><th>RSL 30T</th><th>RSL 250T</th><th>KGV</th><th>Fwd-KGV</th><th>PEG</th>
     <th>2026 Ums./EPS</th><th>2027 Ums./EPS</th><th>2028 Ums./EPS</th><th>Zahlen</th><th>Erfüllt</th><th>Fehlt</th>
   </tr></thead><tbody>${list.map(row).join("")}</tbody></table></div>`;
@@ -54,26 +84,51 @@ function table(list) {
 
 function entry(z) {
   const e = z.einstieg; if (!e) return "";
-  return `<details><summary>${z.name}: Einstiegsanalyse</summary>
+  return `<details data-s="${key(z)}"><summary>${esc(z.name)}: Einstiegsanalyse</summary>
     Unterstützung: ${Object.entries(e.unterstuetzungszonen).map(([k, v]) => k + " " + fmt(v, 2)).join(" · ")}<br>
     Einstiegsspanne: ${e.einstiegsspanne ? e.einstiegsspanne.join(" – ") : "n. v."} ·
     Invalidierung unter: ${fmt(e.invalidierung_unter, 2)} · Ziel (60T-Hoch): ${fmt(e.ziel_60t_hoch, 2)} ·
     Chance/Risiko: ${fmt(e.chance_risiko, 2)}<br><span class="muted">${e.hinweis}</span></details>`;
 }
 
+function applyFilter() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const terms = q.split(/\s+/).filter(Boolean);
+  let shown = 0, total = 0;
+  document.querySelectorAll("#out section").forEach(sec => {
+    let n = 0;
+    sec.querySelectorAll("tr[data-s], details[data-s]").forEach(el => {
+      const ok = terms.every(t => el.dataset.s.includes(t));
+      el.classList.toggle("hidden", !ok);
+      if (el.tagName === "TR" && ok) n++;
+    });
+    const tot = Number(sec.dataset.total);
+    total += tot; shown += n;
+    sec.querySelector(".cnt").textContent = terms.length ? n + " von " + tot : tot;
+    const wrap = sec.querySelector(".wrap");
+    if (wrap) wrap.classList.toggle("hidden", terms.length > 0 && n === 0);
+  });
+  document.getElementById("qinfo").textContent =
+    terms.length ? (shown ? shown + " von " + total + " Treffern gefunden" : "Keine Aktie gefunden für „" + q + "“") : "";
+}
+document.getElementById("q").addEventListener("input", applyFilter);
+document.getElementById("q").addEventListener("keydown", e => { if (e.key === "Escape") { e.target.value = ""; applyFilter(); } });
+document.getElementById("qclear").addEventListener("click", () => { const i = document.getElementById("q"); i.value = ""; applyFilter(); i.focus(); });
+
 fetch("trend_data.json").then(r => r.json()).then(d => {
   document.getElementById("meta").textContent =
     `Letzter Handelstag: ${d.letzter_handelstag || "n. v."} · analysiert: ${d.analysiert} von ${d.universe_size} · erzeugt: ${d.generated_at_utc}`;
   document.getElementById("notes").innerHTML =
-    `<b>RSL-Methode:</b> ${d.rsl_methode}<br><br><b>Hinweis:</b> ${d.hinweis_klasse_a}<br><span class="muted">${d.data_note}</span>`;
+    `<b>Long-Score (0–100):</b> ${Object.values(d.score_gewichte || {}).map(c => c.name + " " + c.max).join(" · ")}. Gestufte Punkte, nicht verifizierbare Werte geben 0 Punkte (im Tooltip als „nicht verifiziert“ ausgewiesen). Der Score ersetzt die Pflichtbedingungen nicht: Klasse A/B/C bleibt maßgeblich, Warnsignale werden nicht bewertet.<br><br><b>RSL-Methode:</b> ${d.rsl_methode}<br><br><b>Hinweis:</b> ${d.hinweis_klasse_a}<br><span class="muted">${d.data_note}</span>`;
   let html = "";
   for (const k of ["A", "B", "C"]) {
     const list = d.results.filter(z => z.klasse === k);
-    html += `<h2>${TITLES[k]} (${list.length})</h2>`;
-    html += list.length ? table(list) + list.map(entry).join("") :
-      '<div class="muted">Keine Treffer. Kriterien werden bewusst nicht gelockert.</div>';
+    html += `<section data-sec="${k}" data-total="${list.length}"><h2>${TITLES[k]} (<span class="cnt">${list.length}</span>)</h2>`;
+    html += list.length ? table(list) + list.map(entry).join("") : '<div class="muted">Keine Treffer.</div>';
+    html += "</section>";
   }
   document.getElementById("out").innerHTML = html;
+  applyFilter();
 }).catch(() => { document.getElementById("meta").textContent = "trend_data.json noch nicht vorhanden – Workflow zuerst ausführen."; });
 </script>
 </body>
