@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-07T01:58:50.131241+00:00",
+  "generated_at_utc": "2026-10-07T11:35:33.188089+00:00",
   "letzter_handelstag": "2026-10-06",
   "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
   "universe_size": 979,
@@ -20,7 +20,7 @@
       "davon_neu": 400
     }
   },
-  "analysiert": 972,
+  "analysiert": 971,
   "rsl_methode": "RSL(N) = (Kurs heute / Kurs vor N Handelstagen) / (Benchmark heute / Benchmark vor N Handelstagen). Benchmark: S&P 500 fuer US-Aktien, DAX fuer DAX-Werte, EURO STOXX 50 fuer uebrige Euro-Werte. Zusaetzlich wird die klassische RSL nach Levy (Kurs / Durchschnittskurs der letzten N Tage) als Zusatzinfo ausgewiesen; fuer die Pflichtbedingung zaehlt der Benchmark-Vergleich.",
   "kriterien": [
     {
@@ -187,9 +187,9 @@
       "waehrung": "USD",
       "marktkapitalisierung": 43064025088,
       "mcap_ausreichend": true,
-      "kgv": 38.8,
+      "kgv": 41.6,
       "forward_kgv": 41.3,
-      "peg": 0.46,
+      "peg": 0.47,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -292,7 +292,7 @@
             "max": 8,
             "punkte": 8.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 0.46"
+            "hinweis": "PEG 0.47"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -329,14 +329,14 @@
       "ticker": "ENI.MI",
       "index_group": "EuroStoxx50",
       "benchmark": "EURO STOXX 50",
-      "datenstand": "2026-10-05",
+      "datenstand": "2026-10-06",
       "liquide": true,
-      "preis": 24.41,
-      "sma40": 23.63,
-      "sma40_abstand_pct": 3.3,
+      "preis": 24.14,
+      "sma40": 23.64,
+      "sma40_abstand_pct": 2.1,
       "sma40_abstand_bevorzugt": true,
       "ichimoku": {
-        "tenkan": 23.98,
+        "tenkan": 24.15,
         "kijun": 23.74,
         "senkou_a": 23.18,
         "senkou_b": 22.01,
@@ -347,22 +347,22 @@
         "tenkan_ueber_kijun": true,
         "kijun_als_stuetze": true
       },
-      "rsi14": 59.1,
-      "rsi_drehend_hoch": true,
+      "rsi14": 54.6,
+      "rsi_drehend_hoch": false,
       "rsi_im_bevorzugten_bereich": true,
-      "stoch_k": 70.5,
-      "stoch_d": 66.4,
+      "stoch_k": 72.5,
+      "stoch_d": 68.8,
       "stoch_kreuz": "erfolgt",
-      "stoch_kreuz_tage_her": 0,
+      "stoch_kreuz_tage_her": 1,
       "stoch_kreuz_niveau": 70.5,
       "stoch_kreuz_im_sweetspot": false,
-      "rsl30": 1.084,
-      "rsl250": 1.52,
-      "rsl30_levy": 1.033,
-      "rsl250_levy": 1.223,
-      "korrektur_vom_60t_hoch_pct": -0.7,
+      "rsl30": 1.08,
+      "rsl250": 1.48,
+      "rsl30_levy": 1.02,
+      "rsl250_levy": 1.207,
+      "korrektur_vom_60t_hoch_pct": -1.8,
       "hoch_60t": 24.58,
-      "tief_10t": 22.93,
+      "tief_10t": 23.22,
       "kriterien": {
         "kurs_ueber_sma40": true,
         "sma40_steigend": true,
@@ -380,7 +380,7 @@
       "name": "ENI",
       "sektor": "Energy",
       "waehrung": "EUR",
-      "marktkapitalisierung": 69219524608,
+      "marktkapitalisierung": 69764448256,
       "mcap_ausreichend": true,
       "kgv": 19.6,
       "forward_kgv": 9.4,
@@ -389,13 +389,13 @@
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
         "2026": {
-          "umsatz_pct": 20.9,
-          "eps_pct": 78.6,
+          "umsatz_pct": 21.7,
+          "eps_pct": 79.7,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
-          "umsatz_pct": -8.6,
-          "eps_pct": -8.1,
+          "umsatz_pct": -9.0,
+          "eps_pct": -8.2,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -438,7 +438,7 @@
             "max": 10,
             "punkte": 10.0,
             "unverifiziert": 0,
-            "hinweis": "Abstand 3.3 %"
+            "hinweis": "Abstand 2.1 %"
           },
           "ichimoku": {
             "name": "Ichimoku",
@@ -450,30 +450,30 @@
           "rsl30": {
             "name": "RSL 30T",
             "max": 8,
-            "punkte": 5.5,
+            "punkte": 5.4,
             "unverifiziert": 0,
-            "hinweis": "RSL 1.084"
+            "hinweis": "RSL 1.08"
           },
           "rsl250": {
             "name": "RSL 250T",
             "max": 8,
-            "punkte": 7.4,
+            "punkte": 7.0,
             "unverifiziert": 0,
-            "hinweis": "RSL 1.52"
+            "hinweis": "RSL 1.48"
           },
           "korrektur": {
             "name": "Korrektur",
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "-0.7 % vom 60T-Hoch"
+            "hinweis": "-1.8 % vom 60T-Hoch"
           },
           "rsi": {
             "name": "RSI(14)",
             "max": 8,
             "punkte": 6.0,
             "unverifiziert": 0,
-            "hinweis": "RSI 59.1"
+            "hinweis": "RSI 54.6"
           },
           "stochastik": {
             "name": "Slow Stochastic + Kreuz",
@@ -494,7 +494,7 @@
             "max": 14,
             "punkte": 0.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: -8.1 %, 2028: n. v."
+            "hinweis": "EPS 2027: -8.2 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -575,7 +575,7 @@
       "name": "SiTime Corporation",
       "sektor": "Technology",
       "waehrung": "USD",
-      "marktkapitalisierung": 21382309888,
+      "marktkapitalisierung": 21300172800,
       "mcap_ausreichend": true,
       "kgv": 1269.8,
       "forward_kgv": 47.7,
@@ -1163,7 +1163,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 12453000192,
       "mcap_ausreichend": true,
-      "kgv": 31.7,
+      "kgv": 32.1,
       "forward_kgv": 10.6,
       "peg": null,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -1751,7 +1751,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 17106195456,
       "mcap_ausreichend": true,
-      "kgv": 75.1,
+      "kgv": 73.3,
       "forward_kgv": 26.0,
       "peg": 0.73,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -2145,7 +2145,7 @@
       "mcap_ausreichend": true,
       "kgv": 10.9,
       "forward_kgv": 8.7,
-      "peg": 1.21,
+      "peg": 1.23,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -2248,7 +2248,7 @@
             "max": 8,
             "punkte": 6.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.21"
+            "hinweis": "PEG 1.23"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -2337,7 +2337,7 @@
       "name": "Phillips 66",
       "sektor": "Energy",
       "waehrung": "USD",
-      "marktkapitalisierung": 107651858432,
+      "marktkapitalisierung": 108168257536,
       "mcap_ausreichend": true,
       "kgv": 15.4,
       "forward_kgv": 10.1,
@@ -2535,9 +2535,9 @@
       "waehrung": "USD",
       "marktkapitalisierung": 32932888576,
       "mcap_ausreichend": true,
-      "kgv": 39.6,
+      "kgv": 39.7,
       "forward_kgv": 13.5,
-      "peg": 2.27,
+      "peg": 2.3,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -2548,7 +2548,7 @@
         },
         "2027": {
           "umsatz_pct": 2.0,
-          "eps_pct": 31.9,
+          "eps_pct": 31.8,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -2640,14 +2640,14 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 2.27"
+            "hinweis": "PEG 2.3"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
             "max": 14,
             "punkte": 5.7,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: 31.9 %, 2028: n. v."
+            "hinweis": "EPS 2027: 31.8 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -2925,11 +2925,11 @@
       "name": "SharkNinja, Inc.",
       "sektor": "Consumer Cyclical",
       "waehrung": "USD",
-      "marktkapitalisierung": 26021793792,
+      "marktkapitalisierung": 26141644800,
       "mcap_ausreichend": true,
       "kgv": 37.7,
       "forward_kgv": 24.1,
-      "peg": 2.5,
+      "peg": 2.53,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -3032,7 +3032,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 2.5"
+            "hinweis": "PEG 2.53"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -3328,12 +3328,12 @@
       "wachstum": {
         "2026": {
           "umsatz_pct": 3.5,
-          "eps_pct": 15.9,
+          "eps_pct": 15.8,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
           "umsatz_pct": 4.2,
-          "eps_pct": 12.8,
+          "eps_pct": 13.0,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -3432,7 +3432,7 @@
             "max": 14,
             "punkte": 2.5,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: 12.8 %, 2028: n. v."
+            "hinweis": "EPS 2027: 13.0 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -4104,7 +4104,7 @@
       "name": "Marathon Petroleum Corporation",
       "sektor": "Energy",
       "waehrung": "USD",
-      "marktkapitalisierung": 126221721600,
+      "marktkapitalisierung": 121417392128,
       "mcap_ausreichend": true,
       "kgv": 15.0,
       "forward_kgv": 8.5,
@@ -4303,7 +4303,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 49051054080,
       "mcap_ausreichend": true,
-      "kgv": 196.3,
+      "kgv": 201.6,
       "forward_kgv": 34.9,
       "peg": 1.66,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -4499,7 +4499,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 285534453760,
       "mcap_ausreichend": true,
-      "kgv": 4647.7,
+      "kgv": 5577.2,
       "forward_kgv": 173.6,
       "peg": 7.04,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -4697,7 +4697,7 @@
       "mcap_ausreichend": true,
       "kgv": 26.6,
       "forward_kgv": 19.2,
-      "peg": 1.61,
+      "peg": 1.64,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -4800,7 +4800,7 @@
             "max": 8,
             "punkte": 3.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.61"
+            "hinweis": "PEG 1.64"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -5087,7 +5087,7 @@
       "name": "Charles River Laboratories Inte",
       "sektor": "Healthcare",
       "waehrung": "USD",
-      "marktkapitalisierung": 14558445568,
+      "marktkapitalisierung": 14689229824,
       "mcap_ausreichend": true,
       "kgv": null,
       "forward_kgv": 23.9,
@@ -5284,8 +5284,8 @@
       "name": "MSC Industrial Direct Company,",
       "sektor": "Industrials",
       "waehrung": "USD",
-      "marktkapitalisierung": 7277889536,
-      "mcap_ausreichend": true,
+      "marktkapitalisierung": null,
+      "mcap_ausreichend": null,
       "kgv": 31.5,
       "forward_kgv": 23.9,
       "peg": 2.65,
@@ -5481,11 +5481,11 @@
       "name": "Qualys, Inc.",
       "sektor": "Technology",
       "waehrung": "USD",
-      "marktkapitalisierung": 7040935936,
+      "marktkapitalisierung": 6916578304,
       "mcap_ausreichend": true,
       "kgv": 34.6,
       "forward_kgv": 23.7,
-      "peg": 3.31,
+      "peg": 3.41,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -5588,7 +5588,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 3.31"
+            "hinweis": "PEG 3.41"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -5678,9 +5678,9 @@
       "name": "PBF Energy Inc.",
       "sektor": "Energy",
       "waehrung": "USD",
-      "marktkapitalisierung": 9824332800,
+      "marktkapitalisierung": 9824333824,
       "mcap_ausreichend": true,
-      "kgv": 7.4,
+      "kgv": 7.3,
       "forward_kgv": 4.8,
       "peg": null,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -5879,19 +5879,19 @@
       "marktkapitalisierung": 77595885568,
       "mcap_ausreichend": true,
       "kgv": null,
-      "forward_kgv": 21643.4,
+      "forward_kgv": 497.4,
       "peg": 55.18,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
         "2026": {
           "umsatz_pct": -2.8,
-          "eps_pct": -488.0,
+          "eps_pct": -492.0,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
-          "umsatz_pct": 3.0,
-          "eps_pct": 100.6,
+          "umsatz_pct": 2.9,
+          "eps_pct": 98.3,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -5990,7 +5990,7 @@
             "max": 14,
             "punkte": 8.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: 100.6 %, 2028: n. v."
+            "hinweis": "EPS 2027: 98.3 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -6409,204 +6409,6 @@
       ],
       "nicht_verifiziert": [
         "Keine gravierenden Warnsignale"
-      ]
-    },
-    {
-      "ticker": "VLO",
-      "index_group": "S&P500",
-      "benchmark": "S&P 500",
-      "datenstand": "2026-10-06",
-      "liquide": true,
-      "preis": 419.22,
-      "sma40": 373.14,
-      "sma40_abstand_pct": 12.3,
-      "sma40_abstand_bevorzugt": true,
-      "ichimoku": {
-        "tenkan": 396.79,
-        "kijun": 387.08,
-        "senkou_a": 333.11,
-        "senkou_b": 292.41,
-        "wolke_oben": 333.11,
-        "wolke_unten": 292.41,
-        "kurs_ueber_wolke": true,
-        "wolke_bullish": true,
-        "tenkan_ueber_kijun": true,
-        "kijun_als_stuetze": true
-      },
-      "rsi14": 70.1,
-      "rsi_drehend_hoch": false,
-      "rsi_im_bevorzugten_bereich": false,
-      "stoch_k": 88.4,
-      "stoch_d": 79.6,
-      "stoch_kreuz": "kein",
-      "stoch_kreuz_tage_her": null,
-      "stoch_kreuz_niveau": null,
-      "stoch_kreuz_im_sweetspot": null,
-      "rsl30": 1.186,
-      "rsl250": 2.253,
-      "rsl30_levy": 1.093,
-      "rsl250_levy": 1.727,
-      "korrektur_vom_60t_hoch_pct": -0.0,
-      "hoch_60t": 419.33,
-      "tief_10t": 364.96,
-      "kriterien": {
-        "kurs_ueber_sma40": true,
-        "sma40_steigend": true,
-        "ichimoku_bullish": true,
-        "korrektur": false,
-        "rsi_nicht_ueberkauft": false,
-        "stoch_unter_50": false,
-        "stoch_kreuz_bullisch": false,
-        "rsl30": true,
-        "rsl250": true,
-        "kgv_angemessen": false,
-        "wachstum_2026_2028": false,
-        "keine_warnsignale": null
-      },
-      "name": "Valero Energy Corporation",
-      "sektor": "Energy",
-      "waehrung": "USD",
-      "marktkapitalisierung": 120704950272,
-      "mcap_ausreichend": true,
-      "kgv": 17.5,
-      "forward_kgv": 10.1,
-      "peg": 2.0,
-      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
-      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
-      "wachstum": {
-        "2026": {
-          "umsatz_pct": 24.9,
-          "eps_pct": 357.7,
-          "quelle": "yfinance-Konsens"
-        },
-        "2027": {
-          "umsatz_pct": -12.6,
-          "eps_pct": -15.7,
-          "quelle": "yfinance-Konsens"
-        },
-        "2028": {
-          "umsatz_pct": null,
-          "eps_pct": null,
-          "quelle": "nicht verifiziert"
-        }
-      },
-      "wachstum_kumuliert_pct": {
-        "umsatz": null,
-        "eps": null
-      },
-      "wachstum_cagr_pct": {
-        "umsatz": null,
-        "eps": null
-      },
-      "fcf_wachstum": "nicht verifiziert",
-      "ebitda_wachstum": "nicht verifiziert",
-      "qualitaet": {
-        "operative_marge_pct": 12.3,
-        "nettomarge_pct": 5.4,
-        "roe_pct": 27.6,
-        "verschuldung_debt_to_equity": 40.1,
-        "cash": 7873999872,
-        "free_cashflow_ttm": 8416374784,
-        "organisch_vs_akquisition": "nicht verifiziert"
-      },
-      "naechste_quartalszahlen": "2026-10-22",
-      "wkn": "–",
-      "wachstum_2028_verifiziert": false,
-      "score": {
-        "gesamt": 51,
-        "max": 100,
-        "text": "51/100",
-        "einstufung": "schwaches Long-Setup",
-        "unverifizierte_punkte": 6,
-        "komponenten": {
-          "sma40": {
-            "name": "Trend SMA 40",
-            "max": 10,
-            "punkte": 10.0,
-            "unverifiziert": 0,
-            "hinweis": "Abstand 12.3 %"
-          },
-          "ichimoku": {
-            "name": "Ichimoku",
-            "max": 10,
-            "punkte": 10,
-            "unverifiziert": 0,
-            "hinweis": ""
-          },
-          "rsl30": {
-            "name": "RSL 30T",
-            "max": 8,
-            "punkte": 7.7,
-            "unverifiziert": 0,
-            "hinweis": "RSL 1.186"
-          },
-          "rsl250": {
-            "name": "RSL 250T",
-            "max": 8,
-            "punkte": 8.0,
-            "unverifiziert": 0,
-            "hinweis": "RSL 2.253"
-          },
-          "korrektur": {
-            "name": "Korrektur",
-            "max": 8,
-            "punkte": 0.0,
-            "unverifiziert": 0,
-            "hinweis": "-0.0 % vom 60T-Hoch"
-          },
-          "rsi": {
-            "name": "RSI(14)",
-            "max": 8,
-            "punkte": 0.0,
-            "unverifiziert": 0,
-            "hinweis": "RSI 70.1"
-          },
-          "stochastik": {
-            "name": "Slow Stochastic + Kreuz",
-            "max": 14,
-            "punkte": 0.0,
-            "unverifiziert": 0,
-            "hinweis": "Kreuz: kein"
-          },
-          "bewertung": {
-            "name": "Bewertung (PEG)",
-            "max": 8,
-            "punkte": 3.0,
-            "unverifiziert": 0,
-            "hinweis": "PEG 2.0"
-          },
-          "eps_wachstum": {
-            "name": "EPS-Wachstum 2027/2028",
-            "max": 14,
-            "punkte": 0.0,
-            "unverifiziert": 6,
-            "hinweis": "EPS 2027: -15.7 %, 2028: n. v."
-          },
-          "qualitaet": {
-            "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
-            "max": 12,
-            "punkte": 12.0,
-            "unverifiziert": 0,
-            "hinweis": ""
-          }
-        },
-        "pflicht_erfuellt": false,
-        "hinweis": "Achtung: Pflichtkriterien fehlen (Korrektur vorhanden, RSI nicht ueberkauft, Slow Stochastic < 50, Bullisches %K/%D-Kreuz, KGV/PEG angemessen, EPS-Wachstum 2027 > 25 % (2028 > 8 %, falls verfuegbar)). Der Score ersetzt die Pflichtbedingungen nicht."
-      },
-      "klasse": "C",
-      "kriterien_erfuellt": "5/12",
-      "kriterien_erfuellt_n": 5,
-      "fehlende_kriterien": [
-        "Korrektur vorhanden",
-        "RSI nicht ueberkauft",
-        "Slow Stochastic < 50",
-        "Bullisches %K/%D-Kreuz",
-        "KGV/PEG angemessen",
-        "EPS-Wachstum 2027 > 25 % (2028 > 8 %, falls verfuegbar)"
-      ],
-      "nicht_verifiziert": [
-        "Keine gravierenden Warnsignale",
-        "Wachstum 2028"
       ]
     },
     {
@@ -7261,7 +7063,7 @@
       "mcap_ausreichend": true,
       "kgv": null,
       "forward_kgv": 6.6,
-      "peg": 3.2,
+      "peg": 3.19,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -7364,7 +7166,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 3.2"
+            "hinweis": "PEG 3.19"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -7392,6 +7194,204 @@
         "Slow Stochastic < 50",
         "Bullisches %K/%D-Kreuz",
         "RSL 30T > 1,05",
+        "KGV/PEG angemessen",
+        "EPS-Wachstum 2027 > 25 % (2028 > 8 %, falls verfuegbar)"
+      ],
+      "nicht_verifiziert": [
+        "Keine gravierenden Warnsignale",
+        "Wachstum 2028"
+      ]
+    },
+    {
+      "ticker": "VLO",
+      "index_group": "S&P500",
+      "benchmark": "S&P 500",
+      "datenstand": "2026-10-06",
+      "liquide": true,
+      "preis": 419.22,
+      "sma40": 373.14,
+      "sma40_abstand_pct": 12.3,
+      "sma40_abstand_bevorzugt": true,
+      "ichimoku": {
+        "tenkan": 396.79,
+        "kijun": 387.08,
+        "senkou_a": 333.11,
+        "senkou_b": 292.41,
+        "wolke_oben": 333.11,
+        "wolke_unten": 292.41,
+        "kurs_ueber_wolke": true,
+        "wolke_bullish": true,
+        "tenkan_ueber_kijun": true,
+        "kijun_als_stuetze": true
+      },
+      "rsi14": 70.1,
+      "rsi_drehend_hoch": false,
+      "rsi_im_bevorzugten_bereich": false,
+      "stoch_k": 88.4,
+      "stoch_d": 79.6,
+      "stoch_kreuz": "kein",
+      "stoch_kreuz_tage_her": null,
+      "stoch_kreuz_niveau": null,
+      "stoch_kreuz_im_sweetspot": null,
+      "rsl30": 1.186,
+      "rsl250": 2.253,
+      "rsl30_levy": 1.093,
+      "rsl250_levy": 1.727,
+      "korrektur_vom_60t_hoch_pct": -0.0,
+      "hoch_60t": 419.33,
+      "tief_10t": 364.96,
+      "kriterien": {
+        "kurs_ueber_sma40": true,
+        "sma40_steigend": true,
+        "ichimoku_bullish": true,
+        "korrektur": false,
+        "rsi_nicht_ueberkauft": false,
+        "stoch_unter_50": false,
+        "stoch_kreuz_bullisch": false,
+        "rsl30": true,
+        "rsl250": true,
+        "kgv_angemessen": false,
+        "wachstum_2026_2028": false,
+        "keine_warnsignale": null
+      },
+      "name": "Valero Energy Corporation",
+      "sektor": "Energy",
+      "waehrung": "USD",
+      "marktkapitalisierung": 120704950272,
+      "mcap_ausreichend": true,
+      "kgv": 17.5,
+      "forward_kgv": 10.1,
+      "peg": 2.06,
+      "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
+      "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
+      "wachstum": {
+        "2026": {
+          "umsatz_pct": 24.9,
+          "eps_pct": 367.2,
+          "quelle": "yfinance-Konsens"
+        },
+        "2027": {
+          "umsatz_pct": -12.6,
+          "eps_pct": -16.4,
+          "quelle": "yfinance-Konsens"
+        },
+        "2028": {
+          "umsatz_pct": null,
+          "eps_pct": null,
+          "quelle": "nicht verifiziert"
+        }
+      },
+      "wachstum_kumuliert_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "wachstum_cagr_pct": {
+        "umsatz": null,
+        "eps": null
+      },
+      "fcf_wachstum": "nicht verifiziert",
+      "ebitda_wachstum": "nicht verifiziert",
+      "qualitaet": {
+        "operative_marge_pct": 12.3,
+        "nettomarge_pct": 5.4,
+        "roe_pct": 27.6,
+        "verschuldung_debt_to_equity": 40.1,
+        "cash": 7873999872,
+        "free_cashflow_ttm": 8416374784,
+        "organisch_vs_akquisition": "nicht verifiziert"
+      },
+      "naechste_quartalszahlen": "2026-10-22",
+      "wkn": "–",
+      "wachstum_2028_verifiziert": false,
+      "score": {
+        "gesamt": 48,
+        "max": 100,
+        "text": "48/100",
+        "einstufung": "schwaches Long-Setup",
+        "unverifizierte_punkte": 6,
+        "komponenten": {
+          "sma40": {
+            "name": "Trend SMA 40",
+            "max": 10,
+            "punkte": 10.0,
+            "unverifiziert": 0,
+            "hinweis": "Abstand 12.3 %"
+          },
+          "ichimoku": {
+            "name": "Ichimoku",
+            "max": 10,
+            "punkte": 10,
+            "unverifiziert": 0,
+            "hinweis": ""
+          },
+          "rsl30": {
+            "name": "RSL 30T",
+            "max": 8,
+            "punkte": 7.7,
+            "unverifiziert": 0,
+            "hinweis": "RSL 1.186"
+          },
+          "rsl250": {
+            "name": "RSL 250T",
+            "max": 8,
+            "punkte": 8.0,
+            "unverifiziert": 0,
+            "hinweis": "RSL 2.253"
+          },
+          "korrektur": {
+            "name": "Korrektur",
+            "max": 8,
+            "punkte": 0.0,
+            "unverifiziert": 0,
+            "hinweis": "-0.0 % vom 60T-Hoch"
+          },
+          "rsi": {
+            "name": "RSI(14)",
+            "max": 8,
+            "punkte": 0.0,
+            "unverifiziert": 0,
+            "hinweis": "RSI 70.1"
+          },
+          "stochastik": {
+            "name": "Slow Stochastic + Kreuz",
+            "max": 14,
+            "punkte": 0.0,
+            "unverifiziert": 0,
+            "hinweis": "Kreuz: kein"
+          },
+          "bewertung": {
+            "name": "Bewertung (PEG)",
+            "max": 8,
+            "punkte": 0.0,
+            "unverifiziert": 0,
+            "hinweis": "PEG 2.06"
+          },
+          "eps_wachstum": {
+            "name": "EPS-Wachstum 2027/2028",
+            "max": 14,
+            "punkte": 0.0,
+            "unverifiziert": 6,
+            "hinweis": "EPS 2027: -16.4 %, 2028: n. v."
+          },
+          "qualitaet": {
+            "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
+            "max": 12,
+            "punkte": 12.0,
+            "unverifiziert": 0,
+            "hinweis": ""
+          }
+        },
+        "pflicht_erfuellt": false,
+        "hinweis": "Achtung: Pflichtkriterien fehlen (Korrektur vorhanden, RSI nicht ueberkauft, Slow Stochastic < 50, Bullisches %K/%D-Kreuz, KGV/PEG angemessen, EPS-Wachstum 2027 > 25 % (2028 > 8 %, falls verfuegbar)). Der Score ersetzt die Pflichtbedingungen nicht."
+      },
+      "klasse": "C",
+      "kriterien_erfuellt": "5/12",
+      "kriterien_erfuellt_n": 5,
+      "fehlende_kriterien": [
+        "Korrektur vorhanden",
+        "RSI nicht ueberkauft",
+        "Slow Stochastic < 50",
+        "Bullisches %K/%D-Kreuz",
         "KGV/PEG angemessen",
         "EPS-Wachstum 2027 > 25 % (2028 > 8 %, falls verfuegbar)"
       ],
@@ -7455,11 +7455,11 @@
       "name": "Nordson Corporation",
       "sektor": "Industrials",
       "waehrung": "USD",
-      "marktkapitalisierung": 18622052352,
+      "marktkapitalisierung": 18615842816,
       "mcap_ausreichend": true,
-      "kgv": 33.9,
+      "kgv": 33.8,
       "forward_kgv": 25.7,
-      "peg": 1.91,
+      "peg": 1.9,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -7562,7 +7562,7 @@
             "max": 8,
             "punkte": 3.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.91"
+            "hinweis": "PEG 1.9"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
