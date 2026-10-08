@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-08T02:23:54.973103+00:00",
+  "generated_at_utc": "2026-10-08T08:41:57.409800+00:00",
   "letzter_handelstag": "2026-10-07",
   "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
-  "universe_size": 979,
+  "universe_size": 978,
   "universum_gruppen": {
     "S&P500": 503,
     "Nasdaq100": 0,
-    "S&P400": 400,
+    "S&P400": 399,
     "DAX40": 40,
     "EuroStoxx50": 36
   },
@@ -17,7 +17,7 @@
     },
     "S&P400": {
       "geladen": 400,
-      "davon_neu": 400
+      "davon_neu": 399
     }
   },
   "analysiert": 971,
@@ -539,7 +539,7 @@
     },
     {
       "ticker": "TWLO",
-      "index_group": "S&P400",
+      "index_group": "S&P500",
       "benchmark": "S&P 500",
       "datenstand": "2026-10-07",
       "liquide": true,
@@ -596,7 +596,7 @@
       "mcap_ausreichend": true,
       "kgv": 37.8,
       "forward_kgv": 40.2,
-      "peg": 0.47,
+      "peg": 0.43,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -699,7 +699,7 @@
             "max": 8,
             "punkte": 8.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 0.47"
+            "hinweis": "PEG 0.43"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -787,22 +787,22 @@
       "name": "ENI",
       "sektor": "Energy",
       "waehrung": "EUR",
-      "marktkapitalisierung": 69506326528,
+      "marktkapitalisierung": 70438428672,
       "mcap_ausreichend": true,
-      "kgv": 19.7,
+      "kgv": 20.0,
       "forward_kgv": 9.4,
       "peg": 0.44,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
         "2026": {
-          "umsatz_pct": 20.9,
-          "eps_pct": 78.6,
+          "umsatz_pct": 21.7,
+          "eps_pct": 79.7,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
-          "umsatz_pct": -8.6,
-          "eps_pct": -8.1,
+          "umsatz_pct": -9.0,
+          "eps_pct": -8.2,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -901,7 +901,7 @@
             "max": 14,
             "punkte": 0.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: -8.1 %, 2028: n. v."
+            "hinweis": "EPS 2027: -8.2 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -984,7 +984,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 20002050048,
       "mcap_ausreichend": true,
-      "kgv": 1187.8,
+      "kgv": 1279.2,
       "forward_kgv": 44.6,
       "peg": 3.82,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -1179,9 +1179,9 @@
       "waehrung": "USD",
       "marktkapitalisierung": 368110141440,
       "mcap_ausreichend": true,
-      "kgv": 33.7,
+      "kgv": 33.4,
       "forward_kgv": 19.9,
-      "peg": 0.56,
+      "peg": 0.58,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -1284,7 +1284,7 @@
             "max": 8,
             "punkte": 8.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 0.56"
+            "hinweis": "PEG 0.58"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -1962,20 +1962,20 @@
       "waehrung": "USD",
       "marktkapitalisierung": 20557146112,
       "mcap_ausreichend": true,
-      "kgv": 11.0,
+      "kgv": 10.9,
       "forward_kgv": 8.8,
-      "peg": 1.23,
+      "peg": 1.22,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
         "2026": {
           "umsatz_pct": 29.9,
-          "eps_pct": 236.0,
+          "eps_pct": 235.1,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
-          "umsatz_pct": -8.2,
-          "eps_pct": -22.2,
+          "umsatz_pct": -8.3,
+          "eps_pct": -22.3,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -2067,14 +2067,14 @@
             "max": 8,
             "punkte": 6.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.23"
+            "hinweis": "PEG 1.22"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
             "max": 14,
             "punkte": 0.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: -22.2 %, 2028: n. v."
+            "hinweis": "EPS 2027: -22.3 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -2160,7 +2160,7 @@
       "mcap_ausreichend": true,
       "kgv": 50.0,
       "forward_kgv": 43.9,
-      "peg": 3.62,
+      "peg": 3.38,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -2263,7 +2263,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 3.62"
+            "hinweis": "PEG 3.38"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -2356,7 +2356,7 @@
       "mcap_ausreichend": true,
       "kgv": 5308.8,
       "forward_kgv": 165.3,
-      "peg": 7.04,
+      "peg": 7.2,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -2459,7 +2459,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 7.04"
+            "hinweis": "PEG 7.2"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -2549,7 +2549,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 108382060544,
       "mcap_ausreichend": true,
-      "kgv": 15.5,
+      "kgv": 15.4,
       "forward_kgv": 10.2,
       "peg": 0.86,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -2944,7 +2944,7 @@
       "mcap_ausreichend": true,
       "kgv": 33.3,
       "forward_kgv": 21.1,
-      "peg": 2.48,
+      "peg": 2.53,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -3047,7 +3047,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 2.48"
+            "hinweis": "PEG 2.53"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -3336,7 +3336,7 @@
       "mcap_ausreichend": true,
       "kgv": 37.2,
       "forward_kgv": 15.3,
-      "peg": 0.55,
+      "peg": 0.56,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -3439,7 +3439,7 @@
             "max": 8,
             "punkte": 8.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 0.55"
+            "hinweis": "PEG 0.56"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -3538,13 +3538,13 @@
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
         "2026": {
-          "umsatz_pct": 19.6,
-          "eps_pct": 42.2,
+          "umsatz_pct": 19.8,
+          "eps_pct": 42.3,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
           "umsatz_pct": 8.1,
-          "eps_pct": 14.3,
+          "eps_pct": 16.7,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -3641,9 +3641,9 @@
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
             "max": 14,
-            "punkte": 2.7,
+            "punkte": 3.2,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: 14.3 %, 2028: n. v."
+            "hinweis": "EPS 2027: 16.7 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -3730,7 +3730,7 @@
       "mcap_ausreichend": true,
       "kgv": 1013.9,
       "forward_kgv": 83.1,
-      "peg": 2.08,
+      "peg": 2.14,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -3833,7 +3833,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 2.08"
+            "hinweis": "PEG 2.14"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -4123,7 +4123,7 @@
       "mcap_ausreichend": true,
       "kgv": 25.3,
       "forward_kgv": 18.3,
-      "peg": 1.61,
+      "peg": 1.64,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -4226,7 +4226,7 @@
             "max": 8,
             "punkte": 3.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.61"
+            "hinweis": "PEG 1.64"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -4523,7 +4523,7 @@
       "wachstum": {
         "2026": {
           "umsatz_pct": 10.1,
-          "eps_pct": 16.2,
+          "eps_pct": 16.5,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
@@ -4712,7 +4712,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 129111900160,
       "mcap_ausreichend": true,
-      "kgv": 15.3,
+      "kgv": 15.0,
       "forward_kgv": 8.7,
       "peg": 1.0,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -4911,7 +4911,7 @@
       "mcap_ausreichend": true,
       "kgv": 209.1,
       "forward_kgv": 36.2,
-      "peg": 1.66,
+      "peg": 1.7,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -5014,7 +5014,7 @@
             "max": 8,
             "punkte": 3.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.66"
+            "hinweis": "PEG 1.7"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -5303,7 +5303,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 674559164416,
       "mcap_ausreichend": true,
-      "kgv": 21.1,
+      "kgv": 21.2,
       "forward_kgv": 14.4,
       "peg": 1.45,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -5311,12 +5311,12 @@
       "wachstum": {
         "2026": {
           "umsatz_pct": 25.1,
-          "eps_pct": 76.8,
+          "eps_pct": 78.2,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
           "umsatz_pct": -0.9,
-          "eps_pct": -8.2,
+          "eps_pct": -8.1,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -5415,7 +5415,7 @@
             "max": 14,
             "punkte": 0.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: -8.2 %, 2028: n. v."
+            "hinweis": "EPS 2027: -8.1 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -5502,7 +5502,7 @@
       "mcap_ausreichend": true,
       "kgv": null,
       "forward_kgv": 6.5,
-      "peg": 3.2,
+      "peg": 3.19,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -5605,7 +5605,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 3.2"
+            "hinweis": "PEG 3.19"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -5699,7 +5699,7 @@
       "mcap_ausreichend": true,
       "kgv": 66.9,
       "forward_kgv": 50.1,
-      "peg": 2.03,
+      "peg": 2.11,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -5802,7 +5802,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 2.03"
+            "hinweis": "PEG 2.11"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -5896,7 +5896,7 @@
       "mcap_ausreichend": true,
       "kgv": 33.8,
       "forward_kgv": 23.0,
-      "peg": 3.41,
+      "peg": 3.43,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -5999,7 +5999,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 3.41"
+            "hinweis": "PEG 3.43"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -6486,7 +6486,7 @@
       "mcap_ausreichend": true,
       "kgv": 33.2,
       "forward_kgv": 25.2,
-      "peg": 1.91,
+      "peg": 1.9,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -6589,7 +6589,7 @@
             "max": 8,
             "punkte": 3.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 1.91"
+            "hinweis": "PEG 1.9"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
@@ -6690,12 +6690,12 @@
       "wachstum": {
         "2026": {
           "umsatz_pct": 24.9,
-          "eps_pct": 367.2,
+          "eps_pct": 368.1,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
-          "umsatz_pct": -12.6,
-          "eps_pct": -16.4,
+          "umsatz_pct": -12.7,
+          "eps_pct": -16.6,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -6794,7 +6794,7 @@
             "max": 14,
             "punkte": 0.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: -16.4 %, 2028: n. v."
+            "hinweis": "EPS 2027: -16.6 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -6882,7 +6882,7 @@
       "mcap_ausreichend": true,
       "kgv": 27.8,
       "forward_kgv": 23.7,
-      "peg": 3.07,
+      "peg": 3.04,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
@@ -6985,7 +6985,7 @@
             "max": 8,
             "punkte": 0.0,
             "unverifiziert": 0,
-            "hinweis": "PEG 3.07"
+            "hinweis": "PEG 3.04"
           },
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
