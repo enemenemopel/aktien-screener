@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-13T03:22:44.555709+00:00",
+  "generated_at_utc": "2026-10-13T13:20:02.490900+00:00",
   "letzter_handelstag": "2026-10-12",
   "data_note": "Kurse ueber Yahoo-Finance-Gratis-API, ca. 15 Min. verzoegert. Keine Anlageberatung.",
   "universe_size": 979,
@@ -612,7 +612,7 @@
       "marktkapitalisierung": 90167074816,
       "mcap_ausreichend": true,
       "kgv": null,
-      "forward_kgv": 28.0,
+      "forward_kgv": 27.7,
       "peg": 0.63,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -824,7 +824,7 @@
       "marktkapitalisierung": 77248634880,
       "mcap_ausreichend": true,
       "kgv": 345.1,
-      "forward_kgv": 53.1,
+      "forward_kgv": 53.2,
       "peg": 0.63,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -1460,7 +1460,7 @@
       "name": "DigitalOcean Holdings, Inc.",
       "sektor": "Technology",
       "waehrung": "USD",
-      "marktkapitalisierung": 15362893824,
+      "marktkapitalisierung": 15451129856,
       "mcap_ausreichend": true,
       "kgv": 60.6,
       "forward_kgv": 71.4,
@@ -2321,13 +2321,13 @@
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
       "wachstum": {
         "2026": {
-          "umsatz_pct": 40.9,
+          "umsatz_pct": 41.1,
           "eps_pct": 53.8,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
-          "umsatz_pct": 19.6,
-          "eps_pct": 26.7,
+          "umsatz_pct": 32.4,
+          "eps_pct": 31.6,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -2359,9 +2359,9 @@
       "wkn": "–",
       "wachstum_2028_verifiziert": false,
       "score": {
-        "gesamt": 67,
+        "gesamt": 68,
         "max": 100,
-        "text": "67/100",
+        "text": "68/100",
         "einstufung": "interessantes Long-Setup",
         "unverifizierte_punkte": 6,
         "komponenten": {
@@ -2424,9 +2424,9 @@
           "eps_wachstum": {
             "name": "EPS-Wachstum 2027/2028",
             "max": 14,
-            "punkte": 5.0,
+            "punkte": 5.6,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: 26.7 %, 2028: n. v."
+            "hinweis": "EPS 2027: 31.6 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -2568,7 +2568,7 @@
         "free_cashflow_ttm": 299249984,
         "organisch_vs_akquisition": "nicht verifiziert"
       },
-      "naechste_quartalszahlen": "2026-11-05",
+      "naechste_quartalszahlen": "2026-11-06",
       "wkn": "–",
       "wachstum_2028_verifiziert": false,
       "score": {
@@ -3130,7 +3130,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 269305118720,
       "mcap_ausreichend": true,
-      "kgv": 4383.5,
+      "kgv": 5260.2,
       "forward_kgv": 163.8,
       "peg": 7.1,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -3712,7 +3712,7 @@
       "name": "Charles River Laboratories Inte",
       "sektor": "Healthcare",
       "waehrung": "USD",
-      "marktkapitalisierung": 14410455040,
+      "marktkapitalisierung": 14539910144,
       "mcap_ausreichend": true,
       "kgv": null,
       "forward_kgv": 23.6,
@@ -4302,7 +4302,7 @@
       "marktkapitalisierung": 4313742835712,
       "mcap_ausreichend": true,
       "kgv": 17.7,
-      "forward_kgv": 23.2,
+      "forward_kgv": 23.1,
       "peg": 1.23,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -4890,7 +4890,7 @@
       "marktkapitalisierung": 8873707520,
       "mcap_ausreichend": true,
       "kgv": 8.2,
-      "forward_kgv": 11.7,
+      "forward_kgv": 11.8,
       "peg": 0.62,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -5083,10 +5083,10 @@
       "name": "ENI",
       "sektor": "Energy",
       "waehrung": "EUR",
-      "marktkapitalisierung": 72756797440,
+      "marktkapitalisierung": 73229328384,
       "mcap_ausreichend": true,
-      "kgv": 20.7,
-      "forward_kgv": 9.6,
+      "kgv": 21.0,
+      "forward_kgv": 9.7,
       "peg": 0.46,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -5475,10 +5475,10 @@
       "name": "Symrise AG",
       "sektor": "Basic Materials",
       "waehrung": "EUR",
-      "marktkapitalisierung": 12793423872,
+      "marktkapitalisierung": 13224169472,
       "mcap_ausreichend": true,
-      "kgv": 52.7,
-      "forward_kgv": 21.3,
+      "kgv": 53.9,
+      "forward_kgv": 22.0,
       "peg": 2.93,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -5674,7 +5674,7 @@
       "marktkapitalisierung": 421744705536,
       "mcap_ausreichend": true,
       "kgv": 20.7,
-      "forward_kgv": 14.6,
+      "forward_kgv": 14.4,
       "peg": 0.93,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -6260,7 +6260,7 @@
       "waehrung": "USD",
       "marktkapitalisierung": 39698337792,
       "mcap_ausreichend": true,
-      "kgv": 136.8,
+      "kgv": 133.6,
       "forward_kgv": 51.9,
       "peg": 1.66,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
@@ -6454,7 +6454,7 @@
       "name": "Qualys, Inc.",
       "sektor": "Technology",
       "waehrung": "USD",
-      "marktkapitalisierung": 6929650688,
+      "marktkapitalisierung": 6807258112,
       "mcap_ausreichend": true,
       "kgv": 34.1,
       "forward_kgv": 23.3,
@@ -7635,10 +7635,10 @@
       "name": "Phillips 66",
       "sektor": "Energy",
       "waehrung": "USD",
-      "marktkapitalisierung": 112312418304,
+      "marktkapitalisierung": 112851173376,
       "mcap_ausreichend": true,
       "kgv": 16.1,
-      "forward_kgv": 10.0,
+      "forward_kgv": 9.8,
       "peg": 0.89,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
@@ -7842,12 +7842,12 @@
       "wachstum": {
         "2026": {
           "umsatz_pct": 31.2,
-          "eps_pct": 254.7,
+          "eps_pct": 260.2,
           "quelle": "yfinance-Konsens"
         },
         "2027": {
           "umsatz_pct": -8.1,
-          "eps_pct": -22.0,
+          "eps_pct": -21.0,
           "quelle": "yfinance-Konsens"
         },
         "2028": {
@@ -7946,7 +7946,7 @@
             "max": 14,
             "punkte": 0.0,
             "unverifiziert": 6,
-            "hinweis": "EPS 2027: -22.0 %, 2028: n. v."
+            "hinweis": "EPS 2027: -21.0 %, 2028: n. v."
           },
           "qualitaet": {
             "name": "Qualitaet (Marge, ROE, Schulden, FCF)",
@@ -8226,7 +8226,7 @@
       "name": "Marathon Petroleum Corporation",
       "sektor": "Energy",
       "waehrung": "USD",
-      "marktkapitalisierung": 133943451648,
+      "marktkapitalisierung": 128845209600,
       "mcap_ausreichend": true,
       "kgv": 15.9,
       "forward_kgv": 8.8,
@@ -8620,7 +8620,7 @@
       "name": "Nordson Corporation",
       "sektor": "Industrials",
       "waehrung": "USD",
-      "marktkapitalisierung": 18411438080,
+      "marktkapitalisierung": 18405300224,
       "mcap_ausreichend": true,
       "kgv": 33.4,
       "forward_kgv": 25.5,
@@ -9018,7 +9018,7 @@
       "marktkapitalisierung": 125536370688,
       "mcap_ausreichend": true,
       "kgv": 18.2,
-      "forward_kgv": 9.7,
+      "forward_kgv": 9.3,
       "peg": 2.14,
       "kgv_2026_2027_2028": "nicht verifiziert (yfinance liefert keine jahresgenauen KGV-Schaetzungen)",
       "kgv_hinweis": "Ursache eines niedrigen KGV (Zyklik, Einmaleffekte, Margen) manuell pruefen",
